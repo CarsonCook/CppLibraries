@@ -1,18 +1,17 @@
 # depslib dependency file v1.0
-1492758419 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\date.cc
+1492758707 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\date.cc
 	"Date.hh"
 	<string>
 	<sstream>
-	<iostream>
 
-1492758517 c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\date.hh
+1492759154 c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\date.hh
 	<string>
 
 1492755001 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\main.cpp
 	<iostream>
 	"Date.hh"
 
-1492758442 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\testdate.cpp
+1492758548 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\testdate.cpp
 	<iostream>
 	"Date.hh"
 

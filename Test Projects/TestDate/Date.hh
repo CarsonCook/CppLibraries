@@ -3,7 +3,7 @@
 
 #include <string>
 
-#define FLAG_BAD_DAY_TYPE -1
+#define FLAG_NO_DAY_TYPE -1
 
 class Date{
 public:
@@ -17,6 +17,8 @@ public:
     bool isBefore(Date d); //true if caller Date before parameter date
     bool isBefore(int day, int month, int year);
     bool isLeapYear();
+    int daysBetween(Date d); //number of days between caller and parameter date. Negative if param is after caller.
+    int daysBetween(int day, int month, int year);
 
     //getters and setters
     void setYear(int year);
@@ -29,10 +31,13 @@ public:
     int getDayType();
 
 private:
+    //class attributes
     int mYear;
     int mMonth;
     int mDay;
     int mDayType; //monday=1, tuesday=2...
+
+    //methods used internally for other calculations
     int getDaysInCurrentMonth();
     std::string numToString(int num);
     std::string dayTypeToString();

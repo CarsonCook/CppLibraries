@@ -8,7 +8,7 @@ Date::Date(int day, int month, int year)
     setDay(day);
     setMonth(month);
     setYear(year);
-    setDayType(FLAG_BAD_DAY_TYPE);
+    setDayType(FLAG_NO_DAY_TYPE);
 }
 
 Date::Date(int day, int month, int year, int dayType)
@@ -39,6 +39,21 @@ bool Date::isBefore(int testDay,int testMonth,int testYear)
     return this->isBefore(d);
 }
 
+int Date::daysBetween(Date d)
+{
+    int days=0;
+    if (isBefore(d))
+    {
+
+    }
+}
+
+int Date::daysBetween(int day,int month,int year)
+{
+    Date d(day,month,year);
+    return daysBetween(d);
+}
+
 std::string Date::dayTypeToString()
 {
     switch(mDayType)
@@ -63,7 +78,7 @@ std::string Date::dayTypeToString()
 std::string Date::toString()
 {
     std::string sDate="";
-    if (mDayType!=FLAG_BAD_DAY_TYPE) //day type was specified, include in string
+    if (mDayType!=FLAG_NO_DAY_TYPE) //day type was specified, include in string
     {
         sDate+=(dayTypeToString()+" ");
     }
