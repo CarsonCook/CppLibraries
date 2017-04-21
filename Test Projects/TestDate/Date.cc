@@ -5,7 +5,10 @@
 
 Date::Date(int day, int month, int year)
 {
-    Date(day,month,year,FLAG_BAD_DAY_TYPE);
+    setDay(day);
+    setMonth(month);
+    setYear(year);
+    setDayType(FLAG_BAD_DAY_TYPE);
 }
 
 Date::Date(int day, int month, int year, int dayType)
@@ -30,9 +33,15 @@ bool Date::isBefore(Date d)
     return this->getYear()<d.getYear(); //if years not equal result is which year came first
 }
 
+bool Date::isBefore(int testDay,int testMonth,int testYear)
+{
+    Date d(testDay,testMonth,testYear);
+    return this->isBefore(d);
+}
+
 std::string Date::dayTypeToString()
 {
-    switch(dayType)
+    switch(mDayType)
     {
     case 1:
         return "Monday";
@@ -54,48 +63,48 @@ std::string Date::dayTypeToString()
 std::string Date::toString()
 {
     std::string sDate="";
-    if (dayType!=FLAG_BAD_DAY_TYPE) //day type was specified, include in string
+    if (mDayType!=FLAG_BAD_DAY_TYPE) //day type was specified, include in string
     {
         sDate+=(dayTypeToString()+" ");
     }
-    sDate+=(numToString(day)+"/"+numToString(month)+"/"+numToString(year));
+    sDate+=(numToString(mDay)+"/"+numToString(mMonth)+"/"+numToString(mYear));
     return sDate;
 }
 
 void Date::incrementDate()
 {
-    if (day==getDaysInCurrentMonth()) //new month
+    if (mDay==getDaysInCurrentMonth()) //new month
     {
         setDay(1);
-        if (month==12) //new year
+        if (mMonth==12) //new year
         {
             setMonth(1);
-            setYear(year+1);
+            setYear(mYear+1);
         }
         else
         {
-            setMonth(month+1);
+            setMonth(mMonth+1);
         }
     }
     else
     {
-        setDay(day+1);
+        setDay(mDay+1);
     }
-    if (dayType==7) //end of week is sunday
+    if (mDayType==7) //end of week is sunday
     {
         setDayType(1);
     }
     else
     {
-        setDayType(dayType+1);
+        setDayType(mDayType+1);
     }
 }
 
 bool Date::isLeapYear()
 {
-    if (year%4==0)
+    if (mYear%4==0)
     {
-        if (year%100==0 and year%400!=0)
+        if (mYear%100==0 and mYear%400!=0)
         {
             return false;
         }
@@ -106,7 +115,7 @@ bool Date::isLeapYear()
 
 int Date::getDaysInCurrentMonth()
 {
-    switch(month)
+    switch(mMonth)
     {
     case 2:
         return (isLeapYear()?29:28);
@@ -142,40 +151,40 @@ Setters and getters for class variables
 
 void Date::setDayType(int dayType)
 {
-    this->dayType=dayType;
+    mDayType=dayType;
 }
 
 int Date::getDayType()
 {
-    return this->dayType;
+    return mDayType;
 }
 
 void Date::setDay(int day)
 {
-    this->day=day;
+    mDay=day;
 }
 
 int Date::getDay()
 {
-    return this->day;
+    return mDay;
 }
 
 void Date::setMonth(int month)
 {
-    this->month=month;
+    mMonth=month;
 }
 
 int Date::getMonth()
 {
-    return this->month;
+    return mMonth;
 }
 
 void Date::setYear(int year)
 {
-    this->year=year;
+    mYear=year;
 }
 
 int Date::getYear()
 {
-    return this->year;
+    return mYear;
 }

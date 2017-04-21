@@ -16,6 +16,7 @@ public:
     void incrementDate(); //increase day by one, nad handle any chnage in month/year
     bool isBefore(Date d); //true if caller Date before parameter date
     bool isBefore(int day, int month, int year);
+    bool isLeapYear();
 
     //getters and setters
     void setYear(int year);
@@ -28,12 +29,11 @@ public:
     int getDayType();
 
 private:
-    int year;
-    int month;
-    int day;
-    int dayType=FLAG_BAD_DAY_TYPE; //monday=1, tuesday=2...-1 is flag for not set
+    int mYear;
+    int mMonth;
+    int mDay;
+    int mDayType; //monday=1, tuesday=2...
     int getDaysInCurrentMonth();
-    bool isLeapYear();
     std::string numToString(int num);
     std::string dayTypeToString();
 };
