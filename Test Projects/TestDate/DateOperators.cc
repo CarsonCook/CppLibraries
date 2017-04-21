@@ -138,6 +138,26 @@ Date Date::operator -= (int n)
     return *this;
 }
 
+/**
+Stream operators
+*/
+
+std::ostream &operator<<(std::ostream &output,Date &Ref)
+{
+    output << Ref.toString();
+    return output;
+}
+
+std::istream &operator>>(std::istream &input,Date &Ref)
+{
+    int day, month, year, type;
+    input >> day >> month >> year >> type;
+    Ref.setDay(day);
+    Ref.setMonth(month);
+    Ref.setYear(year);
+    Ref.setDayType(type);
+    return input;
+}
 
 
 

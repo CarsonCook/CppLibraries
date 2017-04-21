@@ -4,6 +4,18 @@
 #include <sstream>
 #include <iostream>
 
+/**
+Constructors
+*/
+
+Date::Date()
+{
+    setDay(0);
+    setMonth(0);
+    setYear(0);
+    setDayType(FLAG_NO_DAY_TYPE);
+}
+
 Date::Date(int day, int month, int year)
 {
     setDay(day);
@@ -19,6 +31,10 @@ Date::Date(int day, int month, int year, int dayType)
     setYear(year);
     setDayType(dayType);
 }
+
+/**
+functions for specific use
+*/
 
 int Date::daysBetween(Date d)
 {

@@ -17,7 +17,7 @@ int main()
 {
     //testIsBefore();
     //estOperators();
-    testChangeOperators();
+    //testChangeOperators();
     //testDaysBetween();
     return 0;
 }
@@ -39,7 +39,7 @@ void testDaysBetween()
 
 void testChangeOperators()
 {
-    cout << one.toString() << endl;
+    cout << one << endl;
     one-=2;
-    cout << one.toString() << endl;
+    cout << one << endl;
 }

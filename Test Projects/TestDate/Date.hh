@@ -7,7 +7,8 @@
 
 class Date{
 public:
-    ///constructors and dectructors
+    ///constructors
+    Date();
     Date(int day, int month, int year);
     Date(int day, int month, int year, int dayType); //given a day type
 
@@ -32,6 +33,9 @@ public:
     Date operator -- (); //pre-decrement
     Date operator += (int n);
     Date operator -= (int n);
+    //stream operators
+    friend std::ostream &operator<<(std::ostream &output,Date &Ref); //essentially uses toString() to output, it just can't call it, so code copied
+    friend std::istream &operator>>(std::istream &input,Date &Ref);
 
 
     ///getters and setters
