@@ -9,7 +9,7 @@ void testOperators();
 int main()
 {
     //testIsBefore();
-    //testOperators();
+    testOperators();
     return 0;
 }
 
@@ -26,5 +26,5 @@ void testOperators()
     Date two(1,2,1997);
     Date three(1,2,1998);
     Date four(1,2,1997,1);
-    cout << (one==two) << " " << (one==three) << " " << (one==four) << endl;
+    cout << (one!=two) << " " << (one!=three) << " " << (one!=four) << endl;
 }

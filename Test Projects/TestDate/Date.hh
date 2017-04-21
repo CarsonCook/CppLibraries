@@ -22,6 +22,7 @@ public:
 
     //operators
     bool operator == (const Date &Ref) const;
+    bool operator != (const Date &Ref) const;
 
     //getters and setters
     void setYear(int year);
