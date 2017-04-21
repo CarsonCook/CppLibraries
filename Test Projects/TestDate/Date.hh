@@ -21,8 +21,8 @@ public:
     int daysBetween(int day, int month, int year);
 
     //operators
-    bool operator == (const Date &Ref) const;
-    bool operator != (const Date &Ref) const;
+    bool operator == (const Date &Ref);
+    bool operator != (const Date &Ref);
 
     //getters and setters
     void setYear(int year);

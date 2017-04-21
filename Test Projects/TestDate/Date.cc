@@ -2,6 +2,7 @@
 
 #include <string>
 #include <sstream>
+#include <iostream>
 
 Date::Date(int day, int month, int year)
 {
@@ -42,10 +43,42 @@ bool Date::isBefore(int testDay,int testMonth,int testYear)
 int Date::daysBetween(Date d)
 {
     int days=0;
+
+    //save the days, as they will be manipulated to do the days between calculation
+    Date saveThis=*this;
+    Date saveD=d;
+
+    //set day types to be the same
+    setDayType(1);
+    d.setDayType(1);
+
     if (isBefore(d))
     {
-
+        while (*this!=d)
+        {
+            incrementDate();
+            days++;
+            //set day types to be the same so != operator can be used
+            setDayType(1);
+            d.setDayType(1);
+        }
     }
+    else
+    {
+        while (d!=*this)
+        {
+            d.incrementDate();
+            days--;
+            //set day types to be the same so != operator can be used
+            setDayType(1);
+            d.setDayType(1);
+        }
+    }
+
+    //restore day types
+    *this=saveThis;
+    d=saveD;
+    return days;
 }
 
 int Date::daysBetween(int day,int month,int year)
