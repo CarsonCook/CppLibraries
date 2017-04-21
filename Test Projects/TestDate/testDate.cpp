@@ -40,5 +40,6 @@ void testDaysBetween()
 void testChangeOperators()
 {
     cout << one.toString() << endl;
-    cout << (one--).toString() << endl;
+    one-=2;
+    cout << one.toString() << endl;
 }

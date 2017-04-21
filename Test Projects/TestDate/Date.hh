@@ -30,6 +30,8 @@ public:
     Date operator ++ (); //pre-increment
     Date operator -- (int); //post-decrement, incrementDate() but in opposite direciton
     Date operator -- (); //pre-decrement
+    Date operator += (int n);
+    Date operator -= (int n);
 
 
     ///getters and setters

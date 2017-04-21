@@ -81,32 +81,7 @@ Date Date::operator ++ (int)
 
 Date Date::operator ++ ()
 {
-    if (mDay==getDaysInCurrentMonth()) //new month
-    {
-        setDay(1);
-        if (mMonth==12) //new year
-        {
-            setMonth(1);
-            setYear(mYear+1);
-        }
-        else
-        {
-            setMonth(mMonth+1);
-        }
-    }
-    else
-    {
-        setDay(mDay+1);
-    }
-    if (mDayType==7) //end of week is sunday
-    {
-        setDayType(1);
-    }
-    else if (mDayType!=FLAG_NO_DAY_TYPE) //don't increment for a day type that was never set
-    {
-        setDayType(mDayType+1);
-    }
-    return *this;
+    return (*this)++; //pre and post are the same
 }
 
 Date Date::operator -- (int)
@@ -142,38 +117,26 @@ Date Date::operator -- (int)
 
 Date Date::operator -- ()
 {
-    if (mDay==1 and mMonth==1) //go to Dec 31 of previous year
+    return (*this)--; //pre and post are the same
+}
+
+Date Date::operator += (int n)
+{
+    for (int i=0; i<n; i++)
     {
-        setYear(mYear-1);
-        setMonth(12);
-        setDay(31);
-    }
-    else //don't need to change year
-    {
-        if (mDay==1) //go to last day of previous month
-        {
-            setMonth(mMonth-1);
-            setDay(getDaysInCurrentMonth()); //day is last of the new month
-        }
-        else //don't need to change month
-        {
-            setDay(mDay-1);
-        }
-    }
-    if (mDayType==1) //monday, go to sunday
-    {
-        setDayType(7);
-    }
-    else if (mDayType!=FLAG_NO_DAY_TYPE) //don't decrement day type when there is no type
-    {
-        setDayType(mDayType-1);
+        (*this)++;
     }
     return *this;
 }
 
-
-
-
+Date Date::operator -= (int n)
+{
+    for (int i=0; i<n; i++)
+    {
+        (*this)--;
+    }
+    return *this;
+}
 
 
 
