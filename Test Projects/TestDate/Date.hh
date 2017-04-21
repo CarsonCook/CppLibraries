@@ -20,6 +20,9 @@ public:
     int daysBetween(Date d); //number of days between caller and parameter date. Negative if param is after caller.
     int daysBetween(int day, int month, int year);
 
+    //operators
+    bool operator == (const Date &Ref) const;
+
     //getters and setters
     void setYear(int year);
     void setMonth(int month);
