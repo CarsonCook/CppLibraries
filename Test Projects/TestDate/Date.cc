@@ -20,26 +20,6 @@ Date::Date(int day, int month, int year, int dayType)
     setDayType(dayType);
 }
 
-///True if caller date is before parameter date, else returns false. If equal, still return false.
-bool Date::isBefore(Date d)
-{
-    if (getYear()==d.getYear())
-    {
-        if (getMonth()==d.getMonth())
-        {
-            return getDay()<d.getDay(); //year, month the same, see which day came first
-        }
-        return getMonth()<d.getMonth(); //year same, months not, so result is first month
-    }
-    return getYear()<d.getYear(); //if years not equal result is which year came first
-}
-
-bool Date::isBefore(int testDay,int testMonth,int testYear)
-{
-    Date d(testDay,testMonth,testYear);
-    return this->isBefore(d);
-}
-
 int Date::daysBetween(Date d)
 {
     int days=0;
@@ -117,35 +97,6 @@ std::string Date::toString()
     }
     sDate+=(numToString(mDay)+"/"+numToString(mMonth)+"/"+numToString(mYear));
     return sDate;
-}
-
-void Date::incrementDate()
-{
-    if (mDay==getDaysInCurrentMonth()) //new month
-    {
-        setDay(1);
-        if (mMonth==12) //new year
-        {
-            setMonth(1);
-            setYear(mYear+1);
-        }
-        else
-        {
-            setMonth(mMonth+1);
-        }
-    }
-    else
-    {
-        setDay(mDay+1);
-    }
-    if (mDayType==7) //end of week is sunday
-    {
-        setDayType(1);
-    }
-    else
-    {
-        setDayType(mDayType+1);
-    }
 }
 
 bool Date::isLeapYear()
@@ -235,4 +186,57 @@ void Date::setYear(int year)
 int Date::getYear()
 {
     return mYear;
+}
+
+/**
+The following are functional, but have been replaced by operators
+*/
+
+///True if caller date is before parameter date, else returns false. If equal, still return false.
+bool Date::isBefore(Date d)
+{
+    if (getYear()==d.getYear())
+    {
+        if (getMonth()==d.getMonth())
+        {
+            return getDay()<d.getDay(); //year, month the same, see which day came first
+        }
+        return getMonth()<d.getMonth(); //year same, months not, so result is first month
+    }
+    return getYear()<d.getYear(); //if years not equal result is which year came first
+}
+
+bool Date::isBefore(int testDay,int testMonth,int testYear)
+{
+    Date d(testDay,testMonth,testYear);
+    return this->isBefore(d);
+}
+
+void Date::incrementDate()
+{
+    if (mDay==getDaysInCurrentMonth()) //new month
+    {
+        setDay(1);
+        if (mMonth==12) //new year
+        {
+            setMonth(1);
+            setYear(mYear+1);
+        }
+        else
+        {
+            setMonth(mMonth+1);
+        }
+    }
+    else
+    {
+        setDay(mDay+1);
+    }
+    if (mDayType==7) //end of week is sunday
+    {
+        setDayType(1);
+    }
+    else if (mDayType!=FLAG_NO_DAY_TYPE) //don't increment for a day type that was never set
+    {
+        setDayType(mDayType+1);
+    }
 }
