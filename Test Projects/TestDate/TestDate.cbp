@@ -32,7 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="Date.cc" />
+		<Unit filename="Date.hh" />
+		<Unit filename="DateOperators.cc" />
+		<Unit filename="testDate.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

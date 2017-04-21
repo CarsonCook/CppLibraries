@@ -23,15 +23,15 @@ Date::Date(int day, int month, int year, int dayType)
 ///True if caller date is before parameter date, else returns false. If equal, still return false.
 bool Date::isBefore(Date d)
 {
-    if (this->getYear()==d.getYear())
+    if (getYear()==d.getYear())
     {
-        if (this->getMonth()==d.getMonth())
+        if (getMonth()==d.getMonth())
         {
-            return this->getDay()<d.getDay(); //year, month the same, see which day came first
+            return getDay()<d.getDay(); //year, month the same, see which day came first
         }
-        return this->getMonth()<d.getMonth(); //year same, months not, so result is first month
+        return getMonth()<d.getMonth(); //year same, months not, so result is first month
     }
-    return this->getYear()<d.getYear(); //if years not equal result is which year came first
+    return getYear()<d.getYear(); //if years not equal result is which year came first
 }
 
 bool Date::isBefore(int testDay,int testMonth,int testYear)

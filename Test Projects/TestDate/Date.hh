@@ -23,6 +23,10 @@ public:
     //operators
     bool operator == (const Date &Ref);
     bool operator != (const Date &Ref);
+    bool operator < (const Date &Ref); //the same as isBefore - true if left is before right
+    bool operator <= (const Date &Ref);
+    bool operator > (const Date &Ref); //opposite of isBefore
+    bool operator >= (const Date &Ref);
 
     //getters and setters
     void setYear(int year);

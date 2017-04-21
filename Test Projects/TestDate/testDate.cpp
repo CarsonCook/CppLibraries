@@ -15,8 +15,8 @@ Date four(1,2,1997,1);
 int main()
 {
     //testIsBefore();
-    //testOperators();
-    testDaysBetween();
+    testOperators();
+    //testDaysBetween();
     return 0;
 }
 
@@ -27,7 +27,7 @@ void testIsBefore()
 
 void testOperators()
 {
-    cout << (one!=two) << " " << (one!=three) << " " << (one!=four) << endl;
+    cout << (one>two) << " " << (one>=two) << " " << (one>=three) << " " << (one!=four) << endl;
 }
 
 void testDaysBetween()
