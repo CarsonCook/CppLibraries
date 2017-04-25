@@ -1,22 +1,35 @@
 # depslib dependency file v1.0
-1492796897 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\date.cc
+1493138619 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\date.cc
 	"Date.hh"
+	"DateExceptions.hh"
 	<string>
 	<sstream>
 	<iostream>
 
-1492797006 c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\date.hh
+1493138420 c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\date.hh
 	<string>
 
 1492755001 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\main.cpp
 	<iostream>
 	"Date.hh"
 
-1492797347 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\testdate.cpp
+1493136940 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\testdate.cpp
 	<iostream>
 	"Date.hh"
 
-1492797328 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\dateoperators.cc
+1493138793 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\dateoperators.cc
+	"Date.hh"
+	"DateExceptions.hh"
+	<iostream>
+
+1493133947 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\dateexceptions.cc
 	"Date.hh"
 	<iostream>
+	<string>
+	<exception>
+
+1493136107 c:\users\owner\desktop\github-code\cpplibraries\test projects\testdate\dateexceptions.hh
+	<iostream>
+	<string>
+	<exception>
 

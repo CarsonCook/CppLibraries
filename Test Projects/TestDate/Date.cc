@@ -1,4 +1,5 @@
 #include "Date.hh"
+#include "DateExceptions.hh"
 
 #include <string>
 #include <sstream>
@@ -10,26 +11,98 @@ Constructors
 
 Date::Date()
 {
-    setDay(0);
-    setMonth(0);
-    setYear(0);
-    setDayType(FLAG_NO_DAY_TYPE);
+    try
+    {
+        setDay(1);
+        setMonth(1);
+        setYear(0);
+        setDayType(FLAG_NO_DAY_TYPE);
+    }
+    catch (BadDateInputException e)
+    {
+        //current implementation has hardcoded values for the setters, so this will never be thrown. However catch and print message in case there are future changes
+        std::cout << e.what() << std::endl;
+    }
 }
 
 Date::Date(int day, int month, int year)
 {
-    setDay(day);
-    setMonth(month);
-    setYear(year);
-    setDayType(FLAG_NO_DAY_TYPE);
+    try
+    {
+        setYear(year);
+    }
+    catch (BadYearException y)
+    {
+        std::cout << y.what() << " default year of " << DEFAULT_YEAR << " was used" << std::endl;
+        setYear(DEFAULT_YEAR);
+    }
+    try
+    {
+        setMonth(month);
+    }
+    catch (BadMonthException m)
+    {
+        std::cout << m.what() << " default month of " << DEFAULT_MONTH << " was used" << std::endl;
+        setMonth(DEFAULT_MONTH);
+    }
+    try
+    {
+        setDay(day);
+    }
+    catch (BadDayException d)
+    {
+        std::cout << d.what() << " defualt day of " << DEFAULT_DAY << " was used" << std::endl;
+        setDay(DEFAULT_DAY);
+    }
+    try
+    {
+        setDayType(FLAG_NO_DAY_TYPE);
+    }
+    catch (BadDayTypeException t)
+    {
+        //current implementation means setDayType() here can't throw an error, so just print message in case in future it would
+        std::cout << t.what() << std::endl;
+    }
 }
 
 Date::Date(int day, int month, int year, int dayType)
 {
-    setDay(day);
-    setMonth(month);
-    setYear(year);
-    setDayType(dayType);
+    try
+    {
+        setYear(year);
+    }
+    catch (BadYearException y)
+    {
+        std::cout << y.what() << " default year of " << DEFAULT_YEAR << " was used" << std::endl;
+        setYear(DEFAULT_YEAR);
+    }
+    try
+    {
+        setMonth(month);
+    }
+    catch (BadMonthException m)
+    {
+        std::cout << m.what() << " default month of " << DEFAULT_MONTH << " was used" << std::endl;
+        setMonth(DEFAULT_MONTH);
+    }
+    try
+    {
+        setDay(day);
+    }
+    catch (BadDayException d)
+    {
+        std::cout << d.what() << " default day of " << DEFAULT_DAY << " was used" << std::endl;
+        setDay(DEFAULT_DAY);
+    }
+    try
+    {
+        setDayType(dayType);
+    }
+    catch (BadDayTypeException t)
+    {
+        std::cout << t.what() << " default day type of none " << FLAG_NO_DAY_TYPE << " was used" << std::endl;
+        setDay(FLAG_NO_DAY_TYPE);
+    }
 }
 
 /**
@@ -45,29 +118,51 @@ int Date::daysBetween(Date d)
     Date saveD=d;
 
     //set day types to be the same
-    setDayType(1);
-    d.setDayType(1);
-
-    if (isBefore(d))
+    try
+    {
+        setDayType(1);
+        d.setDayType(1);
+    }
+    catch (BadDayTypeException t)
+    {
+        //current implementation means setDayType() here can't throw an error, so just print message in case in future it would
+        std::cout << t.what() << std::endl;
+    }
+    if (*this<d)
     {
         while (*this!=d)
         {
-            incrementDate();
+            (*this)++;
             days++;
             //set day types to be the same so != operator can be used
-            setDayType(1);
-            d.setDayType(1);
+            try
+            {
+                setDayType(1);
+                d.setDayType(1);
+            }
+            catch (BadDayTypeException t)
+            {
+                //current implementation means setDayType() here can't throw an error, so just print message in case in future it would
+                std::cout << t.what() << std::endl;
+            }
         }
     }
     else
     {
         while (d!=*this)
         {
-            d.incrementDate();
+            d++;
             days--;
-            //set day types to be the same so != operator can be used
-            setDayType(1);
-            d.setDayType(1);
+            try
+            {
+                setDayType(1);
+                d.setDayType(1);
+            }
+            catch (BadDayTypeException t)
+            {
+                //current implementation means setDayType() here can't throw an error, so just print message in case in future it would
+                std::cout << t.what() << std::endl;
+            }
         }
     }
 
@@ -101,6 +196,8 @@ std::string Date::dayTypeToString()
         return "Saturday";
     case 7:
         return "Sunday";
+    default:
+        throw BadDayTypeException();
     }
 }
 
@@ -109,7 +206,15 @@ std::string Date::toString()
     std::string sDate="";
     if (mDayType!=FLAG_NO_DAY_TYPE) //day type was specified, include in string
     {
-        sDate+=(dayTypeToString()+" ");
+        try
+        {
+            sDate+=(dayTypeToString()+" ");
+        }
+        catch (BadDayTypeException e)
+        {
+            //just notify and continue, don't add to the string
+            std::cout << e.what() << std::endl;
+        }
     }
     sDate+=(numToString(mDay)+"/"+numToString(mMonth)+"/"+numToString(mYear));
     return sDate;
@@ -147,6 +252,8 @@ int Date::getDaysInCurrentMonth()
     case 10:
     case 12:
         return 31;
+    default:
+        throw BadMonthException();
     }
 }
 
@@ -196,63 +303,14 @@ int Date::getMonth()
 
 void Date::setYear(int year)
 {
+    if (year<0)
+    {
+        throw BadYearException();
+    }
     mYear=year;
 }
 
 int Date::getYear()
 {
     return mYear;
-}
-
-/**
-The following are functional, but have been replaced by operators
-*/
-
-///True if caller date is before parameter date, else returns false. If equal, still return false.
-bool Date::isBefore(Date d)
-{
-    if (getYear()==d.getYear())
-    {
-        if (getMonth()==d.getMonth())
-        {
-            return getDay()<d.getDay(); //year, month the same, see which day came first
-        }
-        return getMonth()<d.getMonth(); //year same, months not, so result is first month
-    }
-    return getYear()<d.getYear(); //if years not equal result is which year came first
-}
-
-bool Date::isBefore(int testDay,int testMonth,int testYear)
-{
-    Date d(testDay,testMonth,testYear);
-    return this->isBefore(d);
-}
-
-void Date::incrementDate()
-{
-    if (mDay==getDaysInCurrentMonth()) //new month
-    {
-        setDay(1);
-        if (mMonth==12) //new year
-        {
-            setMonth(1);
-            setYear(mYear+1);
-        }
-        else
-        {
-            setMonth(mMonth+1);
-        }
-    }
-    else
-    {
-        setDay(mDay+1);
-    }
-    if (mDayType==7) //end of week is sunday
-    {
-        setDayType(1);
-    }
-    else if (mDayType!=FLAG_NO_DAY_TYPE) //don't increment for a day type that was never set
-    {
-        setDayType(mDayType+1);
-    }
 }

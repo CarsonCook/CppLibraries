@@ -4,11 +4,15 @@
 #include <string>
 
 #define FLAG_NO_DAY_TYPE -1
+#define DEFAULT_YEAR 1
+#define DEFAULT_MONTH 1
+#define DEFAULT_DAY 1
 
-class Date{
+class Date
+{
 public:
     ///constructors
-    Date();
+    Date(); //sets day=1, month=1, year=0
     Date(int day, int month, int year);
     Date(int day, int month, int year, int dayType); //given a day type
 
@@ -47,11 +51,6 @@ public:
     int getMonth();
     int getDay();
     int getDayType();
-
-    ///functions replaced by operator
-    void incrementDate(); //increase day by one, andd handle any change in month/year
-    bool isBefore(Date d); //true if caller Date before parameter date
-    bool isBefore(int day, int month, int year);
 
 private:
     ///class attributes
