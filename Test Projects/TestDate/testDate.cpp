@@ -10,7 +10,7 @@ Date four(1,2,1997,1);
 
 int main()
 {
-    Date bad;
-    cout << bad << endl;
+    Date c=one.copyDate();
+    cout << one << " " << c << endl;
     return 0;
 }

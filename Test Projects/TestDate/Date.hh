@@ -15,8 +15,10 @@ public:
     Date(); //sets day=1, month=1, year=0
     Date(int day, int month, int year);
     Date(int day, int month, int year, int dayType); //given a day type
+    Date(const Date &d); //copy constructor
 
     ///functions for specific use
+    Date copyDate(); //copies the caller instance
     std::string toString();
     bool isLeapYear();
     int daysBetween(Date d); //number of days between caller and parameter date. Negative if param is after caller.

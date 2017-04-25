@@ -13,9 +13,9 @@ Date::Date()
 {
     try
     {
-        setDay(1);
-        setMonth(1);
-        setYear(0);
+        setYear(DEFAULT_YEAR);
+        setMonth(DEFAULT_MONTH);
+        setDay(DEFAULT_DAY);
         setDayType(FLAG_NO_DAY_TYPE);
     }
     catch (BadDateInputException e)
@@ -105,9 +105,30 @@ Date::Date(int day, int month, int year, int dayType)
     }
 }
 
+Date::Date(const Date &d)
+{
+    try
+    {
+        setYear(d.mYear);
+        setMonth(d.mMonth);
+        setDay(d.mDay);
+        setDayType(d.mDayType);
+    }
+    catch (BadDateInputException e)
+    {
+        //if values got put into other date, they should be good. Just in case put in a notification
+        std::cout << e.what() << std::endl;
+    }
+}
+
 /**
 functions for specific use
 */
+
+Date Date::copyDate()
+{
+    return Date(*this);
+}
 
 int Date::daysBetween(Date d)
 {
