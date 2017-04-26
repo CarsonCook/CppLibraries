@@ -6,6 +6,12 @@ FileOutput::FileOutput(const char *filePath)
     mFilePath=filePath;
 }
 
+FileOutput::FileOutput(const FileOutput &other)
+{
+    mFilePath=other.mFilePath;
+   //can't copy file, also doesn't matter if file path is the same
+}
+
 FileOutput::~FileOutput()
 {
     if (mFile and mFile.is_open())
@@ -47,6 +53,11 @@ void FileOutput::writeFile(FileInput &inFile)
     }
     mFile << inFile.fileToString();
     mFile.close();
+}
+
+FileOutput FileOutput::copyFileOutput()
+{
+    return FileOutput(*this);
 }
 
 bool FileOutput::operator == (const FileOutput &Ref)

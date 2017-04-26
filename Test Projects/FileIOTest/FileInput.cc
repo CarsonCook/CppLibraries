@@ -14,6 +14,12 @@ FileInput::FileInput(const char *filePath)
     mFilePath=filePath;
 }
 
+FileInput::FileInput(const FileInput &other)
+{
+    mFilePath=other.mFilePath;
+   //can't copy file, also doesn't matter if file path is the same
+}
+
 FileInput::~FileInput()
 {
     if (mFile and mFile.is_open())
@@ -71,6 +77,11 @@ void FileInput::printFile()
     {
         cout << e.what() << endl;
     }
+}
+
+FileInput FileInput::copyFileInput()
+{
+    return FileInput(*this);
 }
 
 bool FileInput::operator == (const FileInput &Ref)
