@@ -33,6 +33,9 @@ public:
     ~FileOutput();
 
     //write to file functions
+    void writeString(string output);
+    void writeFile(const char *filePath);
+    void writeFile(FileInput &inFile);
 
 private:
     const char *mFilePath;

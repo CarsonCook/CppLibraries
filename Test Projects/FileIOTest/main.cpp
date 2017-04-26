@@ -7,7 +7,8 @@ using namespace std;
 
 int main()
 {
+    FileOutput outFile("out.txt");
     FileInput inFile("in.txt");
-    inFile.printFile();
+    outFile.writeFile(inFile);
     return 0;
 }
