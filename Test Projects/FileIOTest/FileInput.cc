@@ -1,5 +1,6 @@
 #include "FileIO.hh"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -30,12 +31,30 @@ string FileInput::fileToString()
     string sFile;
     mFile.open(mFilePath);
     string oneLine;
-    while (getline(mFile,oneLine))
+    while(getline(mFile,oneLine))
     {
         sFile+=(oneLine+'\n');
     }
     mFile.close();
     return sFile;
+}
+
+svec FileInput::fileToStringVector()
+{
+    svec fileVec;
+    mFile.open(mFilePath);
+    string oneLine;
+    while(getline(mFile,oneLine))
+    {
+       fileVec.push_back(oneLine+'\n');
+    }
+    mFile.close();
+    return fileVec;
+}
+
+void FileInput::printFile()
+{
+    cout << fileToString() << endl;
 }
 
 

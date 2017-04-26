@@ -2,8 +2,11 @@
 #define FileIO_hh
 
 #include <fstream>
+#include <vector>
 
 using namespace std;
+
+typedef vector<string> svec;
 
 class FileInput
 {
@@ -14,6 +17,8 @@ public:
 
     //read from file functions
     string fileToString();
+    svec fileToStringVector();
+    void printFile();
 
 private:
     const char *mFilePath;

@@ -1,12 +1,13 @@
 #include "FileIO.hh"
 
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int main()
 {
     FileInput inFile("in.txt");
-    cout << inFile.fileToString();
+    inFile.printFile();
     return 0;
 }
