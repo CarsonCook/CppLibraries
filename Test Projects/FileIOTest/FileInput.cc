@@ -1,4 +1,5 @@
 #include "FileIO.hh"
+#include "FileIOExceptions.hh"
 #include <iostream>
 #include <vector>
 
@@ -30,6 +31,10 @@ string FileInput::fileToString()
 {
     string sFile;
     mFile.open(mFilePath);
+    if (!mFile.is_open())
+    {
+        throw FileNotOpened();
+    }
     string oneLine;
     while(getline(mFile,oneLine))
     {
@@ -43,10 +48,14 @@ svec FileInput::fileToStringVector()
 {
     svec fileVec;
     mFile.open(mFilePath);
+    if (!mFile.is_open())
+    {
+        throw FileNotOpened();
+    }
     string oneLine;
     while(getline(mFile,oneLine))
     {
-       fileVec.push_back(oneLine+'\n');
+        fileVec.push_back(oneLine+'\n');
     }
     mFile.close();
     return fileVec;
@@ -54,7 +63,14 @@ svec FileInput::fileToStringVector()
 
 void FileInput::printFile()
 {
-    cout << fileToString() << endl;
+    try
+    {
+        cout << fileToString() << endl;
+    }
+    catch (FileNotOpened e)
+    {
+        cout << e.what() << endl;
+    }
 }
 
 

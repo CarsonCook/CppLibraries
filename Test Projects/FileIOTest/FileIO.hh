@@ -1,6 +1,7 @@
 #ifndef FileIO_hh
 #define FileIO_hh
 
+#include "FileIOExceptions.hh"
 #include <fstream>
 #include <vector>
 
@@ -29,7 +30,7 @@ class FileOutput
 {
 public:
     //constructors and destructors
-    FileOutput(const char *filePath);
+    FileOutput(const char *filePath); //will create file if it does not exist
     ~FileOutput();
 
     //write to file functions

@@ -4,15 +4,22 @@
 	<iostream>
 	<vector>
 
-1493175670 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\fileiotest\fileinput.cc
+1493178460 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\fileiotest\fileinput.cc
 	"FileIO.hh"
+	"FileIOExceptions.hh"
 	<iostream>
 	<vector>
 
-1493177281 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\fileiotest\fileoutput.cc
+1493178524 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\fileiotest\fileoutput.cc
 	"FileIO.hh"
+	"FileIOExceptions.hh"
 
-1493177281 c:\users\owner\desktop\github-code\cpplibraries\test projects\fileiotest\fileio.hh
+1493178767 c:\users\owner\desktop\github-code\cpplibraries\test projects\fileiotest\fileio.hh
+	"FileIOExceptions.hh"
 	<fstream>
 	<vector>
+
+1493178797 c:\users\owner\desktop\github-code\cpplibraries\test projects\fileiotest\fileioexceptions.hh
+	"FileIO.hh"
+	<exception>
 
