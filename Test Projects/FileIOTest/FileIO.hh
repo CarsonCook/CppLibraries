@@ -21,6 +21,9 @@ public:
     svec fileToStringVector();
     void printFile();
 
+    //operators
+    bool operator == (const FileInput &Ref);
+
 private:
     const char *mFilePath;
     ifstream mFile;
@@ -37,6 +40,9 @@ public:
     void writeString(string output);
     void writeFile(const char *filePath);
     void writeFile(FileInput &inFile);
+
+    //operators
+    bool operator == (const FileOutput &Ref);
 
 private:
     const char *mFilePath;

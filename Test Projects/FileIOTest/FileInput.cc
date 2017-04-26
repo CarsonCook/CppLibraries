@@ -73,15 +73,9 @@ void FileInput::printFile()
     }
 }
 
-
-
-
-
-
-
-
-
-
-
+bool FileInput::operator == (const FileInput &Ref)
+{
+    return mFilePath==Ref.mFilePath; //don't test mFile because if the paths are the same, the files will act on the same things
+}
 
 

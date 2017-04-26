@@ -9,6 +9,7 @@ int main()
 {
     FileOutput outFile("out.txt");
     FileInput inFile("in.txt");
-    outFile.writeFile(inFile);
+    FileInput inFile2("in.txt");
+    cout << (inFile==inFile2);
     return 0;
 }
