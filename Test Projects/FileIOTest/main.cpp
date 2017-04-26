@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
-    FileInput("hi.txt");
+    FileInput inFile("in.txt");
+    cout << inFile.fileToString();
     return 0;
 }

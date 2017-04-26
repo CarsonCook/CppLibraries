@@ -29,8 +29,13 @@ string FileInput::fileToString()
 {
     string sFile;
     mFile.open(mFilePath);
-
+    string oneLine;
+    while (getline(mFile,oneLine))
+    {
+        sFile+=(oneLine+'\n');
+    }
     mFile.close();
+    return sFile;
 }
 
 
