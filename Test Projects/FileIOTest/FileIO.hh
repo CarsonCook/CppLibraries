@@ -25,4 +25,18 @@ private:
     ifstream mFile;
 };
 
+class FileOutput
+{
+public:
+    //constructors and destructors
+    FileOutput(const char *filePath);
+    ~FileOutput();
+
+    //write to file functions
+
+private:
+    const char *mFilePath;
+    ofstream mFile;
+};
+
 #endif // FileIO_hh
