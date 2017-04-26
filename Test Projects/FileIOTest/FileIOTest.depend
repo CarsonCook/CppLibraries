@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1493174562 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\fileiotest\main.cpp
+	"FileIO.hh"
+	<iostream>
+
+1493174551 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\fileiotest\fileinput.cc
+	"FileIO.hh"
+	<iostream>
+
+1493172634 source:c:\users\owner\desktop\github-code\cpplibraries\test projects\fileiotest\fileoutput.cc
+
+1493174551 c:\users\owner\desktop\github-code\cpplibraries\test projects\fileiotest\fileio.hh
+	<fstream>
+
