@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1495771101 source:c:\users\owner\desktop\github-code\cpplibraries\linkedlist\linkedlist.cpp
+	"LinkedList.hh"
+
+1495771101 source:c:\users\owner\desktop\github-code\cpplibraries\linkedlist\main.cpp
+	<iostream>
+
+1495771415 c:\users\owner\desktop\github-code\cpplibraries\linkedlist\linkedlist.hh
+	<iostream>
+
+1495770847 source:c:\users\owner\desktop\github-code\cpplibraries\linkedlist\singlylinkedlist.cpp
+	"SinglyLinkedList.hh"
+
+1495771113 c:\users\owner\desktop\github-code\cpplibraries\linkedlist\singlylinkedlist.hh
+	"LinkedList.hh"
+
