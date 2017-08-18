@@ -152,28 +152,28 @@ std::istream &operator>>(std::istream &input, Date &Ref) {
     try {
         Ref.setYear(year);
     }
-    catch (BadYearException y) {
+    catch (BadYearException &y) {
         std::cout << y.what() << " default year of " << DEFAULT_YEAR << " was used" << std::endl;
         Ref.setYear(DEFAULT_YEAR);
     }
     try {
         Ref.setMonth(month);
     }
-    catch (BadMonthException m) {
+    catch (BadMonthException &m) {
         std::cout << m.what() << " default month of " << DEFAULT_MONTH << " was used" << std::endl;
         Ref.setMonth(DEFAULT_MONTH);
     }
     try {
         Ref.setDay(day);
     }
-    catch (BadDayException d) {
+    catch (BadDayException &d) {
         std::cout << d.what() << " default day of " << DEFAULT_DAY << " was used" << std::endl;
         Ref.setDay(DEFAULT_DAY);
     }
     try {
         Ref.setDayType(dayOfWeek);
     }
-    catch (BadDayTypeException t) {
+    catch (BadDayTypeException &t) {
         std::cout << t.what() << " default day type of none was used" << std::endl;
         Ref.setDayType(DayOfWeek::NOT_SET);
     }

@@ -12,28 +12,28 @@ Date::Date(int day, int month, int year) {
     try {
         setYear(year);
     }
-    catch (BadYearException y) {
+    catch (BadYearException &y) {
         std::cout << y.what() << " default year of " << DEFAULT_YEAR << " was used" << std::endl;
         setYear(DEFAULT_YEAR);
     }
     try {
         setMonth(month);
     }
-    catch (BadMonthException m) {
+    catch (BadMonthException &m) {
         std::cout << m.what() << " default month of " << DEFAULT_MONTH << " was used" << std::endl;
         setMonth(DEFAULT_MONTH);
     }
     try {
         setDay(day);
     }
-    catch (BadDayException d) {
+    catch (BadDayException &d) {
         std::cout << d.what() << " defualt day of " << DEFAULT_DAY << " was used" << std::endl;
         setDay(DEFAULT_DAY);
     }
     try {
         setDayType(DayOfWeek::NOT_SET);
     }
-    catch (BadDayTypeException t) {
+    catch (BadDayTypeException &t) {
         //current implementation means setDayType() here can't throw an error, so just print message in case in future it would
         std::cout << t.what() << std::endl;
     }
@@ -43,28 +43,28 @@ Date::Date(int day, int month, int year, DayOfWeek dayOfWeek) {
     try {
         setYear(year);
     }
-    catch (BadYearException y) {
+    catch (BadYearException &y) {
         std::cout << y.what() << " default year of " << DEFAULT_YEAR << " was used" << std::endl;
         setYear(DEFAULT_YEAR);
     }
     try {
         setMonth(month);
     }
-    catch (BadMonthException m) {
+    catch (BadMonthException &m) {
         std::cout << m.what() << " default month of " << DEFAULT_MONTH << " was used" << std::endl;
         setMonth(DEFAULT_MONTH);
     }
     try {
         setDay(day);
     }
-    catch (BadDayException d) {
+    catch (BadDayException &d) {
         std::cout << d.what() << " default day of " << DEFAULT_DAY << " was used" << std::endl;
         setDay(DEFAULT_DAY);
     }
     try {
         setDayType(dayOfWeek);
     }
-    catch (BadDayTypeException t) {
+    catch (BadDayTypeException &t) {
         std::cout << t.what() << " default day type of none was used" << std::endl;
         setDayType(DayOfWeek::NOT_SET);
     }
@@ -77,7 +77,7 @@ Date::Date(const Date &d) {
         setDay(d.mDay);
         setDayType(d.mDayOfWeek);
     }
-    catch (BadDateInputException e) {
+    catch (BadDateInputException &e) {
         //if values got put into other date, they should be good. Just in case put in a notification
         std::cout << e.what() << std::endl;
     }
@@ -103,7 +103,7 @@ int Date::daysBetween(Date d) {
         setDayType(DayOfWeek::MONDAY);
         d.setDayType(DayOfWeek::MONDAY);
     }
-    catch (BadDayTypeException t) {
+    catch (BadDayTypeException &t) {
         //current implementation means setDayType() here can't throw an error, so just print message in case in future it would
         std::cout << t.what() << std::endl;
     }
@@ -116,7 +116,7 @@ int Date::daysBetween(Date d) {
                 setDayType(DayOfWeek::MONDAY);
                 d.setDayType(DayOfWeek::MONDAY);
             }
-            catch (BadDayTypeException t) {
+            catch (BadDayTypeException &t) {
                 //current implementation means setDayType() here can't throw an error, so just print message in case in future it would
                 std::cout << t.what() << std::endl;
             }
@@ -129,7 +129,7 @@ int Date::daysBetween(Date d) {
                 setDayType(DayOfWeek::MONDAY);
                 d.setDayType(DayOfWeek::MONDAY);
             }
-            catch (BadDayTypeException t) {
+            catch (BadDayTypeException &t) {
                 //current implementation means setDayType() here can't throw an error, so just print message in case in future it would
                 std::cout << t.what() << std::endl;
             }
@@ -169,13 +169,13 @@ std::string Date::dayTypeToString() {
 }
 
 std::string Date::toString() {
-    std::string sDate = "";
+    std::string sDate;
     if (mDayOfWeek != DayOfWeek::NOT_SET) //day type was specified, include in string
     {
         try {
             sDate += (dayTypeToString() + " ");
         }
-        catch (BadDayTypeException e) {
+        catch (BadDayTypeException &e) {
             //just notify and continue, don't add to the string
             std::cout << e.what() << std::endl;
         }
@@ -186,10 +186,7 @@ std::string Date::toString() {
 
 bool Date::isLeapYear() {
     if (mYear % 4 == 0) {
-        if (mYear % 100 == 0 && mYear % 400 != 0) {
-            return false;
-        }
-        return true;
+        return mYear % 100 == 0 ? mYear % 400 == 0 : true;
     }
     return false;
 }
