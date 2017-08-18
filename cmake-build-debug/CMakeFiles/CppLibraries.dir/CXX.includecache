@@ -33,4 +33,8 @@ iostream
 /cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/headers/date_exceptions.h
 
 /cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/tester.cpp
+iostream
+-
+headers/date.h
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/headers/date.h
 

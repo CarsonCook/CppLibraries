@@ -43,14 +43,6 @@ Operators that change the Date's values
 
 Date Date::operator++(int) {
     try {
-        int curMonthDays;
-        try {
-            curMonthDays = getDaysInCurrentMonth();
-        }
-        catch (BadMonthException e) {
-            std::cout << e.what() << " incrementation was stopped" << std::endl;
-            return *this;
-        }
         if (mDay == getDaysInCurrentMonth()) //new month
         {
             setDay(1);
@@ -94,14 +86,6 @@ Date Date::operator--(int) {
         {
             if (mDay == 1) //go to last day of previous month
             {
-                int curMonthDays;
-                try {
-                    curMonthDays = getDaysInCurrentMonth();
-                }
-                catch (BadMonthException e) {
-                    std::cout << e.what() << " decrementation was stopped" << std::endl;
-                    return *this;
-                }
                 setMonth(mMonth - 1);
                 setDay(getDaysInCurrentMonth()); //day is last of the new month
             } else //don't need to change month
@@ -139,6 +123,14 @@ Date Date::operator-=(int n) {
     for (int i = 0; i < n; i++) {
         (*this)--;
     }
+    return *this;
+}
+
+Date& Date::operator=(const Date &Ref){
+    this->setDay(Ref.mDay);
+    this->setDayType(Ref.mDayOfWeek);
+    this->setMonth(Ref.mMonth);
+    this->setYear(Ref.mYear);
     return *this;
 }
 

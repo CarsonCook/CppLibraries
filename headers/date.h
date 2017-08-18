@@ -37,6 +37,7 @@ public:
     bool operator <= (const Date &Ref);
     bool operator > (const Date &Ref); //opposite of isBefore
     bool operator >= (const Date &Ref);
+
     //operators that change values
     Date operator ++ (int); //post-increment, replaces incrementDate()
     Date operator ++ (); //pre-increment
@@ -44,6 +45,8 @@ public:
     Date operator -- (); //pre-decrement
     Date operator += (int n);
     Date operator -= (int n);
+    Date& operator = (const Date &Ref); //assignment
+
     //stream operators
     friend std::ostream &operator<<(std::ostream &output,Date &Ref); //essentially uses toString() to output, it just can't call it, so code copied
     friend std::istream &operator>>(std::istream &input,Date &Ref);

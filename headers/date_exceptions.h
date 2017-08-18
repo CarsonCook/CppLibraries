@@ -10,7 +10,7 @@
 class BadDateInputException : public std::exception
 {
 public:
-    virtual const char* what() const throw()
+    const char* what() const throw()
     {
         return "A bad day, month, year or day type value was input";
     }
@@ -19,7 +19,7 @@ public:
 class BadDayTypeException : public BadDateInputException
 {
 public:
-    virtual const char* what() const throw()
+    const char* what() const throw()
     {
         return "A day type that doesn't correspond to a day of the week (1-7) or \"no day type select\" (-1) was input";
     }
@@ -28,7 +28,7 @@ public:
 class BadYearException : public BadDateInputException
 {
 public:
-    virtual const char* what() const throw()
+    const char* what() const throw()
     {
         return "A negative year value was input";
     }
@@ -37,7 +37,7 @@ public:
 class BadMonthException : public BadDateInputException
 {
 public:
-    virtual const char* what() const throw()
+    const char* what() const throw()
     {
         return "A value that doesn't ocrrespond to a month (1-12) was input";
     }
@@ -46,7 +46,7 @@ public:
 class BadDayException : public BadDateInputException
 {
 public:
-    virtual const char* what() const throw()
+    const char* what() const throw()
     {
         return "A day that doesn't correspond to the month and year input (1-28/29/30/31) was input";
     }

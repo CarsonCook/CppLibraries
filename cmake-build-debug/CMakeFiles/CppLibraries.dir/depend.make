@@ -9,5 +9,6 @@ CMakeFiles/CppLibraries.dir/sources/date_operators.cpp.o: ../headers/date.h
 CMakeFiles/CppLibraries.dir/sources/date_operators.cpp.o: ../headers/date_exceptions.h
 CMakeFiles/CppLibraries.dir/sources/date_operators.cpp.o: ../sources/date_operators.cpp
 
+CMakeFiles/CppLibraries.dir/tester.cpp.o: ../headers/date.h
 CMakeFiles/CppLibraries.dir/tester.cpp.o: ../tester.cpp
 
