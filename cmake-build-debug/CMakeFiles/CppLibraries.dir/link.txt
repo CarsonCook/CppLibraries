@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/CppLibraries.dir/sources/date.cpp.o CMakeFiles/CppLibraries.dir/sources/date_operators.cpp.o CMakeFiles/CppLibraries.dir/tester.cpp.o  -o CppLibraries.exe -Wl,--out-implib,libCppLibraries.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
