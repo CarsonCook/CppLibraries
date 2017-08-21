@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/Date/headers/date.h
+string
+-
+
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/Date/headers/date_exceptions.h
+exception
+-
+
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/Date/main.cpp
+
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/Date/sources/date.cpp
+../headers/date.h
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/Date/headers/date.h
+../headers/date_exceptions.h
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/Date/headers/date_exceptions.h
+iostream
+-
+sstream
+-
+
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/Date/sources/date_operators.cpp
+iostream
+-
+../headers/date.h
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/Date/headers/date.h
+../headers/date_exceptions.h
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/Date/headers/date_exceptions.h
+

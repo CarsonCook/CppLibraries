@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/FileIO/headers/file_io.h
+fstream
+-
+vector
+-
+
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/FileIO/headers/file_io_exceptions.h
+exception
+-
+
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/FileIO/sources/file_input.cpp
+iostream
+-
+vector
+-
+../headers/file_io.h
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/FileIO/headers/file_io.h
+../headers/file_io_exceptions.h
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/FileIO/headers/file_io_exceptions.h
+
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/FileIO/sources/file_output.cpp
+../headers/file_io.h
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/FileIO/headers/file_io.h
+../headers/file_io_exceptions.h
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/FileIO/headers/file_io_exceptions.h
+
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/FileIO/tester.cpp
+iostream
+-
+headers/file_io.h
+/cygdrive/c/Users/Owner/Desktop/Github-Code/CppLibraries/FileIO/headers/file_io.h
+
