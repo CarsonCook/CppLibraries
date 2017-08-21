@@ -18,12 +18,22 @@ FileInput::FileInput(const FileInput &other) {
     //can't copy file, also doesn't matter if file path is the same
 }
 
+FileInput::FileInput(FileInput &&other) noexcept {
+    this->mFilePath = other.mFilePath;
+    other.mFilePath = nullptr;
+    if (mFile && mFile.is_open()) {
+        mFile.close();
+    }
+}
+
 FileInput::~FileInput() {
     if (mFile and mFile.is_open()) {
         mFile.close();
     }
     delete mFilePath;
-    delete mFile;
+    if (mFile && mFile.is_open()) {
+        mFile.close();
+    }
 }
 
 /**
@@ -76,7 +86,16 @@ bool FileInput::operator==(const FileInput &Ref) {
            Ref.mFilePath; //don't test mFile because if the paths are the same, the files will act on the same things
 }
 
-FileInput operator=(const FileInput &Ref) {
+FileInput &FileInput::operator=(const FileInput &Ref) {
     this->mFilePath = Ref.mFilePath;
-    return this;
+    return *this;
+}
+
+FileInput &FileInput::operator=(FileInput &&Ref) noexcept {
+    this->mFilePath = Ref.mFilePath;
+    Ref.mFilePath = nullptr;
+    if (Ref.mFile && Ref.mFile.is_open()) {
+        Ref.mFile.close();
+    }
+    return *this;
 }

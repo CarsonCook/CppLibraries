@@ -83,7 +83,7 @@ Date::Date(const Date &d) {
     }
 }
 
-Date::Date(Date&& other) noexcept{
+Date::Date(Date &&other) noexcept {
     //pilfer other's values
     this->setDayType(other.mDayOfWeek);
     this->setDay(other.mDay);

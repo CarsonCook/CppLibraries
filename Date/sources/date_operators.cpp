@@ -126,7 +126,7 @@ Date Date::operator-=(int n) {
     return *this;
 }
 
-Date& Date::operator=(const Date &Ref){
+Date &Date::operator=(const Date &Ref) {
     this->setDay(Ref.mDay);
     this->setDayType(Ref.mDayOfWeek);
     this->setMonth(Ref.mMonth);
@@ -134,11 +134,16 @@ Date& Date::operator=(const Date &Ref){
     return *this;
 }
 
-Date& Date::operator=(Date &&Ref) noexcept{
+Date &Date::operator=(Date &&Ref) noexcept {
     this->setDay(Ref.mDay);
     this->setMonth(Ref.mMonth);
     this->setYear(Ref.mYear);
     this->setDayType(Ref.mDayOfWeek);
+
+    Ref.setDayType(DayOfWeek::NOT_SET);
+    Ref.setDay(DEFAULT_DAY);
+    Ref.setMonth(DEFAULT_MONTH);
+    Ref.setYear(DEFAULT_YEAR);
     return *this;
 }
 

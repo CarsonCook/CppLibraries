@@ -10,12 +10,21 @@ FileOutput::FileOutput(const FileOutput &other) {
     //can't copy file, also doesn't matter if file path is the same
 }
 
+FileOutput::FileOutput(FileOutput &&other) noexcept {
+    this->mFilePath = other.mFilePath;
+    if (mFile && mFile.is_open()) {
+        mFile.close();
+    }
+}
+
 FileOutput::~FileOutput() {
     if (mFile and mFile.is_open()) {
         mFile.close();
     }
     delete mFilePath;
-    delete mFile;
+    if (mFile && mFile.is_open()) {
+        mFile.close();
+    }
 }
 
 void FileOutput::writeString(string output) {
@@ -55,7 +64,16 @@ bool FileOutput::operator==(const FileOutput &Ref) {
            Ref.mFilePath; //don't test mFile because if the paths are the same, the files will act on the same things
 }
 
-FileOutput operator=(const FileOutput &Ref) {
+FileOutput &FileOutput::operator=(const FileOutput &Ref) {
     this->mFilePath = Ref.mFilePath;
+    return *this;
+}
+
+FileOutput &FileOutput::operator=(FileOutput &&Ref) noexcept {
+    this->mFilePath = Ref.mFilePath;
+    Ref.mFilePath = nullptr;
+    if (Ref.mFile && Ref.mFile.is_open()) {
+        Ref.mFile.close();
+    }
     return *this;
 }
