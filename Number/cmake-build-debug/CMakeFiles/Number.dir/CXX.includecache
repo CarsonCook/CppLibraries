@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/cookc/Desktop/Code/CppLibraries/Number/Number.cpp
+Number.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Number/Number.h
+cmath
+-
+
+C:/Users/cookc/Desktop/Code/CppLibraries/Number/Number.h
+string
+-
+vector
+-
+iostream
+-
+
+C:/Users/cookc/Desktop/Code/CppLibraries/Number/main.cpp
+iostream
+-
+Number.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Number/Number.h
+
