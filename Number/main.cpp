@@ -5,9 +5,9 @@
 using namespace std;
 
 int main() {
-    Number n1(99);
-    Number n2(1);
-    Number res = n1 + n2;
-    cout << n1 << endl << res << endl;
+    Number n1(1);
+    Number n2(0);
+    Number res = n1 - n2;
+    cout <<  res << endl;
     return 0;
 }

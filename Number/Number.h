@@ -13,7 +13,11 @@ public:
     ~Number() = default;
 
     //regular constructors
+    Number();
+
     Number(const std::vector<char> &, bool);
+
+    Number(const std::vector<char> &);
 
     //conversion constructors
     Number(const std::string &);
@@ -39,7 +43,7 @@ public:
     //operators
     friend Number operator+(const Number &, const Number &);
 
-    Number operator-(const Number &);
+    friend Number operator-(const Number &, const Number &);
 
     Number &operator=(const Number &);
 
@@ -67,13 +71,13 @@ public:
 
     bool operator<(const Number &);
 
-    bool operator>(const Number &);
+    friend bool operator>(const Number &, const Number &);
 
     bool operator>=(const Number &);
 
     bool operator<=(const Number &);
 
-    bool operator==(const Number &);
+    friend bool operator==(const Number &, const Number &);
 
     bool operator!=(const Number &);
 
@@ -90,9 +94,21 @@ private:
 
     bool isZero() const;
 
+    bool absIsBigger(const Number &) const;
+
     static std::vector<char> computePosAddDigits(const Number &, const Number &);
 
-    const static int ASCII_INT_CONV = 48;
+    static int addChars(char, char); //helper to convert 2 chars to ints, add, then convert to char
+
+    static int subChars(char, char);
+
+    static int charToInt(char);
+
+    static char intToChar(int);
+
+    std::vector<char> findDiff(const Number &) const; //helper to find the absolute difference between this and param
+
+    const static int ASCII_INT_CONV = (int) '0'; //in case not ASCII machine
 };
 
 
