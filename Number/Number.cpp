@@ -43,6 +43,10 @@ std::vector<char> Number::computePosAddDigits(const Number &lhs, const Number &r
         carry = (add + carry) / 10;
         ++index;
     }
+    //add any leftover carry
+    if (carry > 0) {
+        resDig.push_back((char) (carry % 10 + Number::ASCII_INT_CONV));
+    }
     return resDig;
 }
 

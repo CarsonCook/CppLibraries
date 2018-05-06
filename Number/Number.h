@@ -18,7 +18,7 @@ public:
     //conversion constructors
     Number(const std::string &);
 
-    Number(char *s, int size);
+    Number(char *s);
 
     Number(const Number &);
 

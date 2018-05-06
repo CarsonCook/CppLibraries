@@ -1,12 +1,13 @@
 #include <iostream>
 #include "Number.h"
+#include <climits>
 
 using namespace std;
 
 int main() {
-    Number n1(-321);
-    Number n2(-123);
-    Number res=n1+n2;
-    cout << n1 << endl << n2 << endl << res << endl;
+    Number n1(99);
+    Number n2(1);
+    Number res = n1 + n2;
+    cout << n1 << endl << res << endl;
     return 0;
 }
