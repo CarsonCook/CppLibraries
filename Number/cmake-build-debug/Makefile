@@ -149,6 +149,33 @@ Number.cpp.s:
 	$(MAKE) -f CMakeFiles\Number.dir\build.make CMakeFiles/Number.dir/Number.cpp.s
 .PHONY : Number.cpp.s
 
+NumberOperators.obj: NumberOperators.cpp.obj
+
+.PHONY : NumberOperators.obj
+
+# target to build an object file
+NumberOperators.cpp.obj:
+	$(MAKE) -f CMakeFiles\Number.dir\build.make CMakeFiles/Number.dir/NumberOperators.cpp.obj
+.PHONY : NumberOperators.cpp.obj
+
+NumberOperators.i: NumberOperators.cpp.i
+
+.PHONY : NumberOperators.i
+
+# target to preprocess a source file
+NumberOperators.cpp.i:
+	$(MAKE) -f CMakeFiles\Number.dir\build.make CMakeFiles/Number.dir/NumberOperators.cpp.i
+.PHONY : NumberOperators.cpp.i
+
+NumberOperators.s: NumberOperators.cpp.s
+
+.PHONY : NumberOperators.s
+
+# target to generate assembly for a file
+NumberOperators.cpp.s:
+	$(MAKE) -f CMakeFiles\Number.dir\build.make CMakeFiles/Number.dir/NumberOperators.cpp.s
+.PHONY : NumberOperators.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -188,6 +215,9 @@ help:
 	@echo ... Number.obj
 	@echo ... Number.i
 	@echo ... Number.s
+	@echo ... NumberOperators.obj
+	@echo ... NumberOperators.i
+	@echo ... NumberOperators.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

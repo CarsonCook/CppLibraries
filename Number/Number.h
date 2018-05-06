@@ -17,28 +17,30 @@ public:
 
     Number(const std::vector<char> &, bool);
 
-    Number(const std::vector<char> &);
+    explicit Number(const std::vector<char> &);
 
     //conversion constructors
-    Number(const std::string &);
+    explicit Number(const std::string &);
 
-    Number(char *s);
+    explicit Number(const char *);
 
     Number(const Number &);
 
     explicit Number(int);
 
-    Number(long);
+    explicit Number(long);
 
-    Number(long long);
+    explicit Number(long long);
 
-    Number(float);
+    explicit Number(float);
 
-    Number(double);
+    explicit Number(double);
 
-    Number(long double);
+    explicit Number(long double);
 
-    Number(short);
+    explicit Number(short);
+
+    explicit Number(char);
 
     //operators
     friend Number operator+(const Number &, const Number &);
@@ -82,6 +84,7 @@ public:
     bool operator!=(const Number &);
 
     friend std::ostream &operator<<(std::ostream &, const Number &); //remove friend when define print()
+
     friend std::ostream &operator>>(std::istream &, const Number &);
 
     //conversions
