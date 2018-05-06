@@ -5,14 +5,14 @@
 #include "Number.h"
 #include <cmath>
 
-Number::Number() : isPositive(true), digits('0') {}
+Number::Number() : isPositive(true), digits('0'), base(10) {}
 
-Number::Number(const std::vector<char> &dig, bool isPos) : isPositive(isPos), digits(dig) {
+Number::Number(const std::vector<char> &dig, bool isPos) : isPositive(isPos), digits(dig), base(10) {
 }
 
 Number::Number(const std::vector<char> &dig) : Number(dig, true) {}
 
-Number::Number(int in) {
+Number::Number(int in) : base(10) {
     //special case
     if (in == 0) {
         this->isPositive = true;
@@ -21,16 +21,16 @@ Number::Number(int in) {
     this->isPositive = in >= 0;
     int cur = in >= 0 ? in : -in;
     while (cur != 0) {
-        this->digits.push_back((char) ((cur % 10) + Number::ASCII_INT_CONV));//convert to ascii rep. of number
-        cur = cur / 10;
+        this->digits.push_back(Number::intToChar(cur % base));//convert to ascii rep. of number
+        cur = cur / base;
     }
 }
 
 Number::Number(const Number &other) = default;
 
-std::vector<char> Number::computePosAddDigits(const Number &lhs, const Number &rhs) {
+std::vector<char> Number::computePosAddDigits(const Number &rhs) const {
     std::vector<char> resDig;
-    std::vector<char> lhsDig = lhs.digits;
+    std::vector<char> lhsDig = this->digits;
     std::vector<char> rhsDig = rhs.digits;
     int rhsLength = rhsDig.size();
     int lhsLength = lhsDig.size();
@@ -45,13 +45,13 @@ std::vector<char> Number::computePosAddDigits(const Number &lhs, const Number &r
         } else {
             add = (int) rhsDig[index] - Number::ASCII_INT_CONV;
         }
-        resDig.push_back((char) ((add + carry) % 10 + Number::ASCII_INT_CONV));
-        carry = (add + carry) / 10;
+        resDig.push_back(Number::intToChar((add + carry) % base));
+        carry = (add + carry) / base;
         ++index;
     }
     //add any leftover carry
     if (carry > 0) {
-        resDig.push_back((char) (carry % 10 + Number::ASCII_INT_CONV));
+        resDig.push_back(Number::intToChar(carry % base));
     }
     return resDig;
 }
@@ -73,9 +73,9 @@ Number operator+(const Number &lhs, const Number &rhs) {
 
     //else have work to do
     if (!lhs.isPositive && !rhs.isPositive) {
-        return Number(Number::computePosAddDigits(lhs, rhs), false);
+        return Number(lhs.computePosAddDigits(rhs), false);
     } else if (lhs.isPositive && rhs.isPositive) {
-        return Number(Number::computePosAddDigits(lhs, rhs), true);
+        return Number(lhs.computePosAddDigits(rhs), true);
     } else {
         //one positive, one negative - turn into (original positive) - (positive of original negative)
         Number tempL = lhs;
@@ -148,7 +148,7 @@ int Number::toInt() {
     int res = 0;
     std::vector<char> digits = this->digits;
     while (index < digits.size()) {
-        res += ((int) digits[index] + Number::ASCII_INT_CONV) * (int) pow(10, index);
+        res += ((int) digits[index] + Number::ASCII_INT_CONV) * (int) pow(base, index);
         ++index;
     }
     res = this->isPositive ? res : -res;
@@ -183,21 +183,21 @@ std::vector<char> Number::findDiff(const Number &other) const {
     for (index; index < smallLength; ++index) {
         int diff = Number::subChars(bigDig[index], smallDig[index]) - borrow;
         if (diff < 0) {
-            diff += 10;
+            diff += base;
             borrow = 1;
         }
-        resDig.push_back((char) (diff + Number::ASCII_INT_CONV));
+        resDig.push_back(Number::intToChar(diff));
     }
     //push on leftover bigger numbers, with borrow subtracted
     for (index; index < bigLength; ++index) {
         int diff = (int) bigDig[index] - Number::ASCII_INT_CONV - borrow;
         if (diff < 0) {
-            diff += 10;
+            diff += base;
             borrow = 1;;
         } else {
             borrow = 0;
         }
-        resDig.push_back((char) (diff + Number::ASCII_INT_CONV));
+        resDig.push_back(Number::intToChar(diff));
     }
     //trim extra zeros at left side
     while (resDig.size() > 1 && resDig[resDig.size() - 1] == '0') {

@@ -91,12 +91,13 @@ private:
     std::vector<char> digits; //char to save memory - int larger than needed. Least significant stored at position 0.
     std::vector<char> decDigits; //digits after decimal
     bool isPositive;
+    int base;
 
     bool isZero() const;
 
     bool absIsBigger(const Number &) const;
 
-    static std::vector<char> computePosAddDigits(const Number &, const Number &);
+    std::vector<char> computePosAddDigits(const Number &) const; //helper to add 2 positive number's digits
 
     static int addChars(char, char); //helper to convert 2 chars to ints, add, then convert to char
 
