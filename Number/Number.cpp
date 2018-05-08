@@ -13,7 +13,8 @@ Number::Number() : isPositive{true}, digits{'0'}, base{0} {}
 
 Number::Number(const std::vector<char> &dig, bool isPos) : isPositive{isPos}, digits{dig}, base{10} {}
 
-Number::Number(const std::string &s) : Number(std::vector<char>{s.begin() + 1, s.end()}, s[0] != '-') {}
+Number::Number(const std::string &s) : Number(std::vector<char>{s.begin() + 1, s.end()},
+                                              s[0] != '-') {} //TODO allow decimal
 
 Number::Number(int i) : Number((long long) i) {}
 
@@ -26,6 +27,21 @@ Number::Number(char c) : Number((long long) Number::charToInt(c)) {}
 Number::Number(const std::vector<char> &dec, const std::vector<char> &dig, bool isPos) : isPositive{isPos},
                                                                                          digits{dig},
                                                                                          decDigits{dec} {}
+
+Number::Number(long double f) : base{10} {
+    initFloatingPoint<long double>(f);
+}
+
+//need to implement double and float constructors on their own, as
+//long double introduces extra floating point error
+
+Number::Number(double f) : base{10} {
+    initFloatingPoint<double>(f);
+}
+
+Number::Number(float f) : base{10} {
+    initFloatingPoint<float>(f);
+}
 
 Number::Number(long long in) : base{10} {
     //special case
@@ -51,8 +67,8 @@ std::vector<char> Number::computePosAddDigits(const Number &rhs) const {
     std::vector<char> resDig;
     std::vector<char> lhsDig{this->digits};
     std::vector<char> rhsDig{rhs.digits};
-    int rhsLength=rhsDig.size();
-    int lhsLength=lhsDig.size();
+    int rhsLength = rhsDig.size();
+    int lhsLength = lhsDig.size();
     int index{0}, carry{0};
     int length = lhsLength > rhsLength ? lhsLength : rhsLength;
     while (index < length) {
@@ -94,8 +110,8 @@ std::vector<char> Number::findDiff(const Number &other) const {
     std::vector<char> resDig;
     std::vector<char> bigDig{this->absIsBigger(other) ? this->digits : other.digits};
     std::vector<char> smallDig{this->absIsBigger(other) ? other.digits : this->digits};
-    int smallLength=smallDig.size();
-    int bigLength=bigDig.size();
+    int smallLength = smallDig.size();
+    int bigLength = bigDig.size();
     int borrow{0};
     int index{0};
 
@@ -165,4 +181,31 @@ bool Number::absIsBigger(const Number &other) const {
     }
     //here, have same decimal digits up to one ends - more decimals = bigger
     return lLength > rLength;
+}
+
+template<typename T>
+void Number::initFloatingPoint(T f) {
+    auto dig = (long long) f;
+    T dec = f - dig;
+
+    //do digits to left of .
+    //special case
+    if (dig == 0) {
+        this->isPositive = true;
+        this->digits.push_back('0');
+    }
+    this->isPositive = dig >= 0;
+    long long cur = dig >= 0 ? dig : -dig;
+    while (cur != 0) {
+        this->digits.push_back(Number::intToChar(cur % base));//convert to ascii rep. of number
+        cur = cur / base;
+    }
+
+    //do digits to right of .
+    long long div{10};
+    while (dec != 0) {
+        auto val = (int) (dec * div);
+        this->decDigits.push_back(Number::intToChar(val));
+        dec = dec * div - val;
+    }
 }

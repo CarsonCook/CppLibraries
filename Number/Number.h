@@ -104,6 +104,9 @@ private:
 
     std::vector<char> computePosAddDigits(const Number &) const; //helper to add 2 positive number's digits
 
+    template<typename T>
+    void initFloatingPoint(T f);
+
     static int addChars(char, char); //helper to convert 2 chars to ints, add, then convert to char
 
     static int subChars(char, char);

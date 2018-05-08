@@ -39,6 +39,13 @@ std::ostream &operator<<(std::ostream &os, const Number &num) {
     for (int i = num.digits.size() - 1; i >= 0; --i) {
         os << digits[i];
     }
+    std::vector<char> decimals=num.decDigits;
+    if (!decimals.empty()) {
+        os << '.';
+        for (auto c : decimals) {
+            os << c;
+        }
+    }
     return os;
 }
 
