@@ -15,32 +15,35 @@ public:
     //regular constructors
     Number();
 
-    Number(const std::vector<char> &, bool);
-
-    explicit Number(const std::vector<char> &);
-
-    //conversion constructors
-    explicit Number(const std::string &);
-
-    explicit Number(const char *);
+    Number(const std::vector<char> &, const std::vector<char> &, bool= true);
 
     Number(const Number &);
 
-    explicit Number(int);
+    //conversion constructors
 
-    explicit Number(long);
+    explicit Number(const std::string &);
 
-    explicit Number(long long);
+    explicit Number(const std::vector<char> &, bool= true);
 
-    explicit Number(float);
+    Number(int);
 
-    explicit Number(double);
+    Number(long);
 
-    explicit Number(long double);
+    Number(long long);
 
-    explicit Number(short);
+    Number(float);
 
-    explicit Number(char);
+    Number(double);
+
+    Number(long double);
+
+    Number(short);
+
+    Number(char);
+
+    explicit operator long long() const;
+
+    explicit operator bool() const;
 
     //operators
     friend Number operator+(const Number &, const Number &);
@@ -51,11 +54,11 @@ public:
 
     Number &operator++();
 
-    Number &operator++(int);
+    const Number operator++(int);
 
     Number &operator--();
 
-    Number &operator--(int);
+    const Number operator--(int);
 
     Number &operator+=(const Number &);
 
@@ -65,27 +68,29 @@ public:
 
     Number &operator/=(const Number &);
 
-    Number operator*(const Number &);
+    Number &operator%=(const Number &);
 
-    Number operator/(const Number &);
+    friend Number operator*(const Number &, const Number &);
 
-    Number operator%(const Number &);
+    friend Number operator/(const Number &, const Number &);
 
-    bool operator<(const Number &);
+    friend Number operator%(const Number &, const Number &);
+
+    friend bool operator<(const Number &, const Number &);
 
     friend bool operator>(const Number &, const Number &);
 
-    bool operator>=(const Number &);
+    friend bool operator>=(const Number &, const Number &);
 
-    bool operator<=(const Number &);
+    friend bool operator<=(const Number &, const Number &);
 
     friend bool operator==(const Number &, const Number &);
 
-    bool operator!=(const Number &);
+    friend bool operator!=(const Number &, const Number &);
 
     friend std::ostream &operator<<(std::ostream &, const Number &); //remove friend when define print()
 
-    friend std::ostream &operator>>(std::istream &, const Number &);
+    friend std::istream &operator>>(std::istream &, Number &);
 
     //conversions
     int toInt(); //if float/double, cut off decimal values
@@ -108,11 +113,12 @@ private:
 
     static int charToInt(char);
 
-    static char intToChar(int);
+    static char intToChar(long long);
 
     std::vector<char> findDiff(const Number &) const; //helper to find the absolute difference between this and param
 
     const static int ASCII_INT_CONV = (int) '0'; //in case not ASCII machine
 };
 
-
+//TODO convert to other bases, functionality for other bases
+//TODO implement bit operators

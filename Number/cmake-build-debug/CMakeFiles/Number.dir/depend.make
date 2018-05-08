@@ -4,6 +4,9 @@
 CMakeFiles/Number.dir/Number.cpp.obj: ../Number.cpp
 CMakeFiles/Number.dir/Number.cpp.obj: ../Number.h
 
+CMakeFiles/Number.dir/NumberOperators.cpp.obj: ../Number.h
+CMakeFiles/Number.dir/NumberOperators.cpp.obj: ../NumberOperators.cpp
+
 CMakeFiles/Number.dir/main.cpp.obj: ../Number.h
 CMakeFiles/Number.dir/main.cpp.obj: ../main.cpp
 
