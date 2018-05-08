@@ -140,7 +140,29 @@ Number operator/(const Number &lhs, const Number &rhs) {
         ++quot;
     }
     quot.isPositive = (lhs.isPositive == rhs.isPositive);
-    return quot; //undefined
+    return quot;
+}
+
+Number operator%(const Number &lhs, const Number &rhs) {
+    //special cases
+    if (rhs.isZero()) {
+        return Number{0};
+    }
+    if (rhs == 1) {
+        return 0;
+    }
+    if (lhs.isZero()) {
+        return 0;
+    }
+    Number dividend{lhs};
+    Number divisor{rhs};
+    dividend.isPositive = true;
+    divisor.isPositive = true;
+    while (dividend >= divisor) {
+        dividend -= divisor;
+    }
+    dividend.isPositive = !(!rhs.isPositive && !lhs.isPositive);
+    return dividend;
 }
 
 //================================
@@ -241,11 +263,11 @@ Number &Number::operator/=(const Number &other) {
 }
 
 Number &Number::operator%=(const Number &other) {
-    //  auto *temp = new Number{*this % other};
-    /* this->isPositive=temp->isPositive;
-     this->digits=temp->digits;
-     this->decDigits=temp->decDigits;
-     return *this;*/
+    auto *temp = new Number{*this % other};
+    this->isPositive = temp->isPositive;
+    this->digits = temp->digits;
+    this->decDigits = temp->decDigits;
+    return *this;
 }
 
 Number &Number::operator++() {

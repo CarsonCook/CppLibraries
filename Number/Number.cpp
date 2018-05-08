@@ -5,6 +5,10 @@
 #include "Number.h"
 #include <cmath>
 
+//================================
+//      CONSTRUCTORS
+//================================
+
 Number::Number() : isPositive{true}, digits{'0'}, base{0} {}
 
 Number::Number(const std::vector<char> &dig, bool isPos) : isPositive{isPos}, digits{dig}, base{10} {}
@@ -39,6 +43,10 @@ Number::Number(long long in) : base{10} {
 
 Number::Number(const Number &other) = default;
 
+//================================
+//      FUNCTIONS
+//================================
+
 std::vector<char> Number::computePosAddDigits(const Number &rhs) const {
     std::vector<char> resDig;
     std::vector<char> lhsDig{this->digits};
@@ -65,18 +73,6 @@ std::vector<char> Number::computePosAddDigits(const Number &rhs) const {
         resDig.push_back(Number::intToChar(carry % base));
     }
     return resDig;
-}
-
-int Number::toInt() {
-    int index{0};
-    int res{0};
-    std::vector<char> digits{this->digits};
-    while (index < digits.size()) {
-        res += ((int) digits[index] + Number::ASCII_INT_CONV) * (int) pow(base, index);
-        ++index;
-    }
-    res = this->isPositive ? res : -res;
-    return res;
 }
 
 bool Number::isZero() const {

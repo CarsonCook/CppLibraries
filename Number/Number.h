@@ -92,9 +92,6 @@ public:
 
     friend std::istream &operator>>(std::istream &, Number &);
 
-    //conversions
-    int toInt(); //if float/double, cut off decimal values
-
 private:
     std::vector<char> digits; //char to save memory - int larger than needed. Least significant stored at position 0.
     std::vector<char> decDigits; //digits after decimal
