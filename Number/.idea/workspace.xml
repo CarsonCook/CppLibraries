@@ -12,8 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="375eaf80-3293-4234-97c7-07757c9cf4a6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Number.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Number.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="119">
+              <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -38,25 +37,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Number.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Number.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Number.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1564">
-              <caret line="92" column="62" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
+            <state relative-caret-position="479">
+              <caret line="106" column="24" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="24" />
               <folding>
                 <element signature="e#56#73#0" expanded="true" />
+                <element signature="e#2337#2349#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Number.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Number.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Number.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="75" column="1" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
+            <state relative-caret-position="459">
+              <caret line="29" column="53" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="53" />
               <folding>
                 <element signature="e#42#61#0" expanded="true" />
+                <element signature="e#6973#6985#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -65,8 +66,8 @@
       <file leaf-file-name="NumberOperators.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NumberOperators.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="159" column="30" lean-forward="true" selection-start-line="159" selection-start-column="30" selection-end-line="159" selection-end-column="30" />
+            <state relative-caret-position="291">
+              <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -96,10 +97,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Number.cpp" />
-        <option value="$PROJECT_DIR$/Number.h" />
         <option value="$PROJECT_DIR$/NumberOperators.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/Number.h" />
+        <option value="$PROJECT_DIR$/Number.cpp" />
       </list>
     </option>
   </component>
@@ -180,12 +181,12 @@
       <workItem from="1525563956775" duration="114000" />
       <workItem from="1525564323989" duration="12887000" />
       <workItem from="1525633581291" duration="15445000" />
-      <workItem from="1525737027227" duration="7154000" />
+      <workItem from="1525737027227" duration="11658000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45980000" />
+    <option name="totallyTimeSpent" value="50484000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -229,7 +230,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="74" />
+      <option name="time" value="88" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -249,6 +250,7 @@
           <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
           <folding>
             <element signature="e#42#61#0" expanded="true" />
+            <element signature="e#6973#6985#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -266,6 +268,7 @@
           <caret line="41" column="4" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="4" />
           <folding>
             <element signature="e#56#73#0" expanded="true" />
+            <element signature="e#2337#2349#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -286,6 +289,7 @@
           <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
           <folding>
             <element signature="e#42#61#0" expanded="true" />
+            <element signature="e#6973#6985#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -296,6 +300,7 @@
           <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="e#56#73#0" expanded="true" />
+            <element signature="e#2337#2349#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -306,6 +311,7 @@
           <caret line="59" selection-start-line="59" selection-end-line="59" />
           <folding>
             <element signature="e#42#61#0" expanded="true" />
+            <element signature="e#6973#6985#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -316,6 +322,7 @@
           <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
           <folding>
             <element signature="e#56#73#0" expanded="true" />
+            <element signature="e#2337#2349#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -336,6 +343,7 @@
           <caret line="59" selection-start-line="59" selection-end-line="59" />
           <folding>
             <element signature="e#42#61#0" expanded="true" />
+            <element signature="e#6973#6985#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -346,6 +354,7 @@
           <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
           <folding>
             <element signature="e#56#73#0" expanded="true" />
+            <element signature="e#2337#2349#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -366,6 +375,7 @@
           <caret line="59" selection-start-line="59" selection-end-line="59" />
           <folding>
             <element signature="e#42#61#0" expanded="true" />
+            <element signature="e#6973#6985#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -376,6 +386,7 @@
           <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
           <folding>
             <element signature="e#56#73#0" expanded="true" />
+            <element signature="e#2337#2349#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -390,39 +401,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NumberOperators.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="13" lean-forward="true" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="119">
+          <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NumberOperators.cpp">
+    <entry file="file://$PROJECT_DIR$/Number.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="159" column="30" lean-forward="true" selection-start-line="159" selection-start-column="30" selection-end-line="159" selection-end-column="30" />
+        <state relative-caret-position="479">
+          <caret line="106" column="24" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="24" />
+          <folding>
+            <element signature="e#56#73#0" expanded="true" />
+            <element signature="e#2337#2349#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/basic_string.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="708" column="6" selection-start-line="708" selection-start-column="6" selection-end-line="708" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Number.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="75" column="1" selection-start-line="75" selection-start-column="1" selection-end-line="75" selection-end-column="1" />
+        <state relative-caret-position="459">
+          <caret line="29" column="53" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="53" />
           <folding>
             <element signature="e#42#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Number.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="92" column="62" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
-          <folding>
-            <element signature="e#56#73#0" expanded="true" />
+            <element signature="e#6973#6985#0" expanded="true" />
           </folding>
         </state>
       </provider>

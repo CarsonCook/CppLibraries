@@ -13,8 +13,31 @@ Number::Number() : isPositive{true}, digits{'0'}, base{0} {}
 
 Number::Number(const std::vector<char> &dig, bool isPos) : isPositive{isPos}, digits{dig}, base{10} {}
 
-Number::Number(const std::string &s) : Number(std::vector<char>{s.begin() + 1, s.end()},
-                                              s[0] != '-') {} //TODO allow decimal
+Number::Number(const std::string &s) {
+    if (s.empty()) {
+        this->isPositive = true;
+        this->digits.push_back('0');
+    } else {
+        char firstChar = s[0];
+        this->isPositive = firstChar != '-';
+        int startIndex{0};
+        if (firstChar == '-' || firstChar == '+') {
+            ++startIndex;
+        }
+        int periodIndex = s.find('.');
+        int endIndex = s.length();
+        if (periodIndex != std::string::npos) {
+            //decimal - need to fill decDigits
+            endIndex = periodIndex - 1;
+            for (int i = periodIndex + 1; i < s.length(); ++i) {
+                this->decDigits.push_back(s[i]);
+            }
+        }
+        for (endIndex; endIndex>=startIndex; --endIndex) {
+            this->digits.push_back(s[endIndex]);
+        }
+    }
+} //TODO allow decimal
 
 Number::Number(int i) : Number((long long) i) {}
 
@@ -32,8 +55,7 @@ Number::Number(long double f) : base{10} {
     initFloatingPoint<long double>(f);
 }
 
-//need to implement double and float constructors on their own, as
-//long double introduces extra floating point error
+//need to implement double and float constructors on their own, as long double introduces extra floating point error
 
 Number::Number(double f) : base{10} {
     initFloatingPoint<double>(f);
