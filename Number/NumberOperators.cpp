@@ -119,7 +119,6 @@ Number operator*(const Number &lhs, const Number &rhs) {
     return res;
 }
 
-//TODO make this much more efficient - * is slow as hell and * is used WITHIN the for loop
 Number operator/(const Number &lhs, const Number &rhs) {
     //special cases
     if (rhs.isZero()) {
@@ -131,12 +130,17 @@ Number operator/(const Number &lhs, const Number &rhs) {
     if (lhs.isZero()) {
         return 0;
     }
-    for (Number i{1}; i <= lhs; ++i) {
-        if (i * rhs == lhs) {
-            return i;
-        }
+    Number quot{0};
+    Number dividend{lhs};
+    Number divisor{rhs};
+    dividend.isPositive = true;
+    divisor.isPositive = true;
+    while (dividend >= divisor) {
+        dividend -= divisor;
+        ++quot;
     }
-    return 0; //undefined
+    quot.isPositive = (lhs.isPositive == rhs.isPositive);
+    return quot; //undefined
 }
 
 //================================
