@@ -15,31 +15,31 @@ public:
     //regular constructors
     Number();
 
-    Number(const std::vector<char> &, const std::vector<char> &, bool= true);
+    Number(const std::vector<char> &, const std::vector<char> &, bool= true, int= 10);
 
     Number(const Number &);
 
     //conversion constructors
 
-    explicit Number(const std::string &);
+    explicit Number(const std::string &, int= 10);
 
-    explicit Number(const std::vector<char> &, bool= true);
+    explicit Number(const std::vector<char> &, bool= true, int= 10);
 
-    Number(int);
+    Number(int,int=10);
 
-    Number(long);
+    Number(long,int=10);
 
-    Number(long long);
+    Number(long long,int=10);
 
-    Number(float);
+    Number(float,int=10);
 
-    Number(double);
+    Number(double,int=10);
 
-    Number(long double);
+    Number(long double,int=10);
 
-    Number(short);
+    Number(short,int=10);
 
-    Number(char);
+    Number(char,int=10);
 
     explicit operator long long() const;
 
@@ -94,7 +94,7 @@ public:
 
 private:
     std::vector<char> digits; //char to save memory - int larger than needed. Least significant stored at position 0.
-    std::vector<char> decDigits; //digits after decimal
+    std::vector<char> decDigits; //digits after decimal - most significant is at position 0.
     bool isPositive;
     int base;
 
@@ -103,6 +103,8 @@ private:
     bool absIsBigger(const Number &) const;
 
     std::vector<char> computePosAddDigits(const Number &) const; //helper to add 2 positive number's digits
+
+    std::vector<char> computePosAddDecimalDigits(const Number &, int *carry) const;
 
     template<typename T>
     void initFloatingPoint(T f);

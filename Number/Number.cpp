@@ -9,11 +9,11 @@
 //      CONSTRUCTORS
 //================================
 
-Number::Number() : isPositive{true}, digits{'0'}, base{0} {}
+Number::Number() : isPositive{true}, digits{'0'}, base{10} {}
 
-Number::Number(const std::vector<char> &dig, bool isPos) : isPositive{isPos}, digits{dig}, base{10} {}
+Number::Number(const std::vector<char> &dig, bool isPos, int b) : isPositive{isPos}, digits{dig}, base{b} {}
 
-Number::Number(const std::string &s) {
+Number::Number(const std::string &s, int b) : base{b} {
     if (s.empty()) {
         this->isPositive = true;
         this->digits.push_back('0');
@@ -25,47 +25,48 @@ Number::Number(const std::string &s) {
             ++startIndex;
         }
         int periodIndex = s.find('.');
-        int endIndex = s.length();
+        int endIndex = s.length() - 1; //last char is null
         if (periodIndex != std::string::npos) {
             //decimal - need to fill decDigits
             endIndex = periodIndex - 1;
-            for (int i = periodIndex + 1; i < s.length(); ++i) {
+            for (int i = periodIndex + 1; i < s.length() - 1; ++i) {
                 this->decDigits.push_back(s[i]);
             }
         }
-        for (endIndex; endIndex>=startIndex; --endIndex) {
+        for (endIndex; endIndex >= startIndex; --endIndex) {
             this->digits.push_back(s[endIndex]);
         }
     }
-} //TODO allow decimal
+}
 
-Number::Number(int i) : Number((long long) i) {}
+Number::Number(int i, int b) : Number((long long) i, b) {}
 
-Number::Number(long i) : Number((long long) i) {}
+Number::Number(long i, int b) : Number((long long) i, b) {}
 
-Number::Number(short i) : Number((long long) i) {}
+Number::Number(short i, int b) : Number((long long) i, b) {}
 
-Number::Number(char c) : Number((long long) Number::charToInt(c)) {}
+Number::Number(char c, int b) : Number((long long) Number::charToInt(c), b) {}
 
-Number::Number(const std::vector<char> &dec, const std::vector<char> &dig, bool isPos) : isPositive{isPos},
-                                                                                         digits{dig},
-                                                                                         decDigits{dec} {}
+Number::Number(const std::vector<char> &dig, const std::vector<char> &dec, bool isPos, int b) : isPositive{isPos},
+                                                                                                base{b},
+                                                                                                digits{dig},
+                                                                                                decDigits{dec} {}
 
-Number::Number(long double f) : base{10} {
+Number::Number(long double f, int b) : base{b} {
     initFloatingPoint<long double>(f);
 }
 
 //need to implement double and float constructors on their own, as long double introduces extra floating point error
 
-Number::Number(double f) : base{10} {
+Number::Number(double f, int b) : base{b} {
     initFloatingPoint<double>(f);
 }
 
-Number::Number(float f) : base{10} {
+Number::Number(float f, int b) : base{b} {
     initFloatingPoint<float>(f);
 }
 
-Number::Number(long long in) : base{10} {
+Number::Number(long long in, int b) : base{b} {
     //special case
     if (in == 0) {
         this->isPositive = true;
@@ -110,6 +111,41 @@ std::vector<char> Number::computePosAddDigits(const Number &rhs) const {
     if (carry > 0) {
         resDig.push_back(Number::intToChar(carry % base));
     }
+    return resDig;
+}
+
+std::vector<char>
+Number::computePosAddDecimalDigits(const Number &other, int *finalCarry) const { //TODO crawl through digits reversley
+    *finalCarry = 0;
+    if (other.decDigits.empty() && this->decDigits.empty()) {
+        return this->decDigits;
+    } else if (other.decDigits.empty()) {
+        return this->decDigits;
+    } else if (this->decDigits.empty()) {
+        return other.decDigits;
+    }
+
+    std::vector<char> resDig;
+    std::vector<char> lhsDig{this->decDigits};
+    std::vector<char> rhsDig{other.decDigits};
+    int rhsLength = rhsDig.size();
+    int lhsLength = lhsDig.size();
+    int index{0}, carry{0};
+    int length = lhsLength > rhsLength ? lhsLength : rhsLength;
+    while (index < length) {
+        int add;
+        if (index < lhsLength && index < rhsLength) {
+            add = addChars(lhsDig[index], rhsDig[index]);
+        } else if (index < lhsLength) {
+            add = (int) lhsDig[index] - Number::ASCII_INT_CONV;
+        } else {
+            add = (int) rhsDig[index] - Number::ASCII_INT_CONV;
+        }
+        resDig.push_back(Number::intToChar((add + carry) % base));
+        carry = (add + carry) / base;
+        ++index;
+    }
+    *finalCarry = carry; //used to add onto ones column if not not here
     return resDig;
 }
 

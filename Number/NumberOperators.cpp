@@ -39,7 +39,7 @@ std::ostream &operator<<(std::ostream &os, const Number &num) {
     for (int i = num.digits.size() - 1; i >= 0; --i) {
         os << digits[i];
     }
-    std::vector<char> decimals=num.decDigits;
+    std::vector<char> decimals = num.decDigits;
     if (!decimals.empty()) {
         os << '.';
         for (auto c : decimals) {
@@ -74,7 +74,14 @@ Number operator+(const Number &lhs, const Number &rhs) {
     if (!lhs.isPositive && !rhs.isPositive) {
         return Number(lhs.computePosAddDigits(rhs), false);
     } else if (lhs.isPositive && rhs.isPositive) {
-        return Number(lhs.computePosAddDigits(rhs), true);
+        auto *carry = new int(0);
+        Number num;
+        num.digits = lhs.computePosAddDigits(rhs);
+        num.decDigits = lhs.computePosAddDecimalDigits(rhs, carry);
+        num.digits = num.computePosAddDigits(*carry);
+        num.isPositive = true;
+        delete carry;
+        return num;
     } else {
         //one positive, one negative - turn into (original positive) - (positive of original negative)
         Number tempL{lhs};
@@ -213,7 +220,7 @@ bool operator>=(const Number &lhs, const Number &rhs) {
 }
 
 bool operator<(const Number &lhs, const Number &rhs) {
-    return !(lhs > rhs || lhs == rhs);
+    return !(lhs >= rhs);
 }
 
 bool operator<=(const Number &lhs, const Number &rhs) {
