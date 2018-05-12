@@ -4,6 +4,7 @@
 
 #include "Number.h"
 #include <cmath>
+#include <algorithm>
 
 //================================
 //      CONSTRUCTORS
@@ -25,16 +26,22 @@ Number::Number(const std::string &s, int b) : base{b} {
             ++startIndex;
         }
         int periodIndex = s.find('.');
-        int endIndex = s.length() - 1; //last char is null
+        int endIndex = s.length();
         if (periodIndex != std::string::npos) {
             //decimal - need to fill decDigits
             endIndex = periodIndex - 1;
-            for (int i = periodIndex + 1; i < s.length() - 1; ++i) {
-                this->decDigits.push_back(s[i]);
+            for (int i = periodIndex + 1; i < s.length(); ++i) {
+                char c = s[i];
+                if (c != '\0') {
+                    this->decDigits.push_back(c);
+                }
             }
         }
         for (endIndex; endIndex >= startIndex; --endIndex) {
-            this->digits.push_back(s[endIndex]);
+            char c = s[endIndex];
+            if (c != '\0') {
+                this->digits.push_back(s[endIndex]);
+            }
         }
     }
 }
@@ -115,7 +122,7 @@ std::vector<char> Number::computePosAddDigits(const Number &rhs) const {
 }
 
 std::vector<char>
-Number::computePosAddDecimalDigits(const Number &other, int *finalCarry) const { //TODO crawl through digits reversley
+Number::computePosAddDecimalDigits(const Number &other, int *finalCarry) const {
     *finalCarry = 0;
     if (other.decDigits.empty() && this->decDigits.empty()) {
         return this->decDigits;
@@ -130,9 +137,9 @@ Number::computePosAddDecimalDigits(const Number &other, int *finalCarry) const {
     std::vector<char> rhsDig{other.decDigits};
     int rhsLength = rhsDig.size();
     int lhsLength = lhsDig.size();
-    int index{0}, carry{0};
     int length = lhsLength > rhsLength ? lhsLength : rhsLength;
-    while (index < length) {
+    int index{length - 1}, carry{0};
+    while (index >= 0) {
         int add;
         if (index < lhsLength && index < rhsLength) {
             add = addChars(lhsDig[index], rhsDig[index]);
@@ -143,14 +150,19 @@ Number::computePosAddDecimalDigits(const Number &other, int *finalCarry) const {
         }
         resDig.push_back(Number::intToChar((add + carry) % base));
         carry = (add + carry) / base;
-        ++index;
+        --index;
     }
+    //clear dangling .0 at end of what is now whole number
+    if (resDig.size() == 1 && resDig[0] == '0') {
+        resDig.clear();
+    }
+    std::reverse(resDig.begin(), resDig.end());
     *finalCarry = carry; //used to add onto ones column if not not here
     return resDig;
 }
 
 bool Number::isZero() const {
-    return this->decDigits.empty() && this->digits[0] == 0;
+    return this->decDigits.empty() && this->digits.empty();
 }
 
 int Number::addChars(char dig1, char dig2) {
@@ -161,9 +173,9 @@ int Number::subChars(char dig1, char dig2) {
     return (int) dig1 - Number::ASCII_INT_CONV - ((int) dig2 - Number::ASCII_INT_CONV);
 }
 
-std::vector<char> Number::findDiff(const Number &other) const {
+std::vector<char> Number::findDigDiff(const Number &other) const {
     if (*this == other) {
-        return std::vector<char>{0}; //if equal, no difference
+        return std::vector<char>{'0'}; //if equal, no difference
     }
     std::vector<char> resDig;
     std::vector<char> bigDig{this->absIsBigger(other) ? this->digits : other.digits};
@@ -198,6 +210,64 @@ std::vector<char> Number::findDiff(const Number &other) const {
         resDig.pop_back();
     }
     return resDig;
+}
+
+std::vector<char> Number::subtractDec(const Number &other, int *finalBorrow) const {
+    *finalBorrow = 0;
+    std::vector<char> thisDec{this->decDigits};
+    std::vector<char> otherDec{other.decDigits};
+
+    if (otherDec.empty() && thisDec.empty() || *this == other) {
+        return std::vector<char>{}; //no trailing 0
+    }
+    //if one empty, the other is the difference
+    if (otherDec.empty()) {
+        return thisDec;
+    }
+    if (thisDec.empty()) {
+        thisDec.push_back(Number::intToChar(10));
+        *finalBorrow = 1;
+    }
+
+    Number thisNum(std::vector<char>('0'), thisDec);
+    Number otherNum(std::vector<char>('0'), otherDec);
+    if (thisNum == otherNum) {
+        return std::vector<char>();
+    } else if (otherNum > thisNum) {
+        //get borrow set up, as this decimals are smaller
+        *finalBorrow = 1;
+        thisDec[0] += 10;
+    }
+    //pad shorter decimal with 0s to get to same length (don't change value)
+    int thisLength = thisDec.size(), otherLength = otherDec.size();
+    int length = thisLength > otherLength ? thisLength : otherLength;
+    while (thisDec.size() != otherDec.size()) {
+        if (thisDec.size() < length) {
+            thisDec.push_back('0');
+        } else {
+            otherDec.push_back('0');
+        }
+    }
+
+    //subtract
+    std::vector<char> resDec;
+    length = thisDec.size(); //both decimals have same length
+    int index{length - 1}, borrow{0};
+    for (index; index >= 0; --index) {
+        int diff = Number::subChars(thisDec[index], otherDec[index]) - borrow;
+        if (diff < 0) {
+            diff += base;
+            borrow = 1;
+        }
+        resDec.push_back(Number::intToChar(diff));
+    }
+    std::reverse(resDec.begin(), resDec.end());
+    //trim extra zeros at left side
+    while (resDec.size() > 1 && resDec[resDec.size() - 1] == '0') {
+        resDec.pop_back();
+    }
+    *finalBorrow = borrow;
+    return resDec;
 }
 
 int Number::charToInt(char c) {
@@ -266,4 +336,14 @@ void Number::initFloatingPoint(T f) {
         this->decDigits.push_back(Number::intToChar(val));
         dec = dec * div - val;
     }
+}
+
+Number Number::absAdd(const Number &lhs, const Number &rhs) {
+    auto *carry = new int(0);
+    Number num;
+    num.digits = lhs.computePosAddDigits(rhs);
+    num.decDigits = lhs.computePosAddDecimalDigits(rhs, carry);
+    num.digits = num.computePosAddDigits(*carry);
+    delete carry;
+    return num;
 }

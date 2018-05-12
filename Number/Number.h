@@ -15,7 +15,7 @@ public:
     //regular constructors
     Number();
 
-    Number(const std::vector<char> &, const std::vector<char> &, bool= true, int= 10);
+    Number(const std::vector<char> &dig, const std::vector<char> &dec, bool= true, int= 10);
 
     Number(const Number &);
 
@@ -25,21 +25,21 @@ public:
 
     explicit Number(const std::vector<char> &, bool= true, int= 10);
 
-    Number(int,int=10);
+    Number(int, int= 10);
 
-    Number(long,int=10);
+    Number(long, int= 10);
 
-    Number(long long,int=10);
+    Number(long long, int= 10);
 
-    Number(float,int=10);
+    Number(float, int= 10);
 
-    Number(double,int=10);
+    Number(double, int= 10);
 
-    Number(long double,int=10);
+    Number(long double, int= 10);
 
-    Number(short,int=10);
+    Number(short, int= 10);
 
-    Number(char,int=10);
+    Number(char, int= 10);
 
     explicit operator long long() const;
 
@@ -102,6 +102,8 @@ private:
 
     bool absIsBigger(const Number &) const;
 
+    static Number absAdd(const Number &, const Number &);
+
     std::vector<char> computePosAddDigits(const Number &) const; //helper to add 2 positive number's digits
 
     std::vector<char> computePosAddDecimalDigits(const Number &, int *carry) const;
@@ -117,10 +119,15 @@ private:
 
     static char intToChar(long long);
 
-    std::vector<char> findDiff(const Number &) const; //helper to find the absolute difference between this and param
+    std::vector<char> findDigDiff(const Number &) const; //helper to find the absolute difference between this and param
+
+    std::vector<char> subtractDec(const Number &, int *borrow) const; //subtracts other's decimals from this
 
     const static int ASCII_INT_CONV = (int) '0'; //in case not ASCII machine
 };
 
 //TODO convert to other bases, functionality for other bases
+//TODO override [] for powers of base to access individual numbers
 //TODO implement bit operators
+//TODO string constructor throw exception for bad input
+//TODO fix initFloatingPoint to be more accurate - no - for decimal

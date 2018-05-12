@@ -72,16 +72,11 @@ Number operator+(const Number &lhs, const Number &rhs) {
 
     //else have work to do
     if (!lhs.isPositive && !rhs.isPositive) {
-        return Number(lhs.computePosAddDigits(rhs), false);
-    } else if (lhs.isPositive && rhs.isPositive) {
-        auto *carry = new int(0);
-        Number num;
-        num.digits = lhs.computePosAddDigits(rhs);
-        num.decDigits = lhs.computePosAddDecimalDigits(rhs, carry);
-        num.digits = num.computePosAddDigits(*carry);
-        num.isPositive = true;
-        delete carry;
+        Number num = Number::absAdd(lhs, rhs);
+        num.isPositive = false;
         return num;
+    } else if (lhs.isPositive && rhs.isPositive) {
+        return Number::absAdd(lhs, rhs);
     } else {
         //one positive, one negative - turn into (original positive) - (positive of original negative)
         Number tempL{lhs};
@@ -117,8 +112,21 @@ Number operator-(const Number &lhs, const Number &rhs) {
         temp.isPositive = false;
         return temp;
     }
-    //return the difference, negative if rhs > rhs. By here, can't be -
-    return Number{lhs.findDiff(rhs), lhs > rhs};
+    //return the difference, negative if rhs > rhs. By here, rhs can't be -
+    Number res, big, small;
+    res.isPositive = lhs > rhs;
+    if (res.isPositive) {
+        big = lhs;
+        small = rhs;
+    } else {
+        big = rhs;
+        small = lhs;
+    }
+    auto *borrow = new int(0);
+    res.decDigits = big.subtractDec(small, borrow);
+    res.digits = Number(Number(big.findDigDiff(small)).findDigDiff(*borrow)).digits;
+    delete borrow;
+    return res;
 }
 
 Number operator*(const Number &lhs, const Number &rhs) {
