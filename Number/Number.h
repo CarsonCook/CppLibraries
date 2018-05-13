@@ -45,6 +45,8 @@ public:
 
     explicit operator bool() const;
 
+    explicit operator std::string() const;
+
     //operators
     friend Number operator+(const Number &, const Number &);
 
@@ -69,6 +71,9 @@ public:
     Number &operator/=(const Number &);
 
     Number &operator%=(const Number &);
+
+    int operator[](
+            Number) const; //negatives get decimals, positives get digits - only use powers of base - 10 for 123.2 gives 2
 
     friend Number operator*(const Number &, const Number &);
 
@@ -125,15 +130,26 @@ private:
 
 class BadNumberStringException : public std::exception {
 public:
-    explicit BadNumberStringException(int c, const std::string &s);
+    BadNumberStringException(int c, const std::string &s);
 
     const char *what() const noexcept override;
 
 private:
-    std::string str;
+    std::string detail,message;
     int pos;
 };
 
+class BadSubscriptAccess : public std::exception {
+public:
+    BadSubscriptAccess(const Number &val, const Number &i, int, const std::string &);
+
+    const char *what() const noexcept override;
+
+private:
+    Number value, index;
+    std::string detail, message;
+    int base;
+};
+
 //TODO convert to other bases, functionality for other bases
-//TODO override [] for powers of base to access individual numbers
 //TODO implement bit operators

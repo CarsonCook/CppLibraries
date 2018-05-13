@@ -5,7 +5,8 @@
 using namespace std;
 
 int main() {
-    Number n(1.1);
-    cout << n << endl;
+    Number n(1234.987);
+    Number i(-100);
+    cout << n[i] << endl;
     return 0;
 }

@@ -29,6 +29,23 @@ Number::operator bool() const {
     return this != nullptr;
 }
 
+Number::operator std::string() const {
+    std::string res;
+    if (!isPositive) {
+        res += '-';
+    }
+    for (int i = digits.size() - 1; i >= 0; --i) {
+        res += digits[i];
+    }
+    if (!decDigits.empty()) {
+        res += '.';
+        for (auto c : decDigits) {
+            res += c;
+        }
+    }
+    return res;
+}
+
 //================================
 //      STREAM OPERATORS
 //================================
@@ -317,4 +334,43 @@ const Number Number::operator--(int) {
     Number copy{*this};
     --(*this);
     return copy;
+}
+
+//================================
+//      OTHER OPERATORS
+//================================
+
+int Number::operator[](Number index) const {
+    //force only integers and powers of base and not zero
+    bool indexOne = index == 1 || index == -1;
+    if (!index.decDigits.empty() || (!indexOne && index % base != 0) || index.isZero()) {
+        throw BadSubscriptAccess(*this, index, base, "illegal subscript number");
+    }
+
+    //get index of vector to access - 1 is special case where no work done
+    int i{1};
+    Number match{index};
+    match.isPositive = true; //match absolute value
+    if (!indexOne) {
+        Number val(base);
+        while (val != match) {
+            val *= val;
+            ++i;
+        }
+    }
+
+    //positives for digits, negatives for decimals
+    --i; //vectors index at 0
+    if (index.isPositive) {
+        int length = digits.size();
+        if (i >= length) {
+            throw BadSubscriptAccess(*this, index, base, "subscript too big");
+        }
+        return Number::charToInt(digits[length - 1 - i]);
+    } else {
+        if (i >= decDigits.size()) {
+            throw BadSubscriptAccess(*this, index, base, "subscript too big");
+        }
+        return Number::charToInt(decDigits[i]);
+    }
 }
