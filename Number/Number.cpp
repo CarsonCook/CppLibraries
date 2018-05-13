@@ -52,6 +52,10 @@ Number::Number(const std::string &s, int b) : base{b} {
             }
         }
     }
+    //trim zeros from end of decimal
+    while (!decDigits.empty() && decDigits[decDigits.size() - 1] == '0') {
+        decDigits.pop_back();
+    }
 }
 
 Number::Number(int i, int b) : Number((long long) i, b) {}
@@ -67,18 +71,14 @@ Number::Number(const std::vector<char> &dig, const std::vector<char> &dec, bool 
                                                                                                 digits{dig},
                                                                                                 decDigits{dec} {}
 
-Number::Number(long double f, int b) : base{b} {
-    initFloatingPoint<long double>(f);
-}
+Number::Number(long double f, int b) : Number(std::to_string(f), b) {}
 
 //need to implement double and float constructors on their own, as long double introduces extra floating point error
 
-Number::Number(double f, int b) : base{b} {
-    initFloatingPoint<double>(f);
+Number::Number(double f, int b) : Number(std::to_string(f), b) {
 }
 
-Number::Number(float f, int b) : base{b} {
-    initFloatingPoint<float>(f);
+Number::Number(float f, int b) : Number(std::to_string(f), b) {
 }
 
 Number::Number(long long in, int b) : base{b} {
@@ -317,33 +317,6 @@ bool Number::absIsBigger(const Number &other) const {
     }
     //here, have same decimal digits up to one ends - more decimals = bigger
     return lLength > rLength;
-}
-
-template<typename T>
-void Number::initFloatingPoint(T f) {
-    auto dig = (long long) f;
-    T dec = f - dig;
-
-    //do digits to left of .
-    //special case
-    if (dig == 0) {
-        this->isPositive = true;
-        this->digits.push_back('0');
-    }
-    this->isPositive = dig >= 0;
-    long long cur = dig >= 0 ? dig : -dig;
-    while (cur != 0) {
-        this->digits.push_back(Number::intToChar(cur % base));//convert to ascii rep. of number
-        cur = cur / base;
-    }
-
-    //do digits to right of .
-    long long div{10};
-    while (dec != 0) {
-        auto val = (int) (dec * div);
-        this->decDigits.push_back(Number::intToChar(val));
-        dec = dec * div - val;
-    }
 }
 
 Number Number::absAdd(const Number &lhs, const Number &rhs) {

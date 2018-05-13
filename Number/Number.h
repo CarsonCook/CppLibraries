@@ -108,9 +108,6 @@ private:
 
     std::vector<char> computePosAddDecimalDigits(const Number &, int *carry) const;
 
-    template<typename T>
-    void initFloatingPoint(T f);
-
     static int addChars(char, char); //helper to convert 2 chars to ints, add, then convert to char
 
     static int subChars(char, char);
@@ -140,4 +137,3 @@ private:
 //TODO convert to other bases, functionality for other bases
 //TODO override [] for powers of base to access individual numbers
 //TODO implement bit operators
-//TODO fix initFloatingPoint to be more accurate; no - for decimal

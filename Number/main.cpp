@@ -5,6 +5,7 @@
 using namespace std;
 
 int main() {
-    Number n7("1a.1");
+    Number n(1.1);
+    cout << n << endl;
     return 0;
 }
