@@ -129,8 +129,7 @@ std::vector<char> Number::computePosAddDigits(const Number &rhs) const {
     return resDig;
 }
 
-std::vector<char>
-Number::computePosAddDecimalDigits(const Number &other, int *finalCarry) const {
+std::vector<char> Number::computePosAddDecimalDigits(const Number &other, int *finalCarry) const {
     *finalCarry = 0;
     if (other.decDigits.empty() && this->decDigits.empty()) {
         return this->decDigits;
@@ -173,11 +172,11 @@ bool Number::isZero() const {
     return this->decDigits.empty() && this->digits.empty();
 }
 
-int Number::addChars(char dig1, char dig2) {
+int Number::addChars(char dig1, char dig2) const {
     return (int) dig1 - Number::ASCII_INT_CONV + (int) dig2 - Number::ASCII_INT_CONV;
 }
 
-int Number::subChars(char dig1, char dig2) {
+int Number::subChars(char dig1, char dig2) const {
     return (int) dig1 - Number::ASCII_INT_CONV - ((int) dig2 - Number::ASCII_INT_CONV);
 }
 
@@ -278,11 +277,11 @@ std::vector<char> Number::subtractDec(const Number &other, int *finalBorrow) con
     return resDec;
 }
 
-int Number::charToInt(char c) {
+int Number::charToInt(char c) const {
     return (int) c - Number::ASCII_INT_CONV;
 }
 
-char Number::intToChar(long long i) {
+char Number::intToChar(long long i) const {
     return (char) (i + Number::ASCII_INT_CONV);
 }
 

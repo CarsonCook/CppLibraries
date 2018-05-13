@@ -72,8 +72,7 @@ public:
 
     Number &operator%=(const Number &);
 
-    int operator[](
-            Number) const; //negatives get decimals, positives get digits - only use powers of base - 10 for 123.2 gives 2
+    int operator[](Number) const; //negatives/positives for decimals/digits - use powers of base - 10 for 123.2 gives 2
 
     friend Number operator*(const Number &, const Number &);
 
@@ -113,13 +112,13 @@ private:
 
     std::vector<char> computePosAddDecimalDigits(const Number &, int *carry) const;
 
-    static int addChars(char, char); //helper to convert 2 chars to ints, add, then convert to char
+    static int addChars(char, char) const; //helper to convert 2 chars to ints, add, then convert to char
 
-    static int subChars(char, char);
+    static int subChars(char, char) const;
 
-    static int charToInt(char);
+    static int charToInt(char) const;
 
-    static char intToChar(long long);
+    static char intToChar(long long) const;
 
     std::vector<char> findDigDiff(const Number &) const; //helper to find the absolute difference between this and param
 
@@ -135,7 +134,7 @@ public:
     const char *what() const noexcept override;
 
 private:
-    std::string detail,message;
+    std::string detail, message;
     int pos;
 };
 
