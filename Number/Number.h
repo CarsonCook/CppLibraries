@@ -126,8 +126,18 @@ private:
     const static int ASCII_INT_CONV = (int) '0'; //in case not ASCII machine
 };
 
+class BadNumberStringException : public std::exception {
+public:
+    explicit BadNumberStringException(int c, const std::string &s);
+
+    const char *what() const noexcept override;
+
+private:
+    std::string str;
+    int pos;
+};
+
 //TODO convert to other bases, functionality for other bases
 //TODO override [] for powers of base to access individual numbers
 //TODO implement bit operators
-//TODO string constructor throw exception for bad input
-//TODO fix initFloatingPoint to be more accurate - no - for decimal
+//TODO fix initFloatingPoint to be more accurate; no - for decimal

@@ -5,6 +5,7 @@
 #include "Number.h"
 #include <cmath>
 #include <algorithm>
+#include <cctype>
 
 //================================
 //      CONSTRUCTORS
@@ -16,14 +17,15 @@ Number::Number(const std::vector<char> &dig, bool isPos, int b) : isPositive{isP
 
 Number::Number(const std::string &s, int b) : base{b} {
     if (s.empty()) {
-        this->isPositive = true;
-        this->digits.push_back('0');
+        throw BadNumberStringException(0, s);
     } else {
         char firstChar = s[0];
         this->isPositive = firstChar != '-';
         int startIndex{0};
         if (firstChar == '-' || firstChar == '+') {
             ++startIndex;
+        } else if (firstChar != '.' && !isdigit(firstChar)) {
+            throw BadNumberStringException(0, s);
         }
         int periodIndex = s.find('.');
         int endIndex = s.length();
@@ -32,6 +34,9 @@ Number::Number(const std::string &s, int b) : base{b} {
             endIndex = periodIndex - 1;
             for (int i = periodIndex + 1; i < s.length(); ++i) {
                 char c = s[i];
+                if (!isdigit(c) && c != '\0') {
+                    throw BadNumberStringException(i, s);
+                }
                 if (c != '\0') {
                     this->decDigits.push_back(c);
                 }
@@ -39,6 +44,9 @@ Number::Number(const std::string &s, int b) : base{b} {
         }
         for (endIndex; endIndex >= startIndex; --endIndex) {
             char c = s[endIndex];
+            if (!isdigit(c) && c != '\0') {
+                throw BadNumberStringException(endIndex, s);
+            }
             if (c != '\0') {
                 this->digits.push_back(s[endIndex]);
             }

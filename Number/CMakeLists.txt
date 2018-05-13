@@ -3,5 +3,5 @@ project(Number)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp Number.cpp Number.h NumberOperators.cpp)
+set(SOURCE_FILES main.cpp Number.cpp Number.h NumberOperators.cpp NumberExceptions.cpp)
 add_executable(Number ${SOURCE_FILES})

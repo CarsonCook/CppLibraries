@@ -88,6 +88,9 @@
 		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Number/Number.h">
 			<Option target="Number"/>
 		</Unit>
+		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Number/NumberExceptions.cpp">
+			<Option target="Number"/>
+		</Unit>
 		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Number/NumberOperators.cpp">
 			<Option target="Number"/>
 		</Unit>

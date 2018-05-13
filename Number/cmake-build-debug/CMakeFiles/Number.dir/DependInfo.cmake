@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "C:/Users/cookc/Desktop/Code/CppLibraries/Number/Number.cpp" "C:/Users/cookc/Desktop/Code/CppLibraries/Number/cmake-build-debug/CMakeFiles/Number.dir/Number.cpp.obj"
+  "C:/Users/cookc/Desktop/Code/CppLibraries/Number/NumberExceptions.cpp" "C:/Users/cookc/Desktop/Code/CppLibraries/Number/cmake-build-debug/CMakeFiles/Number.dir/NumberExceptions.cpp.obj"
   "C:/Users/cookc/Desktop/Code/CppLibraries/Number/NumberOperators.cpp" "C:/Users/cookc/Desktop/Code/CppLibraries/Number/cmake-build-debug/CMakeFiles/Number.dir/NumberOperators.cpp.obj"
   "C:/Users/cookc/Desktop/Code/CppLibraries/Number/main.cpp" "C:/Users/cookc/Desktop/Code/CppLibraries/Number/cmake-build-debug/CMakeFiles/Number.dir/main.cpp.obj"
   )

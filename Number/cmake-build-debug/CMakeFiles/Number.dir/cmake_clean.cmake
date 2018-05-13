@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Number.dir/main.cpp.obj"
   "CMakeFiles/Number.dir/Number.cpp.obj"
   "CMakeFiles/Number.dir/NumberOperators.cpp.obj"
+  "CMakeFiles/Number.dir/NumberExceptions.cpp.obj"
   "Number.pdb"
   "Number.exe"
   "Number.exe.manifest"
