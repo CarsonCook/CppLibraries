@@ -112,13 +112,13 @@ private:
 
     std::vector<char> computePosAddDecimalDigits(const Number &, int *carry) const;
 
-    static int addChars(char, char) const; //helper to convert 2 chars to ints, add, then convert to char
+    static int addChars(char, char); //helper to convert 2 chars to ints, add, then convert to char
 
-    static int subChars(char, char) const;
+    static int subChars(char, char);
 
-    static int charToInt(char) const;
+    static int charToInt(char);
 
-    static char intToChar(long long) const;
+    static char intToChar(long long);
 
     std::vector<char> findDigDiff(const Number &) const; //helper to find the absolute difference between this and param
 
@@ -152,3 +152,4 @@ private:
 
 //TODO convert to other bases, functionality for other bases
 //TODO implement bit operators
+//TODO implement %,*,/ for decimals - or at least throw exception for decimal operations

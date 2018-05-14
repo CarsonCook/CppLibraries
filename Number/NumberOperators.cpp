@@ -2,6 +2,7 @@
 // Created by cookc on 2018-05-06.
 //
 
+#include <algorithm>
 #include "Number.h"
 
 //================================
@@ -151,11 +152,50 @@ Number operator*(const Number &lhs, const Number &rhs) {
     if (lhs.isZero() || rhs.isZero()) {
         return Number{0};
     }
-    Number res{0};
-    for (Number i{1}; i <= lhs; ++i) {
-        res += rhs;
+    std::vector<char> leftDec = lhs.decDigits;
+    std::vector<char> rightDec = rhs.decDigits;
+    bool leftEmpty = leftDec.empty();
+    bool rightEmpty = rightDec.empty();
+    if (leftEmpty && rightEmpty) {
+        Number res{0};
+        Number left{lhs};
+        left.isPositive = true;
+        for (Number i{1}; i <= left; ++i) {
+            res += rhs;
+        }
+        res.isPositive = rhs.isPositive == lhs.isPositive;
+        return res;
+    } else {
+        //treat as whole numbers, then chop into decimal and digits - number of decimal places is total between 2 originals
+        Number left = lhs;
+        Number right = rhs;
+        if (!leftEmpty) {
+            //make left whole
+            for (const auto v : left.decDigits) {
+                left.digits.insert(left.digits.begin(), v);
+            }
+            left.decDigits.clear();
+        }
+        if (!rightEmpty) {
+            //make right whole
+            for (const auto v : right.decDigits) {
+                right.digits.insert(right.digits.begin(), v);
+            }
+            right.decDigits.clear();
+        }
+        Number res = left * right;
+        int splitPos = leftDec.size() + rightDec.size();
+        if (splitPos > 0) {
+            res.decDigits = std::vector<char>(res.digits.begin(), res.digits.begin() + splitPos);
+            std::reverse(res.decDigits.begin(), res.decDigits.end()); //decimal most significant digit is at 0
+            res.digits = std::vector<char>(res.digits.begin() + splitPos, res.digits.end());
+        }
+        //trim extra zeros at right side of decimal
+        while (!res.decDigits.empty() && res.decDigits[res.decDigits.size() - 1] == '0') {
+            res.decDigits.pop_back();
+        }
+        return res;
     }
-    return res;
 }
 
 Number operator/(const Number &lhs, const Number &rhs) {
