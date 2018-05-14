@@ -152,6 +152,14 @@ Number operator*(const Number &lhs, const Number &rhs) {
     if (lhs.isZero() || rhs.isZero()) {
         return Number{0};
     }
+    //if either one, return the other
+    if (lhs == 1) {
+        return Number{rhs};
+    }
+    if (rhs == 1) {
+        return Number{lhs};
+    }
+
     std::vector<char> leftDec = lhs.decDigits;
     std::vector<char> rightDec = rhs.decDigits;
     bool leftEmpty = leftDec.empty();

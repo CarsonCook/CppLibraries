@@ -152,5 +152,7 @@ private:
     int base;
 };
 
+//TODO find more efficient multiplication
+//TODO find a way to detect repeating decimals and show in the output, rather than cutting off at a arbitrary precision
 //TODO convert to other bases, functionality for other bases
 //TODO implement bit operators
