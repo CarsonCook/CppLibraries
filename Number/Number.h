@@ -125,6 +125,8 @@ private:
     std::vector<char> subtractDec(const Number &, int *borrow) const; //subtracts other's decimals from this
 
     const static int ASCII_INT_CONV = (int) '0'; //in case not ASCII machine
+
+    const static int MAX_PRECISION = 100; //maximum precision for arithmetic with repeating decimals (e.g. division)
 };
 
 class BadNumberStringException : public std::exception {
@@ -152,4 +154,3 @@ private:
 
 //TODO convert to other bases, functionality for other bases
 //TODO implement bit operators
-//TODO implement %,*,/ for decimals - or at least throw exception for decimal operations

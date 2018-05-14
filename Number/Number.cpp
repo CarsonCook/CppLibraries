@@ -273,7 +273,10 @@ std::vector<char> Number::subtractDec(const Number &other, int *finalBorrow) con
     while (resDec.size() > 1 && resDec[resDec.size() - 1] == '0') {
         resDec.pop_back();
     }
-    *finalBorrow = borrow;
+    if (*finalBorrow == 0) {
+        //don't change finalBorrow if already set to 1
+        *finalBorrow = borrow;
+    }
     return resDec;
 }
 
@@ -305,7 +308,7 @@ bool Number::absIsBigger(const Number &other) const {
     lDig = this->decDigits;
     rDig = other.decDigits;
     lLength = lDig.size();
-    rLength = lDig.size();
+    rLength = rDig.size();
     int length{lLength < rLength ? lLength : rLength};
     for (int i{0}; i < length; ++i) {
         int l = Number::charToInt(lDig[i]);

@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    Number n(-1);
-    cout << (n * 0.5) << endl;
+    Number n(10.6);
+    cout << (n % 2.3) << endl;
     return 0;
 }

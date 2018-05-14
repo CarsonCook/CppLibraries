@@ -12,16 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="375eaf80-3293-4234-97c7-07757c9cf4a6" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Number.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Number.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Number.h" beforeDir="false" afterPath="$PROJECT_DIR$/Number.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NumberOperators.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/NumberOperators.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Number.dir/Number.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Number.dir/Number.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Number.dir/NumberExceptions.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Number.dir/NumberExceptions.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Number.dir/NumberOperators.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Number.dir/NumberOperators.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Number.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Number.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Number.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Number.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Number.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Number.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -35,11 +25,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+            <state relative-caret-position="102">
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -47,8 +37,8 @@
       <file leaf-file-name="Number.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Number.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="114" column="35" selection-start-line="114" selection-start-column="35" selection-end-line="114" selection-end-column="35" />
+            <state relative-caret-position="326">
+              <caret line="128" column="116" selection-start-line="128" selection-start-column="116" selection-end-line="128" selection-end-column="116" />
               <folding>
                 <element signature="e#56#73#0" expanded="true" />
               </folding>
@@ -59,8 +49,8 @@
       <file leaf-file-name="Number.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Number.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="269" column="5" lean-forward="true" selection-start-line="269" selection-start-column="5" selection-end-line="269" selection-end-column="5" />
+            <state relative-caret-position="418">
+              <caret line="312" selection-start-line="312" selection-end-line="312" />
               <folding>
                 <element signature="e#42#61#0" expanded="true" />
               </folding>
@@ -68,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NumberOperators.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NumberOperators.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NumberOperators.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="168" selection-start-line="168" selection-end-line="168" />
+            <state relative-caret-position="180">
+              <caret line="243" column="36" selection-start-line="243" selection-start-column="36" selection-end-line="243" selection-end-column="36" />
               <folding>
                 <element signature="e#42#62#0" expanded="true" />
               </folding>
@@ -99,6 +89,7 @@
       <find>(char)</find>
       <find>10</find>
       <find>base</find>
+      <find>trim</find>
     </findStrings>
     <replaceStrings>
       <replace>lhs</replace>
@@ -115,8 +106,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/NumberExceptions.cpp" />
-        <option value="$PROJECT_DIR$/Number.h" />
         <option value="$PROJECT_DIR$/Number.cpp" />
+        <option value="$PROJECT_DIR$/Number.h" />
         <option value="$PROJECT_DIR$/NumberOperators.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
       </list>
@@ -203,12 +194,12 @@
       <workItem from="1526005060056" duration="9445000" />
       <workItem from="1526162700390" duration="5294000" />
       <workItem from="1526175513413" duration="8156000" />
-      <workItem from="1526255247636" duration="2134000" />
+      <workItem from="1526255247636" duration="10402000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83219000" />
+    <option name="totallyTimeSpent" value="91487000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -221,6 +212,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="3832" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1085353" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32897604" />
@@ -228,11 +220,11 @@
       <window_info anchor="bottom" id="CMake" order="7" weight="0.32897604" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32897604" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32897604" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32897604" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32897604" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39869282" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5261438" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -274,47 +266,15 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/NumberOperators.cpp</url>
-          <line>168</line>
-          <option name="timeStamp" value="228" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/NumberOperators.cpp</url>
-          <line>175</line>
-          <option name="timeStamp" value="230" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/NumberOperators.cpp</url>
-          <line>184</line>
-          <option name="timeStamp" value="232" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/NumberOperators.cpp</url>
-          <line>185</line>
-          <option name="timeStamp" value="233" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/NumberOperators.cpp</url>
-          <line>187</line>
-          <option name="timeStamp" value="234" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/NumberOperators.cpp</url>
-          <line>183</line>
-          <option name="timeStamp" value="235" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/NumberOperators.cpp</url>
-          <line>193</line>
-          <option name="timeStamp" value="237" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/NumberOperators.cpp</url>
-          <line>152</line>
-          <option name="timeStamp" value="238" />
+          <url>file://$PROJECT_DIR$/Number.cpp</url>
+          <line>227</line>
+          <option name="timeStamp" value="279" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="239" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="329" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -709,25 +669,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Number.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="114" column="35" selection-start-line="114" selection-start-column="35" selection-end-line="114" selection-end-column="35" />
+        <state relative-caret-position="326">
+          <caret line="128" column="116" selection-start-line="128" selection-start-column="116" selection-end-line="128" selection-end-column="116" />
           <folding>
             <element signature="e#56#73#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Number.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="269" column="5" lean-forward="true" selection-start-line="269" selection-start-column="5" selection-end-line="269" selection-end-column="5" />
+        <state relative-caret-position="418">
+          <caret line="312" selection-start-line="312" selection-end-line="312" />
           <folding>
             <element signature="e#42#61#0" expanded="true" />
           </folding>
@@ -736,11 +689,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NumberOperators.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="168" selection-start-line="168" selection-end-line="168" />
+        <state relative-caret-position="180">
+          <caret line="243" column="36" selection-start-line="243" selection-start-column="36" selection-end-line="243" selection-end-column="36" />
           <folding>
             <element signature="e#42#62#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
         </state>
       </provider>
     </entry>

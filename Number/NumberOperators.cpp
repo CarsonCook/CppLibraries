@@ -142,7 +142,7 @@ Number operator-(const Number &lhs, const Number &rhs) {
     }
     auto *borrow = new int(0);
     res.decDigits = big.subtractDec(small, borrow);
-    res.digits = Number(Number(big.findDigDiff(small)).findDigDiff(*borrow)).digits;
+    res.digits = Number(Number(big.findDigDiff(small + *borrow))).digits;
     delete borrow;
     return res;
 }
@@ -175,6 +175,10 @@ Number operator*(const Number &lhs, const Number &rhs) {
                 left.digits.insert(left.digits.begin(), v);
             }
             left.decDigits.clear();
+            //clear extra zeros from left side of digits
+            while (left.digits.size() > 1 && left.digits[left.digits.size() - 1] == '0') {
+                left.digits.pop_back();
+            }
         }
         if (!rightEmpty) {
             //make right whole
@@ -182,6 +186,10 @@ Number operator*(const Number &lhs, const Number &rhs) {
                 right.digits.insert(right.digits.begin(), v);
             }
             right.decDigits.clear();
+            //clear extra zeros from left side of digits
+            while (right.digits.size() > 1 && right.digits[right.digits.size() - 1] == '0') {
+                right.digits.pop_back();
+            }
         }
         Number res = left * right;
         int splitPos = leftDec.size() + rightDec.size();
@@ -218,6 +226,28 @@ Number operator/(const Number &lhs, const Number &rhs) {
         dividend -= divisor;
         ++quot;
     }
+
+    //decimals
+    Number extra = dividend * 10;
+    while (extra != 0) {
+        Number into{0};
+        int count = 0;
+        while (into <= extra) {
+            into += divisor;
+            ++count;
+        }
+        //went one over
+        --count;
+        into -= divisor;
+
+        quot.decDigits.push_back(Number::intToChar(count));
+        if (quot.decDigits.size() >= Number::MAX_PRECISION) {
+            break;
+        }
+        extra -= into;
+        extra *= 10; //move onto next decimal place
+    }
+
     quot.isPositive = (lhs.isPositive == rhs.isPositive);
     return quot;
 }
@@ -240,7 +270,7 @@ Number operator%(const Number &lhs, const Number &rhs) {
     while (dividend >= divisor) {
         dividend -= divisor;
     }
-    dividend.isPositive = !(!rhs.isPositive && !lhs.isPositive);
+    dividend.isPositive = rhs.isPositive || lhs.isPositive;
     return dividend;
 }
 
