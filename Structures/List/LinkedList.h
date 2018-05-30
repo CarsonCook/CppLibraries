@@ -25,11 +25,28 @@ public:
         end = other.end;
     }
 
+    LinkedList &operator=(const LinkedList &other) {
+        if (util::isSamePointer(this, &other)) {
+            return *this;
+        }
+        (*this).length = other.length;
+        (*this).start = other.start;
+        (*this).end = other.end;
+    }
+
     virtual void insertEnd(const SimpleNode<T> &newNode)=0;
 
     virtual void insertBegin(const SimpleNode<T> &newNode)=0;
 
     virtual void insert(const SimpleNode<T> &nodeBefore, const SimpleNode<T> &newNode)=0;
+
+    SimpleNode<T> findValueNode(T value) {
+        //TODO implement, throw exception if not found
+    }
+
+    bool isValueInList(T value) {
+        //TODO implement
+    }
 
     int size() const {
         return length;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <exception>
+#include "../util.cpp"
 
 class NoNextPointer : std::exception {
 public:
@@ -22,6 +23,15 @@ public:
     SimpleNode(const SimpleNode &copyNode) {
         data = copyNode.getData();
         nextNode = copyNode.nextNode; //allow nullptr (end of list), next() would throw error
+    }
+
+    SimpleNode &operator=(const SimpleNode &other) {
+        if (util::isSamePointer(this, &other)) {
+            return *this;
+        }
+        (*this).data = other.data;
+        (*this).nextNode = other.nextNode;
+        return *this;
     }
 
     inline bool hasNext() const {

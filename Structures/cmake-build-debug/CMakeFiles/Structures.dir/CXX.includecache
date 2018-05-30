@@ -13,6 +13,8 @@ C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Node.h
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Node.h
 exception
 -
+../util.cpp
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/util.cpp
 
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/SinglyLinkedList.h
 Node.h
@@ -27,4 +29,6 @@ List/Node.h
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Node.h
 List/SinglyLinkedList.h
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/SinglyLinkedList.h
+
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/util.cpp
 

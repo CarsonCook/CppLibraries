@@ -149,6 +149,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\Structures.dir\build.make CMakeFiles/Structures.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+util.obj: util.cpp.obj
+
+.PHONY : util.obj
+
+# target to build an object file
+util.cpp.obj:
+	$(MAKE) -f CMakeFiles\Structures.dir\build.make CMakeFiles/Structures.dir/util.cpp.obj
+.PHONY : util.cpp.obj
+
+util.i: util.cpp.i
+
+.PHONY : util.i
+
+# target to preprocess a source file
+util.cpp.i:
+	$(MAKE) -f CMakeFiles\Structures.dir\build.make CMakeFiles/Structures.dir/util.cpp.i
+.PHONY : util.cpp.i
+
+util.s: util.cpp.s
+
+.PHONY : util.s
+
+# target to generate assembly for a file
+util.cpp.s:
+	$(MAKE) -f CMakeFiles\Structures.dir\build.make CMakeFiles/Structures.dir/util.cpp.s
+.PHONY : util.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -161,6 +188,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... util.obj
+	@echo ... util.i
+	@echo ... util.s
 .PHONY : help
 
 

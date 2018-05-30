@@ -5,4 +5,7 @@ CMakeFiles/Structures.dir/main.cpp.obj: ../List/LinkedList.h
 CMakeFiles/Structures.dir/main.cpp.obj: ../List/Node.h
 CMakeFiles/Structures.dir/main.cpp.obj: ../List/SinglyLinkedList.h
 CMakeFiles/Structures.dir/main.cpp.obj: ../main.cpp
+CMakeFiles/Structures.dir/main.cpp.obj: ../util.cpp
+
+CMakeFiles/Structures.dir/util.cpp.obj: ../util.cpp
 

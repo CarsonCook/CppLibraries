@@ -3,4 +3,4 @@ project(Structures)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Structures main.cpp List/Node.h List/SinglyLinkedList.h List/LinkedList.h)
+add_executable(Structures main.cpp List/Node.h List/SinglyLinkedList.h List/LinkedList.h util.cpp)

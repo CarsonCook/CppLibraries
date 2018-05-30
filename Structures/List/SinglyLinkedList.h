@@ -30,4 +30,13 @@ public:
     void insertBegin(const SimpleNode<T> &newNode) override {}
 
     void insert(const SimpleNode<T> &nodeBefore, const SimpleNode<T> &newNode) override {}
+
+    SinglyLinkedList &operator=(const SinglyLinkedList &other) {
+        if (util::isSamePointer(this, &other)) {
+            return *this;
+        }
+        (*this).length = other.length;
+        (*this).start = other.start;
+        (*this).end = other.end;
+    }
 };

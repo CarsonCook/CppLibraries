@@ -94,6 +94,9 @@
 		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/main.cpp">
 			<Option target="Structures"/>
 		</Unit>
+		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/util.cpp">
+			<Option target="Structures"/>
+		</Unit>
 		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
