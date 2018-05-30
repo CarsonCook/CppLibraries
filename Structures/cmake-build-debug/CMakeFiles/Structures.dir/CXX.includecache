@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Node.cpp
+Node.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Node.h
+
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Node.h
+exception
+-
+
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/main.cpp
+iostream
+-
+List/Node.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Node.h
+
