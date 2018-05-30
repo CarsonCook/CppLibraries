@@ -82,7 +82,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Node.cpp">
+		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedList.h">
 			<Option target="Structures"/>
 		</Unit>
 		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Node.h">

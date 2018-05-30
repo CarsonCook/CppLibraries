@@ -122,33 +122,6 @@ Structures/fast:
 	$(MAKE) -f CMakeFiles\Structures.dir\build.make CMakeFiles/Structures.dir/build
 .PHONY : Structures/fast
 
-List/Node.obj: List/Node.cpp.obj
-
-.PHONY : List/Node.obj
-
-# target to build an object file
-List/Node.cpp.obj:
-	$(MAKE) -f CMakeFiles\Structures.dir\build.make CMakeFiles/Structures.dir/List/Node.cpp.obj
-.PHONY : List/Node.cpp.obj
-
-List/Node.i: List/Node.cpp.i
-
-.PHONY : List/Node.i
-
-# target to preprocess a source file
-List/Node.cpp.i:
-	$(MAKE) -f CMakeFiles\Structures.dir\build.make CMakeFiles/Structures.dir/List/Node.cpp.i
-.PHONY : List/Node.cpp.i
-
-List/Node.s: List/Node.cpp.s
-
-.PHONY : List/Node.s
-
-# target to generate assembly for a file
-List/Node.cpp.s:
-	$(MAKE) -f CMakeFiles\Structures.dir\build.make CMakeFiles/Structures.dir/List/Node.cpp.s
-.PHONY : List/Node.cpp.s
-
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -185,9 +158,6 @@ help:
 	@echo ... Structures
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... List/Node.obj
-	@echo ... List/Node.i
-	@echo ... List/Node.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

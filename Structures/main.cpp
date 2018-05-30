@@ -1,5 +1,6 @@
 #include <iostream>
 #include "List/Node.h"
+#include "List/SinglyLinkedList.h"
 
 using namespace std;
 
@@ -26,7 +27,16 @@ void simpleNodeTestSuite() {
     cout << "*************" << "END" << "*************" << endl;
 }
 
+void singlyLinkedListTestSuite() {
+    cout << "*************" << "TESTING SINGLY LINKED LIST" << "*************" << endl;
+    SinglyLinkedList<int> s;
+    cout << "should be 0: " << s.size() << endl;
+    s.insertEnd(SimpleNode<int>(4));
+    cout << "*************" << "END" << "*************" << endl;
+}
+
 int main() {
-    simpleNodeTestSuite();
+    //simpleNodeTestSuite();
+    singlyLinkedListTestSuite();
     return 0;
 }
