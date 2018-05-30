@@ -15,9 +15,11 @@ public:
             SimpleNode<T> *temp = new SimpleNode<T>(newNode);
             LinkedList<T>::start = temp;
             LinkedList<T>::tail = temp;
+            LinkedList<T>::tail->setNext(LinkedList<T>::sentinel);
         } else {
             LinkedList<T>::tail->setNext(&newNode);
             LinkedList<T>::tail = LinkedList<T>::tail->next();
+            LinkedList<T>::tail->setNext(LinkedList<T>::sentinel);
         }
         ++LinkedList<T>::length;
     }

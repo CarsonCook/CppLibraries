@@ -2,17 +2,13 @@
 
 #include "Node.h"
 
-class ListIterator {
-public:
-
-};
-
 template<class T>
 class LinkedList {
 protected:
     int length;
     SimpleNode<T> *start = nullptr;
     SimpleNode<T> *tail = nullptr;
+    SimpleNode<T> *sentinel = new SimpleNode<T>(); //TODO find way to have default value, so no empty constructor
 
 public:
     virtual ~LinkedList() = default;
@@ -23,6 +19,7 @@ public:
         length = other.length;
         start = other.start;
         tail = other.tail;
+        sentinel = other.sentinel;
     }
 
     LinkedList &operator=(const LinkedList &other) {
@@ -32,6 +29,7 @@ public:
         (*this).length = other.length;
         (*this).start = other.start;
         (*this).tail = other.tail;
+        (*this).sentinel = other.sentinel;
     }
 
     virtual void insertEnd(SimpleNode<T> newNode)=0;
@@ -75,12 +73,12 @@ public:
 
         iterator operator++() {
             iterator copy = *this;
-            ptr++;
+            ptr = ptr->next();
             return copy;
         }
 
         const iterator operator++(int) {
-            ptr++;
+            ptr = ptr->next();
             return *this;
         }
 
@@ -100,6 +98,6 @@ public:
     }
 
     iterator end() {
-        return iterator(tail);
+        return iterator(sentinel); //sentinel so that in loop end condition being i!=it.end(), still get tail node
     }
 };

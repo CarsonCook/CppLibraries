@@ -41,15 +41,16 @@ void singlyLinkedListTestSuite() {
     cout << "should be 4: " << s.listEnd().getData() << endl;
     s.insertEnd(SimpleNode<int>(5));
     s.insertEnd(SimpleNode<int>(6));
-    /*for (SinglyLinkedList<int>::iterator i = s.begin(); i != s.end(); ++i) {
-        cout << (*i).getData() << endl;
-    }*/
-    n = s.listStart();
-    cout << n.getData() << endl;
-    n = *(n.next());
-    cout << n.getData() << endl;
-    n = *(n.next());
-    cout << n.getData() << endl;
+    cout << "should see 4 5 6: ";
+    for (SinglyLinkedList<int>::iterator i = s.begin(); i != s.end(); ++i) {
+        cout << (*i).getData() << " ";
+    }
+    cout << endl;
+    cout << "should see 4 5 6: ";
+    for (const auto &v : s){
+        cout << v.getData() << " ";
+    }
+    cout << endl;
     cout << "*************" << "END" << "*************" << endl;
 }
 

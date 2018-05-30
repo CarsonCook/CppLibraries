@@ -20,6 +20,8 @@ public:
 
     explicit SimpleNode(const T &newData) : data{newData} {};
 
+    SimpleNode() = default;
+
     SimpleNode(const SimpleNode &copyNode) {
         data = copyNode.getData();
         nextNode = copyNode.nextNode; //allow nullptr (tail of list), next() would throw error
