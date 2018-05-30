@@ -3,12 +3,6 @@
 #include "Node.h"
 #include "LinkedList.h"
 
-class InsertNullNode : std::exception {
-    const char *what() const noexcept override {
-        return "Tried to insert a null Node!";
-    }
-};
-
 template<class T>
 class SinglyLinkedList : public LinkedList<T> {
 public:
@@ -16,20 +10,25 @@ public:
 
     SinglyLinkedList() : LinkedList<T>::LinkedList() {}
 
-    void insertEnd(const SimpleNode<T> &newNode) override {
+    void insertEnd(SimpleNode<T> newNode) override {
         if (LinkedList<T>::start == nullptr) {
-            LinkedList<T>::start = new SimpleNode<T>(newNode);
-            LinkedList<T>::end = new SimpleNode<T>(newNode);
+            SimpleNode<T> *temp = new SimpleNode<T>(newNode);
+            LinkedList<T>::start = temp;
+            LinkedList<T>::tail = temp;
         } else {
-            LinkedList<T>::end->setNext(newNode);
-            SimpleNode<T> temp = LinkedList<T>::end->next();
-            LinkedList<T>::end = new SimpleNode<T>(temp);
+            LinkedList<T>::tail->setNext(&newNode);
+            LinkedList<T>::tail = LinkedList<T>::tail->next();
         }
+        ++LinkedList<T>::length;
     }
 
-    void insertBegin(const SimpleNode<T> &newNode) override {}
+    void insertBegin(const SimpleNode<T> &newNode) override {
 
-    void insert(const SimpleNode<T> &nodeBefore, const SimpleNode<T> &newNode) override {}
+    }
+
+    void insert(const SimpleNode<T> &nodeBefore, const SimpleNode<T> &newNode) override {
+
+    }
 
     SinglyLinkedList &operator=(const SinglyLinkedList &other) {
         if (util::isSamePointer(this, &other)) {
@@ -37,6 +36,18 @@ public:
         }
         (*this).length = other.length;
         (*this).start = other.start;
-        (*this).end = other.end;
+        (*this).tail = other.tail;
+    }
+
+    void deleteEnd() override {
+
+    }
+
+    void deleteBegin() override {
+
+    }
+
+    void deleteMid(const SimpleNode<T> &nodeBefore) override {
+
     }
 };

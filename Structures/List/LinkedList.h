@@ -12,7 +12,7 @@ class LinkedList {
 protected:
     int length;
     SimpleNode<T> *start = nullptr;
-    SimpleNode<T> *end = nullptr;
+    SimpleNode<T> *tail = nullptr;
 
 public:
     virtual ~LinkedList() = default;
@@ -22,7 +22,7 @@ public:
     LinkedList(const LinkedList &other) {
         length = other.length;
         start = other.start;
-        end = other.end;
+        tail = other.tail;
     }
 
     LinkedList &operator=(const LinkedList &other) {
@@ -31,14 +31,20 @@ public:
         }
         (*this).length = other.length;
         (*this).start = other.start;
-        (*this).end = other.end;
+        (*this).tail = other.tail;
     }
 
-    virtual void insertEnd(const SimpleNode<T> &newNode)=0;
+    virtual void insertEnd(SimpleNode<T> newNode)=0;
 
     virtual void insertBegin(const SimpleNode<T> &newNode)=0;
 
     virtual void insert(const SimpleNode<T> &nodeBefore, const SimpleNode<T> &newNode)=0;
+
+    virtual void deleteEnd()=0;
+
+    virtual void deleteBegin()=0;
+
+    virtual void deleteMid(const SimpleNode<T> &nodeBefore)=0;
 
     SimpleNode<T> findValueNode(T value) {
         //TODO implement, throw exception if not found
@@ -48,7 +54,52 @@ public:
         //TODO implement
     }
 
+    SimpleNode<T> listStart() const {
+        return *start;
+    }
+
+    SimpleNode<T> listEnd() {
+        return *tail;
+    }
+
     int size() const {
         return length;
+    }
+
+    class iterator {
+    private:
+        SimpleNode<T> *ptr;
+
+    public:
+        explicit iterator(SimpleNode<T> *pointer) : ptr{pointer} {}
+
+        iterator operator++() {
+            iterator copy = *this;
+            ptr++;
+            return copy;
+        }
+
+        const iterator operator++(int) {
+            ptr++;
+            return *this;
+        }
+
+        SimpleNode<T> &operator*() { return *ptr; }
+
+        bool operator==(const iterator &other) {
+            return ptr == other.ptr;
+        }
+
+        bool operator!=(const iterator &other) {
+            return ptr != other.ptr;
+        }
+    };
+
+    iterator begin() {
+        return iterator(start);
+    }
+
+    iterator end() {
+        return iterator(tail);
     }
 };

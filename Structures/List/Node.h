@@ -22,7 +22,7 @@ public:
 
     SimpleNode(const SimpleNode &copyNode) {
         data = copyNode.getData();
-        nextNode = copyNode.nextNode; //allow nullptr (end of list), next() would throw error
+        nextNode = copyNode.nextNode; //allow nullptr (tail of list), next() would throw error
     }
 
     SimpleNode &operator=(const SimpleNode &other) {
@@ -38,15 +38,15 @@ public:
         return nextNode != nullptr;
     }
 
-    SimpleNode next() const {
+    SimpleNode *next() const {
         if (noNext()) {
             throw NoNextPointer();
         }
-        return *nextNode;
+        return nextNode;
     }
 
-    void setNext(const SimpleNode &newNextNode) {
-        nextNode = new SimpleNode(newNextNode);
+    void setNext(SimpleNode *newNextNode) {
+        nextNode = newNextNode;
     }
 
     T getData() const {
