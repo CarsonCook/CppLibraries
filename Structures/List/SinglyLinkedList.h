@@ -22,16 +22,12 @@ public:
 
 private:
     void putEnd(SimpleNode<T> *newNode) override {
-        if (util::isNullPointer(LinkedList<T>::start)) {//TODO clean ,islistempty, make arg pointer
-            SimpleNode<T> *temp = new SimpleNode<T>(*newNode);
-            LinkedList<T>::start = temp;
-            LinkedList<T>::tail = temp;
-            LinkedList<T>::tail->setNext(LinkedList<T>::sentinel);
+        if (LinkedList<T>::isListEmpty()) {
+            initList(newNode);
         } else {
-            LinkedList<T>::tail->setNext(newNode);
-            LinkedList<T>::tail = LinkedList<T>::tail->next();
-            LinkedList<T>::tail->setNext(LinkedList<T>::sentinel);
+            incrementTail(newNode);
         }
+        LinkedList<T>::tail->setNext(LinkedList<T>::sentinel);
     }
 
     void putBegin(const SimpleNode<T> &newNode) override {
@@ -52,5 +48,15 @@ private:
 
     void remove(const SimpleNode<T> &nodeBefore) override {
 
+    }
+
+    void initList(SimpleNode<T> *newNode) {
+        LinkedList<T>::start = newNode;
+        LinkedList<T>::tail = newNode;
+    }
+
+    void incrementTail(SimpleNode<T> *newNode) {
+        LinkedList<T>::tail->setNext(newNode);
+        LinkedList<T>::tail = LinkedList<T>::tail->next();
     }
 };

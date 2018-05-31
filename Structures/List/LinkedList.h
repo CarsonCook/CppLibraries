@@ -47,7 +47,7 @@ public:
     }
 
 private:
-    virtual void putEnd(SimpleNode<T> *newNode)=0; //TODO const ref
+    virtual void putEnd(SimpleNode<T> *newNode)=0;
 
     virtual void putBegin(const SimpleNode<T> &newNode)=0;
 
