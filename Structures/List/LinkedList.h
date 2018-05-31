@@ -18,7 +18,9 @@ protected:
     SimpleNode<T> *sentinel = new SimpleNode<T>(); //TODO find way to have default value, so no empty constructor
 
 public:
-    virtual ~LinkedList() = default; //TODO delete stuff
+    virtual ~LinkedList() {
+        delete sentinel;
+    }
 
     LinkedList() : length{0} {}
 

@@ -36,7 +36,10 @@ void singlyLinkedListTestSuite() {
     cout << "*************" << "TESTING SINGLY LINKED LIST" << "*************" << endl;
     SinglyLinkedList<int> s;
     cout << "should be 0: " << s.size() << endl;
-    s.insertEnd(SimpleNode<int>(4));
+    SimpleNode<int> node(4);
+    s.insertEnd(node);
+    node.setData(2);
+    cout << "should be 4: " << s.listStart().getData() << endl;
     auto n = s.listStart();
     n.setData(1);
     cout << "should be 4: " << s.listStart().getData() << endl;

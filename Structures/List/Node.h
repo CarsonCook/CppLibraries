@@ -16,7 +16,7 @@ private:
     T data;
     SimpleNode *nextNode = nullptr;
 public:
-    virtual ~SimpleNode() = default; //TODO delete nextNode, data(?)
+    virtual ~SimpleNode() {}
 
     explicit SimpleNode(const T &newData) : data{newData} {};
 
