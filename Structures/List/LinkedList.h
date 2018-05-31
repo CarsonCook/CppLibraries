@@ -2,6 +2,13 @@
 
 #include "Node.h"
 
+class NoValueFoundListException : std::exception {
+public:
+    const char *what() const noexcept override {
+        return "Tried to find a value that isn't in the list!";
+    }
+};
+
 template<class T>
 class LinkedList {
 protected:
@@ -44,12 +51,22 @@ public:
 
     virtual void deleteMid(const SimpleNode<T> &nodeBefore)=0;
 
-    SimpleNode<T> findValueNode(T value) {
-        //TODO implement, throw exception if not found
+    virtual SimpleNode<T> findValueNode(T value) {
+        for (auto node : *this) {
+            if (node.getData() == value) {
+                return node;
+            }
+        }
+        throw NoValueFoundListException();
     }
 
     bool isValueInList(T value) {
-        //TODO implement
+        try {
+            auto garbage = findValueNode(value);
+            return true;
+        } catch (const NoValueFoundListException &e) {
+            return false;
+        };
     }
 
     SimpleNode<T> listStart() const {
@@ -62,6 +79,10 @@ public:
 
     int size() const {
         return length;
+    }
+
+    bool isListEmpty() const {
+        return size() == 0;
     }
 
     class iterator {
@@ -94,6 +115,9 @@ public:
     };
 
     iterator begin() {
+        if (isListEmpty()) {
+            return iterator(sentinel);
+        }
         return iterator(start);
     }
 

@@ -11,7 +11,7 @@ public:
     SinglyLinkedList() : LinkedList<T>::LinkedList() {}
 
     void insertEnd(SimpleNode<T> newNode) override {
-        if (LinkedList<T>::start == nullptr) {
+        if (LinkedList<T>::start == nullptr) {//TODO clean
             SimpleNode<T> *temp = new SimpleNode<T>(newNode);
             LinkedList<T>::start = temp;
             LinkedList<T>::tail = temp;
@@ -33,6 +33,7 @@ public:
     }
 
     SinglyLinkedList &operator=(const SinglyLinkedList &other) {
+        //TODO dry, same as parent minus type
         if (util::isSamePointer(this, &other)) {
             return *this;
         }

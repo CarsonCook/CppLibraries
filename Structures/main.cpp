@@ -26,7 +26,8 @@ void simpleNodeTestSuite() {
     cout << "should be 8: " << n2.getData() << endl;
     SimpleNode<int> n3(9);
     n2.setNext(&n3);
-    cout << "should be 5 8 9: " << n1.getData() << " " << n1.next()->getData() << " " << n1.next()->next()->getData() << endl;
+    cout << "should be 5 8 9: " << n1.getData() << " " << n1.next()->getData() << " " << n1.next()->next()->getData()
+         << endl;
     cout << "*************" << "END" << "*************" << endl;
 }
 
@@ -47,10 +48,33 @@ void singlyLinkedListTestSuite() {
     }
     cout << endl;
     cout << "should see 4 5 6: ";
-    for (const auto &v : s){
+    for (const auto &v : s) {
         cout << v.getData() << " ";
     }
     cout << endl;
+    SinglyLinkedList<int> s2;
+    cout << "should see nothing: ";
+    for (SinglyLinkedList<int>::iterator i = s2.begin(); i != s2.end(); ++i) {
+        cout << (*i).getData() << " ";
+    }
+    cout << endl;
+    cout << "should see nothing: ";
+    for (const auto &v : s2) {
+        cout << v.getData() << endl;
+    }
+    cout << endl;
+    cout << "should be 1: " << s.isValueInList(4) << endl;
+    cout << "should be 0: " << s.isValueInList(2) << endl;
+    cout << "should get 5: ";
+    n = s.findValueNode(5);
+    cout << n.getData() << endl;
+    cout << "should see error: ";
+    try {
+        s.findValueNode(2);
+        cout << endl;
+    } catch (const NoValueFoundListException &e) {
+        cout << e.what() << endl;
+    }
     cout << "*************" << "END" << "*************" << endl;
 }
 
