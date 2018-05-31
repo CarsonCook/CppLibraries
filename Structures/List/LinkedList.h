@@ -18,7 +18,7 @@ protected:
     SimpleNode<T> *sentinel = new SimpleNode<T>(); //TODO find way to have default value, so no empty constructor
 
 public:
-    virtual ~LinkedList() = default;
+    virtual ~LinkedList() = default; //TODO delete stuff
 
     LinkedList() : length{0} {}
 
@@ -39,18 +39,27 @@ public:
         (*this).sentinel = other.sentinel;
     }
 
-    virtual void insertEnd(SimpleNode<T> newNode)=0;
+    //TODO sort
 
-    virtual void insertBegin(const SimpleNode<T> &newNode)=0;
+    void insertEnd(SimpleNode<T> newNode){
+        putEnd(&newNode);
+        ++length;
+    }
 
-    virtual void insert(const SimpleNode<T> &nodeBefore, const SimpleNode<T> &newNode)=0;
+private:
+    virtual void putEnd(SimpleNode<T> *newNode)=0; //TODO const ref
 
-    virtual void deleteEnd()=0;
+    virtual void putBegin(const SimpleNode<T> &newNode)=0;
 
-    virtual void deleteBegin()=0;
+    virtual void put(const SimpleNode<T> &nodeBefore, const SimpleNode<T> &newNode)=0;
 
-    virtual void deleteMid(const SimpleNode<T> &nodeBefore)=0;
+    virtual void removeEnd()=0;
 
+    virtual void removeBegin()=0;
+
+    virtual void remove(const SimpleNode<T> &nodeBefore)=0;
+
+public:
     virtual SimpleNode<T> findValueNode(T value) {
         for (auto node : *this) {
             if (node.getData() == value) {
@@ -90,6 +99,7 @@ public:
         SimpleNode<T> *ptr;
 
     public:
+        //TODO - overload for sort
         explicit iterator(SimpleNode<T> *pointer) : ptr{pointer} {}
 
         iterator operator++() {

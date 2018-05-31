@@ -16,7 +16,7 @@ private:
     T data;
     SimpleNode *nextNode = nullptr;
 public:
-    virtual ~SimpleNode() = default;
+    virtual ~SimpleNode() = default; //TODO delete nextNode, data(?)
 
     explicit SimpleNode(const T &newData) : data{newData} {};
 
@@ -57,6 +57,11 @@ public:
 
     void setData(const T &newData) {
         data = newData;
+    }
+
+    //defined so list can be sorted with std::sort()
+    friend SimpleNode<T> operator-(const SimpleNode<T> &lhs, const SimpleNode<T> &rhs) {
+        return SimpleNode<T>(lhs.getData() - rhs.getData());
     }
 
 private:

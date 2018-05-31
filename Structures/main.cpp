@@ -1,6 +1,7 @@
 #include <iostream>
 #include "List/Node.h"
 #include "List/SinglyLinkedList.h"
+#include<algorithm>
 
 using namespace std;
 
@@ -75,6 +76,9 @@ void singlyLinkedListTestSuite() {
     } catch (const NoValueFoundListException &e) {
         cout << e.what() << endl;
     }
+    cout << "should see 6 5 4: ";
+    //TODO SORT
+    cout << endl;
     cout << "*************" << "END" << "*************" << endl;
 }
 
