@@ -33,15 +33,13 @@ public:
         if (util::isSamePointer(this, &other)) {
             return *this;
         }
-        (*this).length = other.length;
-        (*this).start = other.start;
-        (*this).tail = other.tail;
+        setCommonValues(other.length, other.start, other.tail);
         (*this).sentinel = other.sentinel;
     }
 
     //TODO sort
 
-    void insertEnd(SimpleNode<T> newNode){
+    void insertEnd(SimpleNode<T> newNode) {
         putEnd(&newNode);
         ++length;
     }
@@ -133,5 +131,12 @@ public:
 
     iterator end() {
         return iterator(sentinel); //sentinel so that in loop end condition being i!=it.end(), still get tail node
+    }
+
+protected:
+    void setCommonValues(const int len, SimpleNode<T> *st, SimpleNode<T> *tl) {
+        length = len;
+        start = st;
+        tail = tl;
     }
 };

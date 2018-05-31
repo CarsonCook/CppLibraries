@@ -11,13 +11,10 @@ public:
     SinglyLinkedList() : LinkedList<T>::LinkedList() {}
 
     SinglyLinkedList &operator=(const SinglyLinkedList &other) {
-        //TODO dry, same as parent minus type
         if (util::isSamePointer(this, &other)) {
             return *this;
         }
-        (*this).length = other.length;
-        (*this).start = other.start;
-        (*this).tail = other.tail;
+        LinkedList<T>::setCommonValues(other.length, other.start, other.tail);
     }
 
 private:
