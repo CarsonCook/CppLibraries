@@ -80,8 +80,8 @@ public:
         ++length;
     }
 
-    void insert(Node<T> nodeBefore, Node<T> newNode) {
-        put(&nodeBefore, &newNode);
+    void insert(Node<T> *nodeBefore, Node<T> newNode) {
+        put(nodeBefore, &newNode);
         ++length;
     }
 

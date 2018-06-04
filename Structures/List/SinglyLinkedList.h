@@ -39,11 +39,7 @@ private:
             putEnd(newNode);
         } else {
             Node<T> *newNodeNext = nodeBefore->next();
-            auto i = LinkedList<T>::begin();
-            while (*i != *nodeBefore) {
-                ++i;
-            }
-            (*i).setNext(newNode);
+            nodeBefore->setNext(newNode);
             newNode->setNext(newNodeNext);
         }
     }
