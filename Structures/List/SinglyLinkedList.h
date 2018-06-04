@@ -14,11 +14,11 @@ public:
         if (util::isSamePointer(this, &other)) {
             return *this;
         }
-        LinkedList<T>::setCommonValues(other.length, other.start, other.tail);
+        LinkedList<T>::setCommonListValues(other.length, other.start, other.tail);
     }
 
 private:
-    void putEnd(SimpleNode<T> *newNode) override {
+    void putEnd(Node<T> *newNode) override {
         if (LinkedList<T>::isListEmpty()) {
             initList(newNode);
         } else {
@@ -27,11 +27,11 @@ private:
         LinkedList<T>::tail->setNext(LinkedList<T>::sentinel);
     }
 
-    void putBegin(const SimpleNode<T> &newNode) override {
+    void putBegin(const Node<T> &newNode) override {
 
     }
 
-    void put(const SimpleNode<T> &nodeBefore, const SimpleNode<T> &newNode) override {
+    void put(const Node<T> &nodeBefore, const Node<T> &newNode) override {
 
     }
 
@@ -43,16 +43,16 @@ private:
 
     }
 
-    void remove(const SimpleNode<T> &nodeBefore) override {
+    void remove(const Node<T> &nodeBefore) override {
 
     }
 
-    void initList(SimpleNode<T> *newNode) {
+    void initList(Node<T> *newNode) {
         LinkedList<T>::start = newNode;
         LinkedList<T>::tail = newNode;
     }
 
-    void incrementTail(SimpleNode<T> *newNode) {
+    void incrementTail(Node<T> *newNode) {
         LinkedList<T>::tail->setNext(newNode);
         LinkedList<T>::tail = LinkedList<T>::tail->next();
     }

@@ -11,23 +11,23 @@ public:
 };
 
 template<class T>
-class SimpleNode {
+class Node {
 private:
     T data;
-    SimpleNode *nextNode = nullptr;
+    Node *nextNode = nullptr;
 public:
-    virtual ~SimpleNode() {}
+    virtual ~Node() {}
 
-    explicit SimpleNode(const T &newData) : data{newData} {};
+    explicit Node(const T &newData) : data{newData} {};
 
-    SimpleNode() = default;
+    Node() = default;
 
-    SimpleNode(const SimpleNode &copyNode) {
+    Node(const Node &copyNode) {
         data = copyNode.getData();
         nextNode = copyNode.nextNode; //allow nullptr (tail of list), next() would throw error
     }
 
-    SimpleNode &operator=(const SimpleNode &other) {
+    Node &operator=(const Node &other) {
         if (util::isSamePointer(this, &other)) {
             return *this;
         }
@@ -36,18 +36,33 @@ public:
         return *this;
     }
 
+    bool operator==(const Node &other) {
+        return data == other.data;
+    }
+
+    bool operator!=(const Node &other) {
+        return !(*this == other);
+    }
+
+    friend std::ostream &operator<<(std::ostream &os, const Node<T> &node) {
+        os << "This: " << &node << " data: " << node.getData() << " next: ";
+        try {
+            os << node.next();
+        } catch (const NoNextPointer &e) {
+            os << "NULL";
+        }
+        return os;
+    }
+
     inline bool hasNext() const {
         return nextNode != nullptr;
     }
 
-    SimpleNode *next() const {
-        if (noNext()) {
-            throw NoNextPointer();
-        }
+    Node *next() const {
         return nextNode;
     }
 
-    void setNext(SimpleNode *newNextNode) {
+    void setNext(Node *newNextNode) {
         nextNode = newNextNode;
     }
 
@@ -57,11 +72,6 @@ public:
 
     void setData(const T &newData) {
         data = newData;
-    }
-
-    //defined so list can be sorted with std::sort()
-    friend SimpleNode<T> operator-(const SimpleNode<T> &lhs, const SimpleNode<T> &rhs) {
-        return SimpleNode<T>(lhs.getData() - rhs.getData());
     }
 
 private:
