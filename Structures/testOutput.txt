@@ -14,7 +14,7 @@ should see error: Tried to find a value that isn't in the list!
 should see data addresses and 4 5 6 on different lines:
 This: 0x61fd4c data: 4 next: 0x61fd84
 This: 0x61fd84 data: 5 next: 0x61fd94
-This: 0x61fd94 data: 6 next: 0x2fc1920
+This: 0x61fd94 data: 6 next: 0x2781920
 
 should see 4 5 6: 4 5 6 
 should see 3 4 5 6: 3 4 5 7 
