@@ -36,9 +36,8 @@ public:
         return *this;
     }
 
-    //TODO check next
     bool operator==(const Node &other) {
-        return data == other.data;
+        return data == other.data && nextNode == other.nextNode;
     }
 
     bool operator!=(const Node &other) {
