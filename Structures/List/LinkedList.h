@@ -85,6 +85,21 @@ public:
         ++length;
     }
 
+    void deleteEnd() {
+        removeEnd();
+        --length;
+    }
+
+    void deleteStart() {
+        removeBegin();
+        --length;
+    }
+
+    void deleteMid(Node<T> *nodeBefore) {
+        remove(nodeBefore);
+        --length;
+    }
+
 private:
     void swapNodeData(Node<T> *node1, Node<T> *node2) {
         T temp = node1->getData();
@@ -102,7 +117,7 @@ private:
 
     virtual void removeBegin()=0;
 
-    virtual void remove(const Node<T> &nodeBefore)=0;
+    virtual void remove(Node<T> *nodeBefore)=0;
 
     bool isListSortable() const {
         return size() > 1;
@@ -179,6 +194,10 @@ public:
             return ptr != other.ptr;
         }
     };
+
+    bool atTail(iterator it) {
+        return *it == *tail;
+    }
 
     iterator begin() const {
         if (isListEmpty()) {

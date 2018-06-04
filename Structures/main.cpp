@@ -158,8 +158,30 @@ void singlyLinkedListTestSuite() {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
+
     list.insert(*(list.listStart().next()), Node<int>(2));
     testOutput << "Should see 0 1 2 3 4 5 7 8: ";
+    for (const auto &v : list) {
+        testOutput << v.getData() << " ";
+    }
+    testOutput << endl;
+
+    list.deleteEnd();
+    testOutput << "Should see 0 1 2 3 4 5 7: ";
+    for (const auto &v : list) {
+        testOutput << v.getData() << " ";
+    }
+    testOutput << endl;
+
+    list.deleteStart();
+    testOutput << "Should see 1 2 3 4 5 7: ";
+    for (const auto &v : list) {
+        testOutput << v.getData() << " ";
+    }
+    testOutput << endl;
+
+    list.deleteMid(list.listStart().next());
+    testOutput << "Should see 1 2 4 5 7: ";
     for (const auto &v : list) {
         testOutput << v.getData() << " ";
     }

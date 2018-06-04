@@ -49,15 +49,25 @@ private:
     }
 
     void removeEnd() override {
-
+        auto i = LinkedList<T>::begin();
+        while (!LinkedList<T>::atTail(i + 1)) {
+            ++i;
+        }
+        (*i).setNext(LinkedList<T>::sentinel);
+        auto deleteNode = LinkedList<T>::tail;
+        LinkedList<T>::tail = &(*i);
+        delete deleteNode;
     }
 
     void removeBegin() override {
-
+        auto deleteNode = LinkedList<T>::start;
+        LinkedList<T>::start = LinkedList<T>::start->next();
+        delete deleteNode;
     }
 
-    void remove(const Node<T> &nodeBefore) override {
-
+    void remove(Node<T> *nodeBefore) override {
+        auto deleteNode = nodeBefore->next();
+        nodeBefore->setNext(deleteNode->next());
     }
 
     void initList(Node<T> *newNode) {
