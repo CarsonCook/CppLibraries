@@ -68,8 +68,20 @@ public:
         }
     }
 
+    //TODO insert lists
+
     void insertEnd(Node<T> newNode) {
         putEnd(&newNode);
+        ++length;
+    }
+
+    void insertStart(Node<T> newNode) {
+        putBegin(&newNode);
+        ++length;
+    }
+
+    void insert(Node<T> nodeBefore, Node<T> newNode) {
+        put(&nodeBefore, &newNode);
         ++length;
     }
 
@@ -82,9 +94,9 @@ private:
 
     virtual void putEnd(Node<T> *newNode)=0;
 
-    virtual void putBegin(const Node<T> &newNode)=0;
+    virtual void putBegin(Node<T> *newNode)=0;
 
-    virtual void put(const Node<T> &nodeBefore, const Node<T> &newNode)=0;
+    virtual void put(Node<T> *nodeBefore, Node<T> *newNode)=0;
 
     virtual void removeEnd()=0;
 
@@ -92,7 +104,7 @@ private:
 
     virtual void remove(const Node<T> &nodeBefore)=0;
 
-    bool isListSortable() {
+    bool isListSortable() const {
         return size() > 1;
     }
 

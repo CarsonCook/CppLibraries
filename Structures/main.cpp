@@ -77,6 +77,7 @@ void singlyLinkedListTestSuite() {
     testOutput << "should get 5: ";
     n = s.findValueNode(5);
     testOutput << n.getData() << endl;
+
     testOutput << "should see error: ";
     try {
         s.findValueNode(2);
@@ -84,8 +85,10 @@ void singlyLinkedListTestSuite() {
     } catch (const NoValueFoundListException &e) {
         testOutput << e.what() << endl;
     }
+
     testOutput << "should see data addresses and 4 5 6 on different lines:" << endl;
     testOutput << s << endl;
+
     s.sort();
     testOutput << "should see 4 5 6: ";
     for (const auto &v : s) {
@@ -134,6 +137,34 @@ void singlyLinkedListTestSuite() {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
+
+    list.insertStart(Node<int>(1));
+    testOutput << "Should see 1 3 4 5 7: ";
+    for (const auto &v : list) {
+        testOutput << v.getData() << " ";
+    }
+    testOutput << endl;
+
+    list.insert(list.listStart(), Node<int>(0));
+    testOutput << "Should see 0 1 3 4 5 7: ";
+    for (const auto &v : list) {
+        testOutput << v.getData() << " ";
+    }
+    testOutput << endl;
+
+    list.insert(list.listEnd(), Node<int>(8));
+    testOutput << "Should see 0 1 3 4 5 7 8: ";
+    for (const auto &v : list) {
+        testOutput << v.getData() << " ";
+    }
+    testOutput << endl;
+    list.insert(*(list.listStart().next()), Node<int>(2));
+    testOutput << "Should see 0 1 2 3 4 5 7 8: ";
+    for (const auto &v : list) {
+        testOutput << v.getData() << " ";
+    }
+    testOutput << endl;
+
     testOutput << "*************" << "END" << "*************" << endl;
 }
 

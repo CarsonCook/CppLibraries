@@ -27,12 +27,25 @@ private:
         LinkedList<T>::tail->setNext(LinkedList<T>::sentinel);
     }
 
-    void putBegin(const Node<T> &newNode) override {
-
+    void putBegin(Node<T> *newNode) override {
+        newNode->setNext(LinkedList<T>::start);
+        LinkedList<T>::start = newNode;
     }
 
-    void put(const Node<T> &nodeBefore, const Node<T> &newNode) override {
-
+    void put(Node<T> *nodeBefore, Node<T> *newNode) override {
+        if (nodeBefore->isPointingSameNode(LinkedList<T>::start)) {
+            putBegin(newNode);
+        } else if (nodeBefore->isPointingSameNode(LinkedList<T>::tail)) {
+            putEnd(newNode);
+        } else {
+            Node<T> *newNodeNext = nodeBefore->next();
+            auto i = LinkedList<T>::begin();
+            while (*i != *nodeBefore) {
+                ++i;
+            }
+            (*i).setNext(newNode);
+            newNode->setNext(newNodeNext);
+        }
     }
 
     void removeEnd() override {

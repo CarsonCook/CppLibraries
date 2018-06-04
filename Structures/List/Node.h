@@ -36,6 +36,7 @@ public:
         return *this;
     }
 
+    //TODO check next
     bool operator==(const Node &other) {
         return data == other.data;
     }
@@ -52,6 +53,10 @@ public:
             os << "NULL";
         }
         return os;
+    }
+
+    bool isPointingSameNode(const Node<T> *other) {
+        return *this == *other;
     }
 
     inline bool hasNext() const {
