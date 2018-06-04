@@ -77,9 +77,4 @@ public:
     void setData(const T &newData) {
         data = newData;
     }
-
-private:
-    bool noNext() const {
-        return nextNode == nullptr;
-    }
 };
