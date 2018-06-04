@@ -45,14 +45,19 @@ private:
     }
 
     void removeEnd() override {
+        Node<T> *beforeTail = nodeBeforeTail();
+        beforeTail->setNext(LinkedList<T>::sentinel);
+        auto deleteNode = LinkedList<T>::tail;
+        LinkedList<T>::tail = beforeTail;
+        delete deleteNode;
+    }
+
+    Node<T> *nodeBeforeTail() const {
         auto i = LinkedList<T>::begin();
         while (!LinkedList<T>::atTail(i + 1)) {
             ++i;
         }
-        (*i).setNext(LinkedList<T>::sentinel);
-        auto deleteNode = LinkedList<T>::tail;
-        LinkedList<T>::tail = &(*i);
-        delete deleteNode;
+        return &(*i);
     }
 
     void removeBegin() override {
@@ -62,8 +67,14 @@ private:
     }
 
     void remove(Node<T> *nodeBefore) override {
-        auto deleteNode = nodeBefore->next();
-        nodeBefore->setNext(deleteNode->next());
+        if (nodeBefore->isPointingSameNode(LinkedList<T>::tail)) {
+            removeEnd();
+        } else if (nodeBefore->isPointingSameNode(LinkedList<T>::start)) {
+            removeBegin();
+        } else {
+            auto deleteNode = nodeBefore->next();
+            nodeBefore->setNext(deleteNode->next());
+        }
     }
 
     void initList(Node<T> *newNode) {

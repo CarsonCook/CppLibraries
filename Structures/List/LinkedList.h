@@ -195,7 +195,7 @@ public:
         }
     };
 
-    bool atTail(iterator it) {
+    bool atTail(iterator it) const {
         return *it == *tail;
     }
 
