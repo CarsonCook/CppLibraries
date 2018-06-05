@@ -68,8 +68,6 @@ public:
         }
     }
 
-    //TODO insert lists
-
     void insertEnd(Node<T> newNode) {
         putEnd(&newNode);
         ++length;
