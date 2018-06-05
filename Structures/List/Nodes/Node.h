@@ -24,7 +24,7 @@ public:
 
     Node(const Node &copyNode) {
         data = copyNode.getData();
-        nextNode = copyNode.nextNode; //allow nullptr (tail of list), next() would throw error
+        nextNode = copyNode.nextNode;
     }
 
     Node &operator=(const Node &other) {

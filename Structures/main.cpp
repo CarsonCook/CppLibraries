@@ -1,6 +1,7 @@
 #include <iostream>
 #include "List/Nodes/Node.h"
 #include "List/SinglyLinkedList.h"
+#include "List/Nodes/DoubleNode.h"
 #include<algorithm>
 #include <vector>
 #include <fstream>
@@ -192,6 +193,19 @@ void singlyLinkedListTestSuite() {
     testOutput << "*************" << "END" << "*************" << endl;
 }
 
+void doublyLinkedListTestSuite() {
+    DoubleNode<int> n = DoubleNode<int>(1);
+    DoubleNode<int> n2 = DoubleNode<int>(2);
+    DoubleNode<int> n3 = DoubleNode<int>(3);
+    n.setNext(&n2);
+    n2.setNext(&n3);
+    n2.setPrev(&n);
+    n3.setPrev(&n2);
+    testOutput << n << endl;
+    testOutput << n2 << endl;
+    testOutput << n3 << endl;
+}
+
 int main() {
     testOutput.open("C:/Users/cookc/Desktop/Code/CppLibraries/Structures/testOutput.txt");
     if (!testOutput.is_open()) {
@@ -199,7 +213,8 @@ int main() {
         return -1;
     }
     //simpleNodeTestSuite(testOutput);
-    singlyLinkedListTestSuite();
+    //singlyLinkedListTestSuite();
+    doublyLinkedListTestSuite();
     testOutput.close();
     return 0;
 }

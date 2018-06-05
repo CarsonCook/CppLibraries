@@ -3,7 +3,8 @@
 
 CMakeFiles/Structures.dir/main.cpp.obj
  C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedList.h
- C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Node.h
+ C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/DoubleNode.h
+ C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/Node.h
  C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/SinglyLinkedList.h
  C:/Users/cookc/Desktop/Code/CppLibraries/Structures/main.cpp
  C:/Users/cookc/Desktop/Code/CppLibraries/Structures/util.cpp
