@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Node.h"
+#include "Nodes/Node.h"
 
 class NoValueFoundListException : public std::exception {
 public:

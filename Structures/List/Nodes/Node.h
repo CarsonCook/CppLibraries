@@ -1,12 +1,12 @@
 #pragma once
 
 #include <exception>
-#include "../util.cpp"
+#include "../../util.cpp"
 
 class NoNextPointer : std::exception {
 public:
     const char *what() const noexcept override {
-        return "Tried to access a Node that doesn't exist!";
+        return "Tried to access a Nodes that doesn't exist!";
     }
 };
 

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "List/Node.h"
+#include "List/Nodes/Node.h"
 #include "List/SinglyLinkedList.h"
 #include<algorithm>
 #include <vector>

@@ -1,0 +1,8 @@
+//
+// Created by cookc on 2018-06-04.
+//
+
+#ifndef STRUCTURES_DOUBLENODE_H
+#define STRUCTURES_DOUBLENODE_H
+
+#endif //STRUCTURES_DOUBLENODE_H
