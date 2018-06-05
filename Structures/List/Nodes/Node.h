@@ -3,13 +3,6 @@
 #include <exception>
 #include "../../util.cpp"
 
-class NoNextPointer : std::exception {
-public:
-    const char *what() const noexcept override {
-        return "Tried to access a Nodes that doesn't exist!";
-    }
-};
-
 template<class T>
 class Node {
 private:
@@ -46,9 +39,10 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const Node<T> &node) {
         os << "This: " << &node << " data: " << node.getData() << " next: ";
-        try {
-            os << node.next();
-        } catch (const NoNextPointer &e) {
+        Node<T> *possibleNext = node.next();
+        if (node.hasNext()) {
+            os << possibleNext;
+        } else {
             os << "NULL";
         }
         return os;

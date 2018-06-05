@@ -36,18 +36,24 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const DoubleNode<T> &node) {
         os << "This: " << &node << " data: " << node.getData() << " next: ";
-        try {
-            os << node.next();
-        } catch (const NoNextPointer &e) {
+        Node<T> *possibleNext = node.next();
+        if (node.hasNext()) {
+            os << possibleNext;
+        } else {
             os << "NULL";
         }
         os << " prev: ";
-        try {
-            os << node.prev();
-        } catch (const NoNextPointer &e) {
+        Node<T> *possiblePrev = node.prev();
+        if (node.hasPrev()) {
+            os << possiblePrev;
+        } else {
             os << "NULL";
         }
         return os;
+    }
+
+    bool hasPrev() const {
+        return prevNode != nullptr;
     }
 
     DoubleNode *prev() const {

@@ -15,14 +15,6 @@ void simpleNodeTestSuite() {
     Node<int> n1(5);
     testOutput << "should be 5: " << n1.getData() << endl;
     testOutput << "should be 0: " << n1.hasNext() << endl;
-    bool err = false;
-    try {
-        Node<int> e = *(n1.next());
-    } catch (const NoNextPointer &e) {
-        testOutput << e.what() << endl;
-        err = true;
-    }
-    testOutput << "should be 1: " << err << endl;
     Node<int> n2(6);
     n1.setNext(&n2);
     testOutput << "should be 1: " << n1.hasNext() << endl;
