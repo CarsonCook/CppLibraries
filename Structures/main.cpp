@@ -32,7 +32,7 @@ void simpleNodeTestSuite() {
 
 void singlyLinkedListTestSuite() {
     testOutput << "*************" << "TESTING SINGLY LINKED LIST" << "*************" << endl;
-    SinglyLinkedList<int> s;
+    SinglyLinkedList<int, Node<int>> s;
     testOutput << "should be 0: " << s.size() << endl;
     Node<int> node(4);
     s.insertEnd(node);
@@ -45,7 +45,7 @@ void singlyLinkedListTestSuite() {
     s.insertEnd(Node<int>(5));
     s.insertEnd(Node<int>(6));
     testOutput << "should see 4 5 6: ";
-    for (SinglyLinkedList<int>::iterator i = s.begin(); i != s.end(); ++i) {
+    for (SinglyLinkedList<int, Node<int>>::iterator i = s.begin(); i != s.end(); ++i) {
         testOutput << (*i).getData() << " ";
     }
     testOutput << endl;
@@ -54,9 +54,9 @@ void singlyLinkedListTestSuite() {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
-    SinglyLinkedList<int> s2;
+    SinglyLinkedList<int, Node<int>> s2;
     testOutput << "should see nothing: ";
-    for (SinglyLinkedList<int>::iterator i = s2.begin(); i != s2.end(); ++i) {
+    for (SinglyLinkedList<int, Node<int>>::iterator i = s2.begin(); i != s2.end(); ++i) {
         testOutput << (*i).getData() << " ";
     }
     testOutput << endl;
@@ -88,7 +88,7 @@ void singlyLinkedListTestSuite() {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
-    SinglyLinkedList<int> list;
+    SinglyLinkedList<int, Node<int>> list;
     list.insertEnd(Node<int>(5));
     list.insertEnd(Node<int>(3));
     list.insertEnd(Node<int>(7));
@@ -99,7 +99,7 @@ void singlyLinkedListTestSuite() {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
-    list = SinglyLinkedList<int>();
+    list = SinglyLinkedList<int, Node<int>>();
     list.insertEnd(Node<int>(5));
     list.insertEnd(Node<int>(3));
     list.sort();
@@ -108,7 +108,7 @@ void singlyLinkedListTestSuite() {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
-    list = SinglyLinkedList<int>();
+    list = SinglyLinkedList<int, Node<int>>();
     list.insertEnd(Node<int>(3));
     list.insertEnd(Node<int>(5));
     testOutput << "should see 3 5: ";
@@ -117,7 +117,7 @@ void singlyLinkedListTestSuite() {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
-    list = SinglyLinkedList<int>();
+    list = SinglyLinkedList<int, Node<int>>();
     list.insertEnd(Node<int>(5));
     list.insertEnd(Node<int>(3));
     list.insertEnd(Node<int>(7));
@@ -186,16 +186,18 @@ void singlyLinkedListTestSuite() {
 }
 
 void doublyLinkedListTestSuite() {
-    DoubleNode<int> n = DoubleNode<int>(1);
+    DoubleNode<int> n1 = DoubleNode<int>(1);
     DoubleNode<int> n2 = DoubleNode<int>(2);
     DoubleNode<int> n3 = DoubleNode<int>(3);
-    n.setNext(&n2);
+    n1.setNext(&n2);
     n2.setNext(&n3);
-    n2.setPrev(&n);
+    n2.setPrev(&n1);
     n3.setPrev(&n2);
-    testOutput << n << endl;
+    testOutput << "This: <address> data: <val> next: <address> prev: <address> 3 times, linking addresses" << endl;
+    testOutput << n1 << endl;
     testOutput << n2 << endl;
     testOutput << n3 << endl;
+
 }
 
 int main() {

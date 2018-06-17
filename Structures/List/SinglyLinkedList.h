@@ -3,39 +3,39 @@
 #include "Nodes/Node.h"
 #include "LinkedList.h"
 
-template<class T>
-class SinglyLinkedList : public LinkedList<T> {
+template<class T, class NodeType>
+class SinglyLinkedList : public LinkedList<T, NodeType> {
 public:
     virtual ~SinglyLinkedList() {}
 
-    SinglyLinkedList() : LinkedList<T>::LinkedList() {}
+    SinglyLinkedList() : LinkedList<T, NodeType>::LinkedList() {}
 
     SinglyLinkedList &operator=(const SinglyLinkedList &other) {
         if (util::isSamePointer(this, &other)) {
             return *this;
         }
-        LinkedList<T>::setCommonListValues(other.length, other.start, other.tail);
+        LinkedList<T, NodeType>::setCommonListValues(other.length, other.start, other.tail);
     }
 
 private:
     void putEnd(Node<T> *newNode) override {
-        if (LinkedList<T>::isListEmpty()) {
+        if (LinkedList<T, NodeType>::isListEmpty()) {
             initList(newNode);
         } else {
             incrementTail(newNode);
         }
-        LinkedList<T>::tail->setNext(LinkedList<T>::sentinel);
+        LinkedList<T, NodeType>::tail->setNext(LinkedList<T, NodeType>::sentinel);
     }
 
     void putBegin(Node<T> *newNode) override {
-        newNode->setNext(LinkedList<T>::start);
-        LinkedList<T>::start = newNode;
+        newNode->setNext(LinkedList<T, NodeType>::start);
+        LinkedList<T, NodeType>::start = newNode;
     }
 
     void put(Node<T> *nodeBefore, Node<T> *newNode) override {
-        if (nodeBefore->isPointingSameNode(LinkedList<T>::start)) {
+        if (nodeBefore->isPointingSameNode(LinkedList<T, NodeType>::start)) {
             putBegin(newNode);
-        } else if (nodeBefore->isPointingSameNode(LinkedList<T>::tail)) {
+        } else if (nodeBefore->isPointingSameNode(LinkedList<T, NodeType>::tail)) {
             putEnd(newNode);
         } else {
             Node<T> *newNodeNext = nodeBefore->next();
@@ -46,30 +46,30 @@ private:
 
     void removeEnd() override {
         Node<T> *beforeTail = nodeBeforeTail();
-        beforeTail->setNext(LinkedList<T>::sentinel);
-        auto deleteNode = LinkedList<T>::tail;
-        LinkedList<T>::tail = beforeTail;
+        beforeTail->setNext(LinkedList<T, NodeType>::sentinel);
+        auto deleteNode = LinkedList<T, NodeType>::tail;
+        LinkedList<T, NodeType>::tail = beforeTail;
         delete deleteNode;
     }
 
     Node<T> *nodeBeforeTail() const {
-        auto i = LinkedList<T>::begin();
-        while (!LinkedList<T>::atTail(i + 1)) {
+        auto i = LinkedList<T, NodeType>::begin();
+        while (!LinkedList<T, NodeType>::atTail(i + 1)) {
             ++i;
         }
         return &(*i);
     }
 
     void removeBegin() override {
-        auto deleteNode = LinkedList<T>::start;
-        LinkedList<T>::start = LinkedList<T>::start->next();
+        auto deleteNode = LinkedList<T, NodeType>::start;
+        LinkedList<T, NodeType>::start = LinkedList<T, NodeType>::start->next();
         delete deleteNode;
     }
 
     void remove(Node<T> *nodeBefore) override {
-        if (nodeBefore->isPointingSameNode(LinkedList<T>::tail)) {
+        if (nodeBefore->isPointingSameNode(LinkedList<T, NodeType>::tail)) {
             removeEnd();
-        } else if (nodeBefore->isPointingSameNode(LinkedList<T>::start)) {
+        } else if (nodeBefore->isPointingSameNode(LinkedList<T, NodeType>::start)) {
             removeBegin();
         } else {
             auto deleteNode = nodeBefore->next();
@@ -78,12 +78,12 @@ private:
     }
 
     void initList(Node<T> *newNode) {
-        LinkedList<T>::start = newNode;
-        LinkedList<T>::tail = newNode;
+        LinkedList<T, NodeType>::start = newNode;
+        LinkedList<T, NodeType>::tail = newNode;
     }
 
     void incrementTail(Node<T> *newNode) {
-        LinkedList<T>::tail->setNext(newNode);
-        LinkedList<T>::tail = LinkedList<T>::tail->next();
+        LinkedList<T, NodeType>::tail->setNext(newNode);
+        LinkedList<T, NodeType>::tail = LinkedList<T, NodeType>::tail->next();
     }
 };

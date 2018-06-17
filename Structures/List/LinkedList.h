@@ -9,13 +9,13 @@ public:
     }
 };
 
-template<class T>
+template<class T, class NodeType>
 class LinkedList {
 protected:
     int length;
-    Node<T> *start = nullptr;
-    Node<T> *tail = nullptr;
-    Node<T> *sentinel = new Node<T>(); //TODO find way to have default value, so no empty constructor
+    NodeType *start = nullptr;
+    NodeType *tail = nullptr;
+    NodeType *sentinel = new NodeType(); //TODO find way to have default value, so no empty constructor
 
 public:
     typedef bool (*LLComp)(T movingVal, T referenceVal);
@@ -58,7 +58,7 @@ public:
     void sort(LLComp shouldSwap) {
         //TODO switch from bubble sort
         if (isListSortable()) {
-            for (LinkedList<T>::iterator i = begin(); i != end(); ++i) {
+            for (LinkedList<T, NodeType>::iterator i = begin(); i != end(); ++i) {
                 for (LinkedList::iterator j = i + 1; j != end(); ++j) {
                     if (shouldSwap((*i).getData(), (*j).getData())) {
                         swapNodeData(&(*i), &(*j));
@@ -68,17 +68,17 @@ public:
         }
     }
 
-    void insertEnd(Node<T> newNode) {
+    void insertEnd(NodeType newNode) {
         putEnd(&newNode);
         ++length;
     }
 
-    void insertStart(Node<T> newNode) {
+    void insertStart(NodeType newNode) {
         putBegin(&newNode);
         ++length;
     }
 
-    void insert(Node<T> *nodeBefore, Node<T> newNode) {
+    void insert(NodeType *nodeBefore, NodeType newNode) {
         put(nodeBefore, &newNode);
         ++length;
     }
@@ -93,36 +93,36 @@ public:
         --length;
     }
 
-    void deleteMid(Node<T> *nodeBefore) {
+    void deleteMid(NodeType *nodeBefore) {
         remove(nodeBefore);
         --length;
     }
 
 private:
-    void swapNodeData(Node<T> *node1, Node<T> *node2) {
+    void swapNodeData(NodeType *node1, NodeType *node2) {
         T temp = node1->getData();
         node1->setData(node2->getData());
         node2->setData(temp);
     }
 
-    virtual void putEnd(Node<T> *newNode)=0;
+    virtual void putEnd(NodeType *newNode)=0;
 
-    virtual void putBegin(Node<T> *newNode)=0;
+    virtual void putBegin(NodeType *newNode)=0;
 
-    virtual void put(Node<T> *nodeBefore, Node<T> *newNode)=0;
+    virtual void put(NodeType *nodeBefore, NodeType *newNode)=0;
 
     virtual void removeEnd()=0;
 
     virtual void removeBegin()=0;
 
-    virtual void remove(Node<T> *nodeBefore)=0;
+    virtual void remove(NodeType *nodeBefore)=0;
 
     bool isListSortable() const {
         return size() > 1;
     }
 
 public:
-    virtual Node<T> findValueNode(T value) {
+    virtual NodeType findValueNode(T value) {
         for (auto node : *this) {
             if (node.getData() == value) {
                 return node;
@@ -140,11 +140,11 @@ public:
         };
     }
 
-    Node<T> listStart() const {
+    NodeType listStart() const {
         return *start;
     }
 
-    Node<T> listEnd() {
+    NodeType listEnd() {
         return *tail;
     }
 
@@ -158,10 +158,10 @@ public:
 
     class iterator {
     private:
-        Node<T> *ptr;
+        NodeType *ptr;
 
     public:
-        explicit iterator(Node<T> *pointer) : ptr{pointer} {}
+        explicit iterator(NodeType *pointer) : ptr{pointer} {}
 
         iterator operator++() {
             iterator copy = *this;
@@ -182,7 +182,7 @@ public:
             return *this;
         }
 
-        Node<T> &operator*() { return *ptr; }
+        NodeType &operator*() { return *ptr; }
 
         bool operator==(const iterator &other) {
             return ptr == other.ptr;
@@ -209,7 +209,7 @@ public:
     }
 
 protected:
-    void setCommonListValues(const int len, Node<T> *st, Node<T> *tl) {
+    void setCommonListValues(const int len, NodeType*st, NodeType *tl) {
         length = len;
         start = st;
         tail = tl;
