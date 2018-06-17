@@ -74,9 +74,4 @@ private:
             nodeBefore->setNext(deleteNode->next());
         }
     }
-
-    void incrementTail(Node<T> *newNode) override {
-        LinkedList<T, Node<T>>::tail->setNext(newNode);
-        LinkedList<T, Node<T>>::tail = LinkedList<T, Node<T>>::tail->next();
-    }
 };

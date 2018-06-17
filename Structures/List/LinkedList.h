@@ -72,9 +72,8 @@ public:
         if (isListEmpty()) {
             initList(&newNode);
         } else {
-            incrementTail(&newNode);
+            putEnd(&newNode);
         }
-        putEnd(&newNode);
         ++length;
     }
 
@@ -121,8 +120,6 @@ private:
     virtual void removeBegin()=0;
 
     virtual void remove(NodeType *nodeBefore)=0;
-
-    virtual void incrementTail(NodeType *newNode)=0;
 
     bool isListSortable() const {
         return size() > 1;
