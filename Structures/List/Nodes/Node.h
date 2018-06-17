@@ -48,7 +48,7 @@ public:
         return os;
     }
 
-    bool isPointingSameNode(const Node<T> *other) {
+    virtual bool isPointingSameNode(const Node<T> *other) {
         return *this == *other;
     }
 

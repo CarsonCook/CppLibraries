@@ -141,7 +141,7 @@ void singlyLinkedListTestSuite() {
 
     Node<int> start = list.listStart();
     list.insert(&start, Node<int>(0));
-    testOutput << "Should see 0 1 3 4 5 7: ";
+    testOutput << "Should see 1 0 3 4 5 7: ";
     for (const auto &v : list) {
         testOutput << v.getData() << " ";
     }
@@ -149,35 +149,35 @@ void singlyLinkedListTestSuite() {
 
     Node<int> end = list.listEnd();
     list.insert(&end, Node<int>(8));
-    testOutput << "Should see 0 1 3 4 5 7 8: ";
+    testOutput << "Should see 1 0 3 4 5 7 8: ";
     for (const auto &v : list) {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
 
     list.insert(list.listStart().next(), Node<int>(2));
-    testOutput << "Should see 0 1 2 3 4 5 7 8: ";
+    testOutput << "Should see 1 0 2 3 4 5 7 8: ";
     for (const auto &v : list) {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
 
     list.deleteEnd();
-    testOutput << "Should see 0 1 2 3 4 5 7: ";
+    testOutput << "Should see 1 0 2 3 4 5 7: ";
     for (const auto &v : list) {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
 
     list.deleteStart();
-    testOutput << "Should see 1 2 3 4 5 7: ";
+    testOutput << "Should see 0 2 3 4 5 7: ";
     for (const auto &v : list) {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
 
     list.deleteMid(list.listStart().next());
-    testOutput << "Should see 1 2 4 5 7: ";
+    testOutput << "Should see 0 2 4 5 7: ";
     for (const auto &v : list) {
         testOutput << v.getData() << " ";
     }
@@ -208,6 +208,21 @@ void doublyLinkedListTestSuite() {
     list.insertEnd(n);
     testOutput << "Should be 1: " << list.size() << endl;
     testOutput << "Should be 1: " << list.listStart() << endl;
+    DoubleNode<int> n2(2);
+    list.insertEnd(n2);
+    testOutput << "Should be 2: " << list.listStart().next()->getData() << endl;
+    testOutput << "Should be 1: " << list.listStart().next()->prev()->getData() << endl;
+    DoubleNode<int> n3(3);
+    list.insertStart(n3);
+    testOutput << "Should be 3: " << list.listStart().getData() << endl;
+    DoubleNode<int> n4(4);
+    DoubleNode<int> *randomNode = list.listStart().next();
+    list.insert(randomNode, n4);
+    testOutput << "Should see 3 1 4 2: ";
+    /*for (const auto &v : list) {
+        testOutput << v.getData() << " ";
+    }*/
+    testOutput << endl;
 }
 
 int main() {
@@ -217,7 +232,7 @@ int main() {
         return -1;
     }
     //simpleNodeTestSuite(testOutput);
-    //singlyLinkedListTestSuite();
+    singlyLinkedListTestSuite();
     //doubleNodeTestSuite();
     doublyLinkedListTestSuite();
     testOutput.close();

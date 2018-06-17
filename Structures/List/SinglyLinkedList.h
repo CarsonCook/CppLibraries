@@ -31,7 +31,8 @@ private:
 
     void put(Node<T> *nodeBefore, Node<T> *newNode) override {
         if (nodeBefore->isPointingSameNode(LinkedList<T, Node<T>>::start)) {
-            putBegin(newNode);
+            newNode->setNext(LinkedList<T, Node<T>>::start->next());
+            LinkedList<T, Node<T>>::start->setNext(newNode);
         } else if (nodeBefore->isPointingSameNode(LinkedList<T, Node<T>>::tail)) {
             putEnd(newNode);
         } else {

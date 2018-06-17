@@ -25,11 +25,25 @@ private:
     }
 
     void putBegin(DoubleNode<T> *newNode) override {
-
+        newNode->setNext(LinkedList<T, DoubleNode<T>>::start);
+        LinkedList<T, DoubleNode<T>>::start->setPrev(newNode);
+        LinkedList<T, DoubleNode<T>>::start = newNode;
     }
 
     void put(DoubleNode<T> *nodeBefore, DoubleNode<T> *newNode) override {
-
+        if (nodeBefore->isPointingSameNode(LinkedList<T, DoubleNode<T>>::start)) {
+            newNode->setNext(LinkedList<T, DoubleNode<T>>::start->next());
+            LinkedList<T, DoubleNode<T>>::start->setNext(newNode);
+            newNode->setPrev(LinkedList<T, DoubleNode<T>>::start);
+        } else if (nodeBefore->isPointingSameNode(LinkedList<T, DoubleNode<T>>::tail)) {
+            putEnd(newNode);
+        } else {
+            DoubleNode<T> *newNodeNext = nodeBefore->next();
+            nodeBefore->setNext(newNode);
+            newNode->setNext(newNodeNext);
+            newNodeNext->setPrev(newNode);
+            newNode->setPrev(nodeBefore);
+        }
     }
 
     void removeEnd() override {

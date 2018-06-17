@@ -29,7 +29,7 @@ public:
     }
 
     bool operator==(const DoubleNode<T> &other) {
-        return prevNode == other.prevNode && Node<T>::getData() == other.getData() && Node<T>::next() == other.next();
+        return prevNode == other.prevNode && Node<T>::getData() == other.getData() && next() == other.next();
     }
 
     bool operator!=(const DoubleNode<T> &other) {
@@ -68,5 +68,10 @@ public:
 
     void setPrev(DoubleNode<T> *prev) {
         prevNode = prev;
+    }
+
+    bool isPointingSameNode(const Node<T> *other) override {
+        DoubleNode<T> *doubleNodeOther = (DoubleNode *) other;
+        return *this == *doubleNodeOther;
     }
 };
