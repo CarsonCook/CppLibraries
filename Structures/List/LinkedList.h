@@ -2,7 +2,8 @@
 
 #include "Nodes/Node.h"
 
-//TODO empty list testing
+//TODO empty list testing and general edge cases (e.g. delete function where nodeBefore is last node)
+//TODO throw exception for edge cases like nodeBefore being tail node
 
 class NoValueFoundListException : public std::exception {
 public:

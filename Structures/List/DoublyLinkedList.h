@@ -67,6 +67,18 @@ private:
     }
 
     void remove(DoubleNode<T> *nodeBefore) override {
-
+        if (nodeBefore->isPointingSameNode(LL::tail)) {
+            removeEnd();
+        } else if (nodeBefore->isPointingSameNode(LL::start)) {
+            auto deleteNode = LL::start->next();
+            LL::start->setNext(deleteNode->next());
+            deleteNode->next()->setPrev(LL::start);
+            delete deleteNode;
+        } else {
+            auto deleteNode = nodeBefore->next();
+            nodeBefore->setNext(deleteNode->next());
+            deleteNode->next()->setPrev(nodeBefore);
+            delete deleteNode;
+        }
     }
 };

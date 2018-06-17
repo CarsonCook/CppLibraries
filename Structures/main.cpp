@@ -235,6 +235,17 @@ void doublyLinkedListTestSuite() {
     for (const auto &v : list) {
         testOutput << v.getData() << " ";
     }
+    testOutput << endl;
+
+    DoubleNode<int> n6(6);
+    list.insertEnd(n6);
+    auto node = list.listStart();
+    list.deleteMid(&node);
+    testOutput << "Should see 1 6: ";
+    for (const auto &v : list) {
+        testOutput << v.getData() << " ";
+    }
+    testOutput << endl;
 }
 
 int main() {
@@ -244,7 +255,7 @@ int main() {
         return -1;
     }
     //simpleNodeTestSuite(testOutput);
-    //singlyLinkedListTestSuite();
+    singlyLinkedListTestSuite();
     //doubleNodeTestSuite();
     doublyLinkedListTestSuite();
     testOutput.close();
