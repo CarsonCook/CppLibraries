@@ -219,9 +219,9 @@ void doublyLinkedListTestSuite() {
     DoubleNode<int> *randomNode = list.listStart().next();
     list.insert(randomNode, n4);
     testOutput << "Should see 3 1 4 2: ";
-    /*for (const auto &v : list) {
+    for (const auto &v : list) {
         testOutput << v.getData() << " ";
-    }*/
+    }
     testOutput << endl;
 }
 
@@ -232,7 +232,7 @@ int main() {
         return -1;
     }
     //simpleNodeTestSuite(testOutput);
-    singlyLinkedListTestSuite();
+    //singlyLinkedListTestSuite();
     //doubleNodeTestSuite();
     doublyLinkedListTestSuite();
     testOutput.close();

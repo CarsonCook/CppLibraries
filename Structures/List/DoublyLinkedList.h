@@ -22,6 +22,7 @@ private:
         LinkedList<T, DoubleNode<T>>::tail->setNext(newNode);
         newNode->setPrev(LinkedList<T, DoubleNode<T>>::tail);
         LinkedList<T, DoubleNode<T>>::tail = newNode;
+        LinkedList<T, DoubleNode<T>>::tail->setNext(LinkedList<T, DoubleNode<T>>::sentinel);
     }
 
     void putBegin(DoubleNode<T> *newNode) override {
