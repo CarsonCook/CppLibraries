@@ -207,7 +207,7 @@ int main() {
         return -1;
     }
     //simpleNodeTestSuite(testOutput);
-    singlyLinkedListTestSuite();
+    //singlyLinkedListTestSuite();
     doublyLinkedListTestSuite();
     testOutput.close();
     return 0;

@@ -69,6 +69,11 @@ public:
     }
 
     void insertEnd(NodeType newNode) {
+        if (isListEmpty()) {
+            initList(&newNode);
+        } else {
+            incrementTail(&newNode);
+        }
         putEnd(&newNode);
         ++length;
     }
@@ -117,8 +122,15 @@ private:
 
     virtual void remove(NodeType *nodeBefore)=0;
 
+    virtual void incrementTail(NodeType *newNode)=0;
+
     bool isListSortable() const {
         return size() > 1;
+    }
+
+    void initList(NodeType *newNode) {
+        start = newNode;
+        tail = newNode;
     }
 
 public:
@@ -209,7 +221,7 @@ public:
     }
 
 protected:
-    void setCommonListValues(const int len, NodeType*st, NodeType *tl) {
+    void setCommonListValues(const int len, NodeType *st, NodeType *tl) {
         length = len;
         start = st;
         tail = tl;

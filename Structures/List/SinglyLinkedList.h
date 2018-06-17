@@ -19,11 +19,6 @@ public:
 
 private:
     void putEnd(Node<T> *newNode) override {
-        if (LinkedList<T, Node<T>>::isListEmpty()) {
-            initList(newNode);
-        } else {
-            incrementTail(newNode);
-        }
         LinkedList<T, Node<T>>::tail->setNext(LinkedList<T, Node<T>>::sentinel);
     }
 
@@ -77,12 +72,7 @@ private:
         }
     }
 
-    void initList(Node<T> *newNode) {
-        LinkedList<T, Node<T>>::start = newNode;
-        LinkedList<T, Node<T>>::tail = newNode;
-    }
-
-    void incrementTail(Node<T> *newNode) {
+    void incrementTail(Node<T> *newNode) override {
         LinkedList<T, Node<T>>::tail->setNext(newNode);
         LinkedList<T, Node<T>>::tail = LinkedList<T, Node<T>>::tail->next();
     }

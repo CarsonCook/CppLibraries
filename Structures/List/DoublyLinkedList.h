@@ -41,4 +41,8 @@ private:
     void remove(DoubleNode<T> *nodeBefore) override {
 
     }
+
+    void incrementTail(DoubleNode<T> *newNode) override {
+
+    }
 };

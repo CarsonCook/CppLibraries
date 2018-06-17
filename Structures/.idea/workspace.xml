@@ -12,19 +12,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8aa57eb2-2acb-4e86-99a9-c17fa93370fb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/List/DoublyLinkedList.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/List/DoublyLinkedList.h" beforeDir="false" afterPath="$PROJECT_DIR$/List/DoublyLinkedList.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/List/LinkedList.h" beforeDir="false" afterPath="$PROJECT_DIR$/List/LinkedList.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/List/Nodes/DoubleNode.h" beforeDir="false" afterPath="$PROJECT_DIR$/List/Nodes/DoubleNode.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/List/Nodes/Node.h" beforeDir="false" afterPath="$PROJECT_DIR$/List/Nodes/SingleNode.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/List/SinglyLinkedList.h" beforeDir="false" afterPath="$PROJECT_DIR$/List/SinglyLinkedList.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Structures.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Structures.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Structures.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Structures.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
@@ -39,18 +31,20 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="testOutput.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="testOutput.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testOutput.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51" />
+            <state>
+              <caret column="14" lean-forward="true" selection-start-column="14" selection-end-column="14" />
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="210" column="23" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="23" />
+            <state relative-caret-position="341">
+              <caret line="209" column="6" selection-start-line="209" selection-start-column="6" selection-end-line="209" selection-end-column="6" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -61,10 +55,11 @@
       <file leaf-file-name="SinglyLinkedList.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/List/SinglyLinkedList.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+            <state relative-caret-position="307">
+              <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
               <folding>
                 <element signature="e#14#37#0" expanded="true" />
+                <element signature="e#92#101#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,8 +68,8 @@
       <file leaf-file-name="DoublyLinkedList.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/List/DoublyLinkedList.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+            <state relative-caret-position="324">
+              <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
               <folding>
                 <element signature="e#14#43#0" expanded="true" />
                 <element signature="e#77#86#0" expanded="true" />
@@ -86,17 +81,20 @@
       <file leaf-file-name="LinkedList.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/List/LinkedList.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="211" column="9" selection-start-line="211" selection-start-column="9" selection-end-line="211" selection-end-column="9" />
+            <state relative-caret-position="256">
+              <caret line="130" column="26" selection-start-line="130" selection-start-column="26" selection-end-line="130" selection-end-column="26" />
+              <folding>
+                <element signature="e#236#255#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingleNode.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/List/Nodes/SingleNode.h">
+      <file leaf-file-name="Node.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/List/Nodes/Node.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+            <state relative-caret-position="51">
+              <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
               <folding>
                 <element signature="e#14#34#0" expanded="true" />
               </folding>
@@ -125,11 +123,26 @@
       <find>new</find>
       <find>&lt;&lt;</find>
       <find>cout</find>
+      <find>&lt;T&gt;</find>
+      <find>Node&lt;T&gt;</find>
+      <find>NodeType&gt;</find>
+      <find>NodeType</find>
+      <find>, Node&lt;int&gt;&gt;</find>
+      <find>DoubleNode</find>
+      <find>LinkedList&lt;T, Node&lt;T&gt;&gt;</find>
+      <find>=0</find>
     </findStrings>
     <replaceStrings>
       <replace>s.</replace>
       <replace>s-&gt;</replace>
       <replace>testOutput</replace>
+      <replace>&lt;T, NodeType&gt;</replace>
+      <replace>NodeType&gt;</replace>
+      <replace>NodeType</replace>
+      <replace>Node&lt;T&gt;</replace>
+      <replace>&gt;</replace>
+      <replace>DoubleNode&lt;T&gt;</replace>
+      <replace>LL</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -142,14 +155,14 @@
         <option value="$PROJECT_DIR$/List/List.h" />
         <option value="$PROJECT_DIR$/util.cpp" />
         <option value="$PROJECT_DIR$/List/Node.h" />
-        <option value="$PROJECT_DIR$/List/LinkedList.h" />
-        <option value="$PROJECT_DIR$/List/SinglyLinkedList.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/List/Nodes/DoubleNode.h" />
-        <option value="$PROJECT_DIR$/List/DoublyLinkedList.h" />
-        <option value="$PROJECT_DIR$/List/Nodes/Node.h" />
         <option value="$PROJECT_DIR$/List/Nodes/SingleNode.h" />
+        <option value="$PROJECT_DIR$/List/Nodes/Node.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/List/DoublyLinkedList.h" />
+        <option value="$PROJECT_DIR$/List/SinglyLinkedList.h" />
+        <option value="$PROJECT_DIR$/List/LinkedList.h" />
       </list>
     </option>
   </component>
@@ -249,12 +262,12 @@
       <workItem from="1528057980549" duration="9150000" />
       <workItem from="1528067180599" duration="2012000" />
       <workItem from="1528069235927" duration="13729000" />
-      <workItem from="1529235889006" duration="1269000" />
+      <workItem from="1529235889006" duration="3428000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58819000" />
+    <option name="totallyTimeSpent" value="60978000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -277,7 +290,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29874778" />
       <window_info id="Structure" order="1" sideWeight="0.50163937" side_tool="true" weight="0.15103339" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32897604" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32737032" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.49673203" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -338,7 +351,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/Nodes/SingleNode.h">
+    <entry file="file://$PROJECT_DIR$/List/Nodes/Node.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
@@ -401,7 +414,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/Nodes/SingleNode.h">
+    <entry file="file://$PROJECT_DIR$/List/Nodes/Node.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="73" selection-start-line="73" selection-end-line="73" />
@@ -432,6 +445,7 @@
           <caret line="13" column="48" lean-forward="true" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
           <folding>
             <element signature="e#14#37#0" expanded="true" />
+            <element signature="e#92#101#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -460,7 +474,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/Nodes/SingleNode.h">
+    <entry file="file://$PROJECT_DIR$/List/Nodes/Node.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="46" column="35" selection-start-line="46" selection-start-column="33" selection-end-line="46" selection-end-column="35" />
@@ -483,6 +497,7 @@
           <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
           <folding>
             <element signature="e#14#37#0" expanded="true" />
+            <element signature="e#92#101#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -503,11 +518,12 @@
           <caret line="3" selection-start-line="3" selection-end-line="3" />
           <folding>
             <element signature="e#14#37#0" expanded="true" />
+            <element signature="e#92#101#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/Nodes/SingleNode.h">
+    <entry file="file://$PROJECT_DIR$/List/Nodes/Node.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="42" column="18" lean-forward="true" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
@@ -548,7 +564,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/Nodes/SingleNode.h">
+    <entry file="file://$PROJECT_DIR$/List/Nodes/Node.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1003">
           <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
@@ -589,7 +605,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/Nodes/SingleNode.h">
+    <entry file="file://$PROJECT_DIR$/List/Nodes/Node.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
@@ -656,34 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/LinkedList.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="211" column="9" selection-start-line="211" selection-start-column="9" selection-end-line="211" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/List/SinglyLinkedList.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-          <folding>
-            <element signature="e#14#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/List/DoublyLinkedList.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
-          <folding>
-            <element signature="e#14#43#0" expanded="true" />
-            <element signature="e#77#86#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/List/Nodes/DoubleNode.h">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -694,29 +682,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/Nodes/SingleNode.h">
+    <entry file="file://$PROJECT_DIR$/List/Nodes/Node.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+        <state relative-caret-position="51">
+          <caret line="3" column="25" lean-forward="true" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
           <folding>
             <element signature="e#14#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
+    <entry file="file://$PROJECT_DIR$/List/DoublyLinkedList.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="210" column="23" selection-start-line="210" selection-start-column="23" selection-end-line="210" selection-end-column="23" />
+        <state relative-caret-position="324">
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#14#43#0" expanded="true" />
+            <element signature="e#77#86#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/List/SinglyLinkedList.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+          <folding>
+            <element signature="e#14#37#0" expanded="true" />
+            <element signature="e#92#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/List/LinkedList.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="130" column="26" selection-start-line="130" selection-start-column="26" selection-end-line="130" selection-end-column="26" />
+          <folding>
+            <element signature="e#236#255#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testOutput.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51" />
+        <state>
+          <caret column="14" lean-forward="true" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="209" column="6" selection-start-line="209" selection-start-column="6" selection-end-line="209" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>
