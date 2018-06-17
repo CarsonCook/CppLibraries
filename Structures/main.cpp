@@ -263,6 +263,9 @@ void doublyLinkedListTestSuite() {
         testOutput << (*i).getData() << " ";
     }
     testOutput << endl;
+
+    testOutput << "Should see This: <address> data: <val> prev: <address> next: <address> for whole list" << endl;
+    testOutput << list << endl;
 }
 
 int main() {
@@ -272,7 +275,7 @@ int main() {
         return -1;
     }
     //simpleNodeTestSuite(testOutput);
-    singlyLinkedListTestSuite();
+    //singlyLinkedListTestSuite();
     //doubleNodeTestSuite();
     doublyLinkedListTestSuite();
     testOutput.close();

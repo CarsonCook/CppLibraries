@@ -17,6 +17,22 @@ public:
         LL::setCommonListValues(other.length, other.start, other.tail);
     }
 
+    friend std::ostream &operator<<(std::ostream &os, const DoublyLinkedList<T> &list) {
+        for (typename LL::iterator i = list.begin(); i != list.end(); ++i) {
+            DoubleNode<T> node = *i;
+            if (node.next() == list.sentinel) {
+                os << "This: " << &node << " data: " << node.getData() << " next: SENTINEL" << " prev: " << node.prev()
+                   << std::endl;
+            } else if (node.prev() == list.sentinel) {
+                os << "This: " << &node << " data: " << node.getData() << " next: " << node.next() << " prev: SENTINEL"
+                   << std::endl;
+            } else {
+                os << node << std::endl;
+            }
+        }
+        return os;
+    }
+
 private:
     typedef LinkedList<T, DoubleNode<T>> LL;
 
@@ -116,7 +132,7 @@ public:
         }
     };
 
-    backIterator backBegin() const{
+    backIterator backBegin() const {
         if (LL::isListEmpty()) {
             return backIterator(LL::sentinel);
         }

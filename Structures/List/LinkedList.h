@@ -4,7 +4,6 @@
 
 //TODO empty list testing and general edge cases (e.g. delete function where nodeBefore is last node)
 //TODO throw exception for edge cases like nodeBefore being tail node
-//TODO put SENTINEL instead of address when printing
 
 class NoValueFoundListException : public std::exception {
 public:
@@ -47,7 +46,12 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const LinkedList &list) {
         for (LinkedList::iterator i = list.begin(); i != list.end(); ++i) {
-            os << *i << std::endl;
+            NodeType node = *i;
+            if (node.next() == list.sentinel) {
+                os << "This: " << &node << " data: " << node.getData() << " next: SENTINEL" << std::endl;
+            } else {
+                os << node << std::endl;
+            }
         }
         return os;
     }
@@ -228,18 +232,18 @@ protected:
         tail = tl;
     }
 
-    void setStartNextPointers(NodeType *newNode){
+    void setStartNextPointers(NodeType *newNode) {
         newNode->setNext(start->next());
         start->setNext(newNode);
     }
 
-    void setMidNextPointers(NodeType *nodeBefore, NodeType *newNode){
+    void setMidNextPointers(NodeType *nodeBefore, NodeType *newNode) {
         NodeType *newNodeNext = nodeBefore->next();
         nodeBefore->setNext(newNode);
         newNode->setNext(newNodeNext);
     }
 
-    void takeNodeOut(NodeType *nodeBefore){
+    void takeNodeOut(NodeType *nodeBefore) {
         auto deleteNode = nodeBefore->next();
         nodeBefore->setNext(deleteNode->next());
         delete deleteNode;
