@@ -232,7 +232,7 @@ int main() {
         return -1;
     }
     //simpleNodeTestSuite(testOutput);
-    singlyLinkedListTestSuite();
+    //singlyLinkedListTestSuite();
     //doubleNodeTestSuite();
     doublyLinkedListTestSuite();
     testOutput.close();

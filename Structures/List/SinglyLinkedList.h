@@ -33,14 +33,11 @@ private:
 
     void put(Node<T> *nodeBefore, Node<T> *newNode) override {
         if (nodeBefore->isPointingSameNode(LL::start)) {
-            newNode->setNext(LL::start->next());
-            LL::start->setNext(newNode);
+            LL::setStartNextPointers(newNode);
         } else if (nodeBefore->isPointingSameNode(LL::tail)) {
             putEnd(newNode);
         } else {
-            Node<T> *newNodeNext = nodeBefore->next();
-            nodeBefore->setNext(newNode);
-            newNode->setNext(newNodeNext);
+            LL::setMidNextPointers(nodeBefore, newNode);
         }
     }
 

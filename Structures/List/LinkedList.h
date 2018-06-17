@@ -223,4 +223,15 @@ protected:
         start = st;
         tail = tl;
     }
+
+    void setStartNextPointers(NodeType *newNode){
+        newNode->setNext(start->next());
+        start->setNext(newNode);
+    }
+
+    void setMidNextPointers(NodeType *nodeBefore, NodeType *newNode){
+        NodeType *newNodeNext = nodeBefore->next();
+        nodeBefore->setNext(newNode);
+        newNode->setNext(newNodeNext);
+    }
 };

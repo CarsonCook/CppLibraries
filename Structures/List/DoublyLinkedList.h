@@ -35,18 +35,20 @@ private:
 
     void put(DoubleNode<T> *nodeBefore, DoubleNode<T> *newNode) override {
         if (nodeBefore->isPointingSameNode(LL::start)) {
-            newNode->setNext(LL::start->next());
-            LL::start->setNext(newNode);
+            LL::setStartNextPointers(newNode);
             newNode->setPrev(LL::start);
         } else if (nodeBefore->isPointingSameNode(LL::tail)) {
             putEnd(newNode);
         } else {
-            DoubleNode<T> *newNodeNext = nodeBefore->next();
-            nodeBefore->setNext(newNode);
-            newNode->setNext(newNodeNext);
-            newNodeNext->setPrev(newNode);
-            newNode->setPrev(nodeBefore);
+            LL::setMidNextPointers(nodeBefore, newNode);
+            setMidPrevPointers(nodeBefore, newNode);
         }
+    }
+
+    void setMidPrevPointers(DoubleNode<T> *nodeBefore, DoubleNode<T> *newNode) {
+        DoubleNode<T> *newNodeNext = newNode->next();
+        newNodeNext->setPrev(newNode);
+        newNode->setPrev(nodeBefore);
     }
 
     void removeEnd() override {
