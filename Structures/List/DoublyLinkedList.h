@@ -10,7 +10,7 @@ public:
 
     DoublyLinkedList() : LL::LinkedList() {}
 
-    DoublyLinkedList &operator=(const DoublyLinkedList &other) {
+    DoublyLinkedList &operator=(const DoublyLinkedList<T> &other) {
         if (util::isSamePointer(this, &other)) {
             return *this;
         }
@@ -76,5 +76,54 @@ private:
             LL::takeNodeOut(nodeBefore);
             nodeBefore->next()->setPrev(nodeBefore);
         }
+    }
+
+public:
+    class backIterator {
+    private:
+        DoubleNode<T> *ptr;
+
+    public:
+        explicit backIterator(DoubleNode<T> *pointer) : ptr{pointer} {}
+
+        backIterator operator--() {
+            backIterator copy = *this;
+            ptr = ptr->prev();
+            return copy;
+        }
+
+        backIterator operator-(const int inc) {
+            backIterator newIterator = *this;
+            for (int i = 0; i < inc; ++i) {
+                --newIterator;
+            }
+            return newIterator;
+        }
+
+        const backIterator operator--(int) {
+            ptr = ptr->prev();
+            return *this;
+        }
+
+        DoubleNode<T> &operator*() { return *ptr; }
+
+        bool operator==(const backIterator &other) {
+            return ptr == other.ptr;
+        }
+
+        bool operator!=(const backIterator &other) {
+            return ptr != other.ptr;
+        }
+    };
+
+    backIterator backBegin() const{
+        if (LL::isListEmpty()) {
+            return backIterator(LL::sentinel);
+        }
+        return backIterator(LL::sentinel);
+    }
+
+    backIterator backEnd() const {
+        return backIterator(LL::tail); //sentinel so that in loop end condition being i!=it.end(), still get tail node
     }
 };

@@ -4,6 +4,7 @@
 
 //TODO empty list testing and general edge cases (e.g. delete function where nodeBefore is last node)
 //TODO throw exception for edge cases like nodeBefore being tail node
+//TODO put SENTINEL instead of address when printing
 
 class NoValueFoundListException : public std::exception {
 public:
@@ -209,7 +210,7 @@ public:
         return *it == *tail;
     }
 
-    iterator begin() const {
+    virtual iterator begin() const {
         if (isListEmpty()) {
             return iterator(sentinel);
         }

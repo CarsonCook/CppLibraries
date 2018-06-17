@@ -257,6 +257,12 @@ void doublyLinkedListTestSuite() {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
+
+    testOutput << "Should see 7 6 1: ";
+    for (DoublyLinkedList<int>::backIterator i = list.backEnd(); i != list.backBegin(); --i) {
+        testOutput << (*i).getData() << " ";
+    }
+    testOutput << endl;
 }
 
 int main() {
