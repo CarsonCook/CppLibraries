@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/DoublyLinkedList.h
+Nodes/DoubleNode.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/DoubleNode.h
+LinkedList.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedList.h
+
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedList.h
 Nodes/Node.h
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/Node.h
@@ -37,6 +43,8 @@ List/SinglyLinkedList.h
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/SinglyLinkedList.h
 List/Nodes/DoubleNode.h
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/DoubleNode.h
+List/DoublyLinkedList.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/DoublyLinkedList.h
 algorithm
 -
 vector

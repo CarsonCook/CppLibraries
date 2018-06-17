@@ -19,6 +19,8 @@ public:
 
 private:
     void putEnd(Node<T> *newNode) override {
+        LinkedList<T, Node<T>>::tail->setNext(newNode);
+        LinkedList<T, Node<T>>::tail = newNode;
         LinkedList<T, Node<T>>::tail->setNext(LinkedList<T, Node<T>>::sentinel);
     }
 

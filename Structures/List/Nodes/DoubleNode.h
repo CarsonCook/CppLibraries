@@ -1,4 +1,4 @@
-#pragma
+#pragma once
 
 #include <ostream>
 #include "Node.h"
@@ -12,6 +12,8 @@ public:
     virtual ~DoubleNode() {}
 
     explicit DoubleNode(const T &newData) : Node<T>(newData) {}
+
+    explicit DoubleNode() : Node<T>::Node() {}
 
     DoubleNode(const DoubleNode<T> &otherNode) : Node<T>(otherNode) {
         prevNode = otherNode.prevNode;
@@ -56,7 +58,11 @@ public:
         return prevNode != nullptr;
     }
 
-    DoubleNode *prev() const {
+    DoubleNode<T> *next() const override {
+        return (DoubleNode *) Node<T>::next();
+    }
+
+    DoubleNode<T> *prev() const {
         return prevNode;
     }
 

@@ -6,9 +6,9 @@
 template<class T>
 class DoublyLinkedList : public LinkedList<T, DoubleNode<T>> {
 public:
-    virtual ~DoublyLinkedList() : LinkedList() {}
+    virtual ~DoublyLinkedList() {}
 
-    DoublyLinkedList<T> :LinkedList<T, DoubleNode<T>>::LinkedList() {};
+    DoublyLinkedList() : LinkedList<T, DoubleNode<T>>::LinkedList() {}
 
     DoublyLinkedList &operator=(const DoublyLinkedList &other) {
         if (util::isSamePointer(this, &other)) {
@@ -19,7 +19,9 @@ public:
 
 private:
     void putEnd(DoubleNode<T> *newNode) override {
-
+        LinkedList<T, DoubleNode<T>>::tail->setNext(newNode);
+        newNode->setPrev(LinkedList<T, DoubleNode<T>>::tail);
+        LinkedList<T, DoubleNode<T>>::tail = newNode;
     }
 
     void putBegin(DoubleNode<T> *newNode) override {

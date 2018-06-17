@@ -7,7 +7,7 @@ template<class T>
 class Node {
 private:
     T data;
-    Node *nextNode = nullptr;
+    void *nextNode = nullptr;
 public:
     virtual ~Node() {}
 
@@ -56,8 +56,8 @@ public:
         return nextNode != nullptr;
     }
 
-    Node *next() const {
-        return nextNode;
+    virtual Node *next() const {
+        return (Node *) nextNode;
     }
 
     void setNext(Node *newNextNode) {

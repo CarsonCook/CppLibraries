@@ -2,7 +2,8 @@
 #include "List/Nodes/Node.h"
 #include "List/SinglyLinkedList.h"
 #include "List/Nodes/DoubleNode.h"
-#include<algorithm>
+#include "List/DoublyLinkedList.h"
+#include <algorithm>
 #include <vector>
 #include <fstream>
 
@@ -94,7 +95,7 @@ void singlyLinkedListTestSuite() {
     list.insertEnd(Node<int>(7));
     list.insertEnd(Node<int>(4));
     list.sort();
-    testOutput << "should see 3 4 5 6: ";
+    testOutput << "should see 3 4 5 7: ";
     for (const auto &v : list) {
         testOutput << v.getData() << " ";
     }
@@ -185,7 +186,7 @@ void singlyLinkedListTestSuite() {
     testOutput << "*************" << "END" << "*************" << endl;
 }
 
-void doublyLinkedListTestSuite() {
+void doubleNodeTestSuite() {
     DoubleNode<int> n1 = DoubleNode<int>(1);
     DoubleNode<int> n2 = DoubleNode<int>(2);
     DoubleNode<int> n3 = DoubleNode<int>(3);
@@ -200,6 +201,15 @@ void doublyLinkedListTestSuite() {
 
 }
 
+void doublyLinkedListTestSuite() {
+    DoublyLinkedList<int> list;
+    testOutput << "Should be 0: " << list.size() << endl;
+    DoubleNode<int> n(1);
+    list.insertEnd(n);
+    testOutput << "Should be 1: " << list.size() << endl;
+    testOutput << "Should be 1: " << list.listStart() << endl;
+}
+
 int main() {
     testOutput.open("C:/Users/cookc/Desktop/Code/CppLibraries/Structures/testOutput.txt");
     if (!testOutput.is_open()) {
@@ -208,6 +218,7 @@ int main() {
     }
     //simpleNodeTestSuite(testOutput);
     //singlyLinkedListTestSuite();
+    //doubleNodeTestSuite();
     doublyLinkedListTestSuite();
     testOutput.close();
     return 0;
