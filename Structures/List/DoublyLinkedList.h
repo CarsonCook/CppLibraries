@@ -8,35 +8,37 @@ class DoublyLinkedList : public LinkedList<T, DoubleNode<T>> {
 public:
     virtual ~DoublyLinkedList() {}
 
-    DoublyLinkedList() : LinkedList<T, DoubleNode<T>>::LinkedList() {}
+    DoublyLinkedList() : LL::LinkedList() {}
 
     DoublyLinkedList &operator=(const DoublyLinkedList &other) {
         if (util::isSamePointer(this, &other)) {
             return *this;
         }
-        LinkedList<T, DoubleNode<T>>::setCommonListValues(other.length, other.start, other.tail);
+        LL::setCommonListValues(other.length, other.start, other.tail);
     }
 
 private:
+    typedef LinkedList<T, DoubleNode<T>> LL;
+
     void putEnd(DoubleNode<T> *newNode) override {
-        LinkedList<T, DoubleNode<T>>::tail->setNext(newNode);
-        newNode->setPrev(LinkedList<T, DoubleNode<T>>::tail);
-        LinkedList<T, DoubleNode<T>>::tail = newNode;
-        LinkedList<T, DoubleNode<T>>::tail->setNext(LinkedList<T, DoubleNode<T>>::sentinel);
+        LL::tail->setNext(newNode);
+        newNode->setPrev(LL::tail);
+        LL::tail = newNode;
+        LL::tail->setNext(LL::sentinel);
     }
 
     void putBegin(DoubleNode<T> *newNode) override {
-        newNode->setNext(LinkedList<T, DoubleNode<T>>::start);
-        LinkedList<T, DoubleNode<T>>::start->setPrev(newNode);
-        LinkedList<T, DoubleNode<T>>::start = newNode;
+        newNode->setNext(LL::start);
+        LL::start->setPrev(newNode);
+        LL::start = newNode;
     }
 
     void put(DoubleNode<T> *nodeBefore, DoubleNode<T> *newNode) override {
-        if (nodeBefore->isPointingSameNode(LinkedList<T, DoubleNode<T>>::start)) {
-            newNode->setNext(LinkedList<T, DoubleNode<T>>::start->next());
-            LinkedList<T, DoubleNode<T>>::start->setNext(newNode);
-            newNode->setPrev(LinkedList<T, DoubleNode<T>>::start);
-        } else if (nodeBefore->isPointingSameNode(LinkedList<T, DoubleNode<T>>::tail)) {
+        if (nodeBefore->isPointingSameNode(LL::start)) {
+            newNode->setNext(LL::start->next());
+            LL::start->setNext(newNode);
+            newNode->setPrev(LL::start);
+        } else if (nodeBefore->isPointingSameNode(LL::tail)) {
             putEnd(newNode);
         } else {
             DoubleNode<T> *newNodeNext = nodeBefore->next();
