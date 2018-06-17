@@ -223,6 +223,18 @@ void doublyLinkedListTestSuite() {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
+    list.deleteEnd();
+    testOutput << "Should see 3 1 4: ";
+    for (const auto &v : list) {
+        testOutput << v.getData() << " ";
+    }
+    testOutput << endl;
+    list.deleteStart();
+
+    testOutput << "Should see 1 4: ";
+    for (const auto &v : list) {
+        testOutput << v.getData() << " ";
+    }
 }
 
 int main() {

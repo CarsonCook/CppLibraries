@@ -31,6 +31,7 @@ private:
         newNode->setNext(LL::start);
         LL::start->setPrev(newNode);
         LL::start = newNode;
+        newNode->setPrev(LL::sentinel);
     }
 
     void put(DoubleNode<T> *nodeBefore, DoubleNode<T> *newNode) override {
@@ -52,11 +53,17 @@ private:
     }
 
     void removeEnd() override {
-
+        auto deleteNode = LL::tail;
+        LL::tail = LL::tail->prev();
+        LL::tail->setNext(LL::sentinel);
+        delete deleteNode;
     }
 
     void removeBegin() override {
-
+        auto deleteNode = LL::start;
+        LL::start = LL::start->next();
+        LL::start->setPrev(LL::sentinel);
+        delete deleteNode;
     }
 
     void remove(DoubleNode<T> *nodeBefore) override {
