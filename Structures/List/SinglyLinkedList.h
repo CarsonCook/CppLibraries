@@ -67,13 +67,9 @@ private:
         if (nodeBefore->isPointingSameNode(LL::tail)) {
             removeEnd();
         } else if (nodeBefore->isPointingSameNode(LL::start)) {
-            auto deleteNode = LL::start->next();
-            LL::start->setNext(deleteNode->next());
-            delete deleteNode;
+            LL::takeNodeOut(LL::start);
         } else {
-            auto deleteNode = nodeBefore->next();
-            nodeBefore->setNext(deleteNode->next());
-            delete deleteNode;
+            LL::takeNodeOut(nodeBefore);
         }
     }
 };

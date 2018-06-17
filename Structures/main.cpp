@@ -239,9 +239,20 @@ void doublyLinkedListTestSuite() {
 
     DoubleNode<int> n6(6);
     list.insertEnd(n6);
-    auto node = list.listStart();
+    DoubleNode<int> node = list.listStart();
     list.deleteMid(&node);
     testOutput << "Should see 1 6: ";
+    for (const auto &v : list) {
+        testOutput << v.getData() << " ";
+    }
+    testOutput << endl;
+
+    DoubleNode<int> n7(7);
+    list.insertEnd(n4);
+    list.insertEnd(n7);
+    auto node2 = list.listStart().next();
+    list.deleteMid(node2);
+    testOutput << "Should see 1 6 7: ";
     for (const auto &v : list) {
         testOutput << v.getData() << " ";
     }

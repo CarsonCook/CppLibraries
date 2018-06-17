@@ -237,4 +237,10 @@ protected:
         nodeBefore->setNext(newNode);
         newNode->setNext(newNodeNext);
     }
+
+    void takeNodeOut(NodeType *nodeBefore){
+        auto deleteNode = nodeBefore->next();
+        nodeBefore->setNext(deleteNode->next());
+        delete deleteNode;
+    }
 };
