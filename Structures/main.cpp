@@ -307,6 +307,9 @@ void doublyLinkedListTestSuite() {
     } catch (const RemoveNodeAfterLast &e) {
         testOutput << e.what() << endl;
     }
+    testOutput << "Should see 0 1: " << list.isListEmpty();
+    list.clearList();
+    testOutput << " " << list.isListEmpty() << endl;
 }
 
 int main() {

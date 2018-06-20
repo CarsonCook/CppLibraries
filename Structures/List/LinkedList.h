@@ -2,8 +2,6 @@
 
 #include "Nodes/Node.h"
 
-//TODO empty list function
-
 class NoValueFoundListException : public std::exception {
 public:
     const char *what() const noexcept override {
@@ -153,6 +151,12 @@ public:
         }
         remove(nodeBefore);
         --length;
+    }
+
+    void clearList() {
+        while (!isListEmpty()) {
+            deleteEnd();
+        }
     }
 
 private:
