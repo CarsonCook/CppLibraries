@@ -266,6 +266,14 @@ void doublyLinkedListTestSuite() {
 
     testOutput << "Should see This: <address> data: <val> prev: <address> next: <address> for whole list" << endl;
     testOutput << list << endl;
+
+    testOutput << "Should see error: ";
+    DoubleNode<int> notIn(123);
+    try {
+        list.insert(&notIn, n4);
+    } catch (const InsertNodeAfterNodeNotInList &e) {
+        testOutput << e.what() << endl;
+    }
 }
 
 int main() {

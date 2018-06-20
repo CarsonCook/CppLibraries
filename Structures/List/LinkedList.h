@@ -4,6 +4,7 @@
 
 //TODO empty list testing and general edge cases (e.g. delete function where nodeBefore is last node)
 //TODO throw exception for edge cases like nodeBefore being tail node
+//TODO empty list function
 
 class NoValueFoundListException : public std::exception {
 public:
@@ -119,6 +120,9 @@ public:
     }
 
     void insert(NodeType *nodeBefore, NodeType newNode) {
+        if (isNotInList(nodeBefore)) {
+            throw InsertNodeAfterNodeNotInList();
+        }
         put(nodeBefore, &newNode);
         ++length;
     }
@@ -164,6 +168,15 @@ private:
     void initList(NodeType *newNode) {
         start = newNode;
         tail = newNode;
+    }
+
+    bool isNotInList(NodeType *nodeInQuestion) {
+        for (const NodeType &eachNode : *this) {
+            if (*nodeInQuestion == eachNode) {
+                return false;
+            }
+        }
+        return true;
     }
 
 public:
