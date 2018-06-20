@@ -1,5 +1,6 @@
 #pragma once
 
+#include <ostream>
 #include "Nodes/Node.h"
 
 class NoValueFoundListException : public std::exception {
