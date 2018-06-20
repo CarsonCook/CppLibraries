@@ -28,11 +28,11 @@ public:
         setNext(other.next());
     }
 
-    bool operator==(const DoubleNode<T> &other) {
+    bool operator==(const DoubleNode<T> &other) const {
         return prevNode == other.prevNode && Node<T>::getData() == other.getData() && next() == other.next();
     }
 
-    bool operator!=(const DoubleNode<T> &other) {
+    bool operator!=(const DoubleNode<T> &other) const {
         return !(*this == other);
     }
 

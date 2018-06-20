@@ -2,8 +2,6 @@
 
 #include "Nodes/Node.h"
 
-//TODO empty list testing and general edge cases (e.g. delete function where nodeBefore is last node)
-//TODO throw exception for edge cases like nodeBefore being tail node
 //TODO empty list function
 
 class NoValueFoundListException : public std::exception {
@@ -128,16 +126,31 @@ public:
     }
 
     void deleteEnd() {
+        if (isListEmpty()) {
+            throw RemoveNodeEmptyList();
+        }
         removeEnd();
         --length;
     }
 
     void deleteStart() {
+        if (isListEmpty()) {
+            throw RemoveNodeEmptyList();
+        }
         removeBegin();
         --length;
     }
 
     void deleteMid(NodeType *nodeBefore) {
+        if (isListEmpty()) {
+            throw RemoveNodeEmptyList();
+        }
+        if (isLastNode(nodeBefore)) {
+            throw RemoveNodeAfterLast();
+        }
+        if (isNotInList(nodeBefore)) {
+            throw RemoveNodeNotInList();
+        }
         remove(nodeBefore);
         --length;
     }
@@ -170,13 +183,17 @@ private:
         tail = newNode;
     }
 
-    bool isNotInList(NodeType *nodeInQuestion) {
+    bool isNotInList(const NodeType *nodeInQuestion) {
         for (const NodeType &eachNode : *this) {
             if (*nodeInQuestion == eachNode) {
                 return false;
             }
         }
         return true;
+    }
+
+    bool isLastNode(const NodeType *nodeInQuestion) {
+        return *tail == *nodeInQuestion;
     }
 
 public:

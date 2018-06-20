@@ -274,6 +274,39 @@ void doublyLinkedListTestSuite() {
     } catch (const InsertNodeAfterNodeNotInList &e) {
         testOutput << e.what() << endl;
     }
+
+    testOutput << "Should see error: ";
+    DoublyLinkedList<int> emptyList;
+    try {
+        emptyList.deleteStart();
+    } catch (const RemoveNodeEmptyList &e) {
+        testOutput << e.what() << endl;
+    }
+    testOutput << "Should see error: ";
+    try {
+        emptyList.deleteEnd();
+    } catch (const RemoveNodeEmptyList &e) {
+        testOutput << e.what() << endl;
+    }
+    testOutput << "Should see error: ";
+    try {
+        emptyList.deleteMid(&n4);
+    } catch (const RemoveNodeEmptyList &e) {
+        testOutput << e.what() << endl;
+    }
+    testOutput << "Should see error: ";
+    try {
+        list.deleteMid(&notIn);
+    } catch (const RemoveNodeNotInList &e) {
+        testOutput << e.what() << endl;
+    }
+    testOutput << "Should see error: ";
+    try {
+        auto ender = list.listEnd();
+        list.deleteMid(&ender);
+    } catch (const RemoveNodeAfterLast &e) {
+        testOutput << e.what() << endl;
+    }
 }
 
 int main() {

@@ -29,11 +29,11 @@ public:
         return *this;
     }
 
-    bool operator==(const Node &other) {
+    bool operator==(const Node &other) const {
         return data == other.data && nextNode == other.nextNode;
     }
 
-    bool operator!=(const Node &other) {
+    bool operator!=(const Node &other) const {
         return !(*this == other);
     }
 
