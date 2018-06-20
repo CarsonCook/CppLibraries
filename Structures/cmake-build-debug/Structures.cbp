@@ -88,6 +88,9 @@
 		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedList.h">
 			<Option target="Structures"/>
 		</Unit>
+		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedListExceptions.h">
+			<Option target="Structures"/>
+		</Unit>
 		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/DoubleNode.h">
 			<Option target="Structures"/>
 		</Unit>
