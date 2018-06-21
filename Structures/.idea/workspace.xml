@@ -12,13 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8aa57eb2-2acb-4e86-99a9-c17fa93370fb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/List/LinkedList.h" beforeDir="false" afterPath="$PROJECT_DIR$/List/LinkedList.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/List/Nodes/DoubleNode.h" beforeDir="false" afterPath="$PROJECT_DIR$/List/Nodes/DoubleNode.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/List/Nodes/Node.h" beforeDir="false" afterPath="$PROJECT_DIR$/List/Nodes/Node.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Structures.dir/objects.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Structures.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Structures.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -35,15 +28,15 @@
       <file leaf-file-name="testOutput.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testOutput.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-110" />
+            <state relative-caret-position="-144" />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="305" selection-start-line="305" selection-end-line="305" />
+            <state relative-caret-position="409">
+              <caret line="326" column="1" lean-forward="true" selection-start-line="326" selection-start-column="1" selection-end-line="326" selection-end-column="1" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -58,7 +51,6 @@
               <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
               <folding>
                 <element signature="e#14#37#0" expanded="true" />
-                <element signature="e#92#101#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -67,8 +59,8 @@
       <file leaf-file-name="DoublyLinkedList.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/List/DoublyLinkedList.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+            <state relative-caret-position="578">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
               <folding>
                 <element signature="e#14#43#0" expanded="true" />
                 <element signature="e#77#86#0" expanded="true" />
@@ -80,8 +72,17 @@
       <file leaf-file-name="LinkedList.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/List/LinkedList.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="145" column="9" selection-start-line="145" selection-start-column="9" selection-end-line="145" selection-end-column="9" />
+            <state relative-caret-position="68">
+              <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LinkedListExceptions.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/List/LinkedListExceptions.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -101,8 +102,8 @@
       <file leaf-file-name="DoubleNode.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/List/Nodes/DoubleNode.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="34" column="54" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
+            <state relative-caret-position="170">
+              <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -120,13 +121,13 @@
       <find>Node&lt;T&gt;</find>
       <find>NodeType&gt;</find>
       <find>NodeType</find>
-      <find />
+      <find>, Node&lt;int&gt;&gt;</find>
       <find>DoubleNode</find>
       <find>=0</find>
       <find>insert(</find>
       <find>incre</find>
-      <find />
-      <find />
+      <find>LinkedList&lt;T, Node&lt;T&gt;&gt;</find>
+      <find>LinkedList&lt;T, DoubleNode&lt;T&gt;&gt;</find>
       <find>setNext</find>
       <find>start</find>
       <find>remove</find>
@@ -134,18 +135,21 @@
       <find>remove(</find>
       <find>cl</find>
       <find>empty</find>
+      <find>Should see 1 4</find>
+      <find>list</find>
     </findStrings>
     <replaceStrings>
       <replace>s.</replace>
       <replace>s-&gt;</replace>
       <replace>testOutput</replace>
-      <replace />
+      <replace>&lt;T, NodeType&gt;</replace>
       <replace>NodeType&gt;</replace>
       <replace>NodeType</replace>
       <replace>Node&lt;T&gt;</replace>
       <replace>&gt;</replace>
       <replace>DoubleNode&lt;T&gt;</replace>
       <replace>LL</replace>
+      <replace>(*list)</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -161,10 +165,11 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/List/Nodes/SingleNode.h" />
         <option value="$PROJECT_DIR$/List/SinglyLinkedList.h" />
-        <option value="$PROJECT_DIR$/List/DoublyLinkedList.h" />
         <option value="$PROJECT_DIR$/List/Nodes/Node.h" />
         <option value="$PROJECT_DIR$/List/Nodes/DoubleNode.h" />
+        <option value="$PROJECT_DIR$/List/DoublyLinkedList.h" />
         <option value="$PROJECT_DIR$/List/LinkedList.h" />
+        <option value="$PROJECT_DIR$/List/LinkedListExceptions.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
@@ -266,12 +271,12 @@
       <workItem from="1528067180599" duration="2012000" />
       <workItem from="1528069235927" duration="13729000" />
       <workItem from="1529235889006" duration="16958000" />
-      <workItem from="1529530000676" duration="2435000" />
+      <workItem from="1529530000676" duration="4249000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76943000" />
+    <option name="totallyTimeSpent" value="78757000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -283,7 +288,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49836066" visible="true" weight="0.12241653" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32737032" />
@@ -296,7 +302,7 @@
       <window_info id="Structure" order="1" sideWeight="0.50163937" side_tool="true" weight="0.15103339" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32737032" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4955277" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4955277" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -333,40 +339,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>304</line>
-          <option name="timeStamp" value="301" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>305</line>
-          <option name="timeStamp" value="302" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>307</line>
-          <option name="timeStamp" value="303" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="304" />
+      <option name="time" value="314" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/List/LinkedList.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -468,7 +447,6 @@
           <caret line="13" column="48" lean-forward="true" selection-start-line="13" selection-start-column="48" selection-end-line="13" selection-end-column="48" />
           <folding>
             <element signature="e#14#37#0" expanded="true" />
-            <element signature="e#92#101#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -520,7 +498,6 @@
           <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
           <folding>
             <element signature="e#14#37#0" expanded="true" />
-            <element signature="e#92#101#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -541,7 +518,6 @@
           <caret line="3" selection-start-line="3" selection-end-line="3" />
           <folding>
             <element signature="e#14#37#0" expanded="true" />
-            <element signature="e#92#101#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -688,28 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/DoublyLinkedList.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-          <folding>
-            <element signature="e#14#43#0" expanded="true" />
-            <element signature="e#77#86#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/List/SinglyLinkedList.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-          <folding>
-            <element signature="e#14#37#0" expanded="true" />
-            <element signature="e#92#101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/util.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -719,15 +673,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/List/Nodes/DoubleNode.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="34" column="54" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
+        <state relative-caret-position="170">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/List/LinkedList.h">
+    <entry file="file://$PROJECT_DIR$/List/SinglyLinkedList.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="145" column="9" selection-start-line="145" selection-start-column="9" selection-end-line="145" selection-end-column="9" />
+        <state relative-caret-position="833">
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+          <folding>
+            <element signature="e#14#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/List/LinkedListExceptions.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/List/DoublyLinkedList.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#14#43#0" expanded="true" />
+            <element signature="e#77#86#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -741,15 +716,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/List/LinkedList.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/testOutput.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-110" />
+        <state relative-caret-position="-144" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="305" selection-start-line="305" selection-end-line="305" />
+        <state relative-caret-position="409">
+          <caret line="326" column="1" lean-forward="true" selection-start-line="326" selection-start-column="1" selection-end-line="326" selection-end-column="1" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

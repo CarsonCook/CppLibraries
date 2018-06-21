@@ -202,75 +202,75 @@ void doubleNodeTestSuite() {
 }
 
 void doublyLinkedListTestSuite() {
-    DoublyLinkedList<int> list;
-    testOutput << "Should be 0: " << list.size() << endl;
+    DoublyLinkedList<int> *list = new DoublyLinkedList<int>();
+    testOutput << "Should be 0: " << (*list).size() << endl;
     DoubleNode<int> n(1);
-    list.insertEnd(n);
-    testOutput << "Should be 1: " << list.size() << endl;
-    testOutput << "Should be 1: " << list.listStart() << endl;
+    (*list).insertEnd(n);
+    testOutput << "Should be 1: " << (*list).size() << endl;
+    testOutput << "Should be 1: " << (*list).listStart() << endl;
     DoubleNode<int> n2(2);
-    list.insertEnd(n2);
-    testOutput << "Should be 2: " << list.listStart().next()->getData() << endl;
-    testOutput << "Should be 1: " << list.listStart().next()->prev()->getData() << endl;
+    (*list).insertEnd(n2);
+    testOutput << "Should be 2: " << (*list).listStart().next()->getData() << endl;
+    testOutput << "Should be 1: " << (*list).listStart().next()->prev()->getData() << endl;
     DoubleNode<int> n3(3);
-    list.insertStart(n3);
-    testOutput << "Should be 3: " << list.listStart().getData() << endl;
+    (*list).insertStart(n3);
+    testOutput << "Should be 3: " << (*list).listStart().getData() << endl;
     DoubleNode<int> n4(4);
-    DoubleNode<int> *randomNode = list.listStart().next();
-    list.insert(randomNode, n4);
+    DoubleNode<int> *randomNode = (*list).listStart().next();
+    (*list).insert(randomNode, n4);
     testOutput << "Should see 3 1 4 2: ";
-    for (const auto &v : list) {
+    for (const auto &v : (*list)) {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
-    list.deleteEnd();
+    (*list).deleteEnd();
     testOutput << "Should see 3 1 4: ";
-    for (const auto &v : list) {
+    for (const auto &v : (*list)) {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
-    list.deleteStart();
+    (*list).deleteStart();
 
     testOutput << "Should see 1 4: ";
-    for (const auto &v : list) {
+    for (const auto &v : (*list)) {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
 
     DoubleNode<int> n6(6);
-    list.insertEnd(n6);
-    DoubleNode<int> node = list.listStart();
-    list.deleteMid(&node);
+    (*list).insertEnd(n6);
+    DoubleNode<int> node = (*list).listStart();
+    (*list).deleteMid(&node);
     testOutput << "Should see 1 6: ";
-    for (const auto &v : list) {
+    for (const auto &v : (*list)) {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
 
     DoubleNode<int> n7(7);
-    list.insertEnd(n4);
-    list.insertEnd(n7);
-    auto node2 = list.listStart().next();
-    list.deleteMid(node2);
+    (*list).insertEnd(n4);
+    (*list).insertEnd(n7);
+    auto node2 = (*list).listStart().next();
+    (*list).deleteMid(node2);
     testOutput << "Should see 1 6 7: ";
-    for (const auto &v : list) {
+    for (const auto &v : (*list)) {
         testOutput << v.getData() << " ";
     }
     testOutput << endl;
 
     testOutput << "Should see 7 6 1: ";
-    for (DoublyLinkedList<int>::backIterator i = list.backEnd(); i != list.backBegin(); --i) {
+    for (DoublyLinkedList<int>::backIterator i = (*list).backEnd(); i != (*list).backBegin(); --i) {
         testOutput << (*i).getData() << " ";
     }
     testOutput << endl;
 
     testOutput << "Should see This: <address> data: <val> prev: <address> next: <address> for whole list" << endl;
-    testOutput << list << endl;
+    testOutput << (*list) << endl;
 
     testOutput << "Should see error: ";
     DoubleNode<int> notIn(123);
     try {
-        list.insert(&notIn, n4);
+        (*list).insert(&notIn, n4);
     } catch (const InsertNodeAfterNodeNotInList &e) {
         testOutput << e.what() << endl;
     }
@@ -296,20 +296,20 @@ void doublyLinkedListTestSuite() {
     }
     testOutput << "Should see error: ";
     try {
-        list.deleteMid(&notIn);
+        (*list).deleteMid(&notIn);
     } catch (const RemoveNodeNotInList &e) {
         testOutput << e.what() << endl;
     }
     testOutput << "Should see error: ";
     try {
-        auto ender = list.listEnd();
-        list.deleteMid(&ender);
+        auto ender = (*list).listEnd();
+        (*list).deleteMid(&ender);
     } catch (const RemoveNodeAfterLast &e) {
         testOutput << e.what() << endl;
     }
-    testOutput << "Should see 0 1: " << list.isListEmpty();
-    list.clearList();
-    testOutput << " " << list.isListEmpty() << endl;
+    testOutput << "Should see 0 1: " << (*list).isListEmpty();
+    (*list).clearList();
+    testOutput << " " << (*list).isListEmpty() << endl;
 }
 
 int main() {
