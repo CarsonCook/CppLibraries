@@ -13,7 +13,7 @@ protected:
     NodeType *sentinel = new NodeType(); //TODO find way to have default value, so no empty constructor
 
 public:
-    typedef bool (*LLComp)(T movingVal, T referenceVal);
+    typedef bool (*LLComp)(T currentlyEarlier, T currentlyLater);
 
     virtual ~LinkedList() {
         delete sentinel;
@@ -55,13 +55,13 @@ public:
         });
     }
 
-    void sort(LLComp shouldSwap) {
+    void sort(LLComp isLeftArgEarlier) {
         //bubble sort fine - need to iterate through list to get middle nodes
         //that are needed for faster search algorithms
         if (isListSortable()) {
             for (LinkedList<T, NodeType>::iterator i = begin(); i != end(); ++i) {
                 for (LinkedList::iterator j = i + 1; j != end(); ++j) {
-                    if (shouldSwap((*i).getData(), (*j).getData())) {
+                    if (isLeftArgEarlier((*i).getData(), (*j).getData())) {
                         swapNodeData(&(*i), &(*j));
                     }
                 }
