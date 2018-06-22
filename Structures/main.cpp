@@ -202,12 +202,12 @@ void doubleNodeTestSuite() {
 }
 
 void doublyLinkedListTestSuite() {
-    DoublyLinkedList<int> *list = new DoublyLinkedList<int>();
+    auto *list = new DoublyLinkedList<int>();
     testOutput << "Should be 0: " << (*list).size() << endl;
     DoubleNode<int> n(1);
     (*list).insertEnd(n);
     testOutput << "Should be 1: " << (*list).size() << endl;
-    testOutput << "Should be 1: " << (*list).listStart() << endl;
+    testOutput << "Should be 1: " << (*list).listStart().getData() << endl;
     DoubleNode<int> n2(2);
     (*list).insertEnd(n2);
     testOutput << "Should be 2: " << (*list).listStart().next()->getData() << endl;
@@ -317,6 +317,7 @@ void doublyLinkedListTestSuite() {
     testOutput << " " << (*list).isListEmpty() << endl;
 
     testOutput << "~~~~~~~~~~~~~~~~END~~~~~~~~~~~~~~~~" << endl;
+    delete list;
 }
 
 int main() {
@@ -325,9 +326,9 @@ int main() {
         cerr << "file couldn't open" << endl;
         return -1;
     }
-    //simpleNodeTestSuite(testOutput);
-    //singlyLinkedListTestSuite();
-    //doubleNodeTestSuite();
+    simpleNodeTestSuite();
+    singlyLinkedListTestSuite();
+    doubleNodeTestSuite();
     doublyLinkedListTestSuite();
     testOutput.close();
     return 0;
