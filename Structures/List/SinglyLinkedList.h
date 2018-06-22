@@ -20,14 +20,15 @@ public:
     }
 
 private:
-    typedef LinkedList<T, Node<T>> LL;
+    typedef Node<T> DataNode;
+    typedef LinkedList<T, DataNode> LL;
 
-    void putBegin(Node<T> *newNode) override {
+    void putBegin(DataNode *newNode) override {
         newNode->setNext(LL::start);
         LL::start = newNode;
     }
 
-    void put(Node<T> *nodeBefore, Node<T> *newNode) override {
+    void put(DataNode *nodeBefore, DataNode *newNode) override {
         if (nodeBefore->isPointingSameNode(LL::start)) {
             LL::setStartNextPointers(newNode);
         } else if (nodeBefore->isPointingSameNode(LL::tail)) {
@@ -37,7 +38,7 @@ private:
         }
     }
 
-    void putEnd(Node<T> *newNode) override {
+    void putEnd(DataNode *newNode) override {
         LL::tail->setNext(newNode);
         LL::tail = newNode;
         LL::tail->setNext(LL::sentinel);
@@ -49,7 +50,7 @@ private:
         delete deleteNode;
     }
 
-    void remove(Node<T> *nodeBefore) override {
+    void remove(DataNode *nodeBefore) override {
         if (nodeBefore->isPointingSameNode(LL::tail)) {
             removeEnd();
         } else if (nodeBefore->isPointingSameNode(LL::start)) {
@@ -60,14 +61,14 @@ private:
     }
 
     void removeEnd() override {
-        Node<T> *beforeTail = nodeBeforeTail();
+        DataNode *beforeTail = nodeBeforeTail();
         beforeTail->setNext(LL::sentinel);
         auto deleteNode = LL::tail;
         LL::tail = beforeTail;
         delete deleteNode;
     }
 
-    Node<T> *nodeBeforeTail() const {
+    DataNode *nodeBeforeTail() const {
         auto i = LL::begin();
         while (!LL::atTail(i + 1)) {
             ++i;

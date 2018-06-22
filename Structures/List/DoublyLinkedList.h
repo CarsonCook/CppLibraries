@@ -37,16 +37,17 @@ public:
     }
 
 private:
-    typedef LinkedList<T, DoubleNode<T>> LL;
+    typedef DoubleNode<T> DataNode;
+    typedef LinkedList<T, DataNode> LL;
 
-    void putBegin(DoubleNode<T> *newNode) override {
+    void putBegin(DataNode *newNode) override {
         newNode->setNext(LL::start);
         LL::start->setPrev(newNode);
         LL::start = newNode;
         newNode->setPrev(LL::sentinel);
     }
 
-    void put(DoubleNode<T> *nodeBefore, DoubleNode<T> *newNode) override {
+    void put(DataNode *nodeBefore, DataNode *newNode) override {
         if (nodeBefore->isPointingSameNode(LL::start)) {
             LL::setStartNextPointers(newNode);
             newNode->setPrev(LL::start);
@@ -58,13 +59,13 @@ private:
         }
     }
 
-    void setMidPrevPointers(DoubleNode<T> *nodeBefore, DoubleNode<T> *newNode) {
-        DoubleNode<T> *newNodeNext = newNode->next();
+    void setMidPrevPointers(DataNode *nodeBefore, DataNode *newNode) {
+        DataNode *newNodeNext = newNode->next();
         newNodeNext->setPrev(newNode);
         newNode->setPrev(nodeBefore);
     }
 
-    void putEnd(DoubleNode<T> *newNode) override {
+    void putEnd(DataNode *newNode) override {
         LL::tail->setNext(newNode);
         newNode->setPrev(LL::tail);
         LL::tail = newNode;
@@ -78,7 +79,7 @@ private:
         delete deleteNode;
     }
 
-    void remove(DoubleNode<T> *nodeBefore) override {
+    void remove(DataNode *nodeBefore) override {
         if (nodeBefore->isPointingSameNode(LL::tail)) {
             removeEnd();
         } else if (nodeBefore->isPointingSameNode(LL::start)) {
@@ -100,10 +101,10 @@ private:
 public:
     class backIterator {
     private:
-        DoubleNode<T> *ptr;
+        DataNode *ptr;
 
     public:
-        explicit backIterator(DoubleNode<T> *pointer) : ptr{pointer} {}
+        explicit backIterator(DataNode *pointer) : ptr{pointer} {}
 
         backIterator operator--() {
             backIterator copy = *this;
@@ -124,7 +125,7 @@ public:
             return newIterator;
         }
 
-        DoubleNode<T> &operator*() { return *ptr; }
+        DataNode &operator*() { return *ptr; }
 
         bool operator==(const backIterator &other) {
             return ptr == other.ptr;
