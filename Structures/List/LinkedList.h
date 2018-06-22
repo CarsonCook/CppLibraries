@@ -56,7 +56,8 @@ public:
     }
 
     void sort(LLComp shouldSwap) {
-        //TODO switch from bubble sort
+        //bubble sort fine - need to iterate through list to get middle nodes
+        //that are needed for faster search algorithms
         if (isListSortable()) {
             for (LinkedList<T, NodeType>::iterator i = begin(); i != end(); ++i) {
                 for (LinkedList::iterator j = i + 1; j != end(); ++j) {
