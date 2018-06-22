@@ -112,6 +112,9 @@
 		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/Tree/Tree.h">
 			<Option target="Structures"/>
 		</Unit>
+		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/Tree/TreeExceptions.h">
+			<Option target="Structures"/>
+		</Unit>
 		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/Tree/TreeTestSuite.h">
 			<Option target="Structures"/>
 		</Unit>
