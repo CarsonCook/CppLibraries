@@ -6,71 +6,29 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/DoublyLinkedList.h
-Nodes/DoubleNode.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/DoubleNode.h
-LinkedList.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedList.h
-
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedList.h
-ostream
--
-Nodes/Node.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/Node.h
-LinkedListExceptions.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedListExceptions.h
-
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedListExceptions.h
-exception
--
-
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedListTestSuite.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/Tree/Node/BinaryNode.h
 iostream
 -
-Nodes/Node.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/Node.h
-SinglyLinkedList.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/SinglyLinkedList.h
-Nodes/DoubleNode.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/DoubleNode.h
-DoublyLinkedList.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/DoublyLinkedList.h
-LinkedListExceptions.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedListExceptions.h
-Nodes/DoubleNode.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/DoubleNode.h
-DoublyLinkedList.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/DoublyLinkedList.h
-SinglyLinkedList.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/SinglyLinkedList.h
-algorithm
--
-vector
--
-fstream
--
-
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/DoubleNode.h
-ostream
--
 Node.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/Node.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/Tree/Node/Node.h
 
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/Node.h
-exception
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/Tree/Node/Node.h
+iosfwd
 -
 ../../util.cpp
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/util.cpp
 
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/SinglyLinkedList.h
-Nodes/Node.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/Node.h
-LinkedList.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedList.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/Tree/TreeTestSuite.h
+iostream
+-
+fstream
+-
+Node/BinaryNode.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/Tree/Node/BinaryNode.h
 
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/main.cpp
-List/LinkedListTestSuite.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedListTestSuite.h
+Tree/TreeTestSuite.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/Tree/TreeTestSuite.h
 
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/util.cpp
 

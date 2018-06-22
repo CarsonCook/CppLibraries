@@ -24,8 +24,9 @@ public:
         data = other.data;
     }
 
-    friend std::ostream &operator<<(std::ostream &os, const Node &node) const {
-        node.printNode();
+    friend std::ostream &operator<<(std::ostream &os, const Node &node) {
+        node.printNode(os);
+        return os;
     }
 
     T getData() const {
@@ -37,5 +38,5 @@ public:
     }
 
 private:
-    virtual void printNode() const =0;
+    virtual void printNode(std::ostream &os) const =0;
 };
