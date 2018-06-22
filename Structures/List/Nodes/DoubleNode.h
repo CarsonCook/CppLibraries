@@ -24,8 +24,8 @@ public:
             return *this;
         }
         prevNode = other.prevNode;
-        setData(other.getData());
-        setNext(other.next());
+        Node<T>::setData(other.getData());
+        Node<T>::setNext(other.next());
     }
 
     bool operator==(const DoubleNode<T> &other) const {
