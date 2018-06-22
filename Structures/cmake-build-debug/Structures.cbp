@@ -103,6 +103,12 @@
 		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/SinglyLinkedList.h">
 			<Option target="Structures"/>
 		</Unit>
+		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/Tree/Node/BinaryNode.h">
+			<Option target="Structures"/>
+		</Unit>
+		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/Tree/Node/Node.h">
+			<Option target="Structures"/>
+		</Unit>
 		<Unit filename="C:/Users/cookc/Desktop/Code/CppLibraries/Structures/main.cpp">
 			<Option target="Structures"/>
 		</Unit>
