@@ -60,10 +60,15 @@ public:
         //that are needed for faster search algorithms
         if (isListSortable()) {
             for (LinkedList<T, NodeType>::iterator i = begin(); i != end(); ++i) {
+                bool madeSwap = false;
                 for (LinkedList::iterator j = i + 1; j != end(); ++j) {
                     if (isLeftArgEarlier((*i).getData(), (*j).getData())) {
                         swapNodeData(&(*i), &(*j));
+                        madeSwap = true;
                     }
+                }
+                if (!madeSwap) {
+                    return;
                 }
             }
         }
