@@ -39,13 +39,6 @@ public:
 private:
     typedef LinkedList<T, DoubleNode<T>> LL;
 
-    void putEnd(DoubleNode<T> *newNode) override {
-        LL::tail->setNext(newNode);
-        newNode->setPrev(LL::tail);
-        LL::tail = newNode;
-        LL::tail->setNext(LL::sentinel);
-    }
-
     void putBegin(DoubleNode<T> *newNode) override {
         newNode->setNext(LL::start);
         LL::start->setPrev(newNode);
@@ -71,11 +64,11 @@ private:
         newNode->setPrev(nodeBefore);
     }
 
-    void removeEnd() override {
-        auto deleteNode = LL::tail;
-        LL::tail = LL::tail->prev();
+    void putEnd(DoubleNode<T> *newNode) override {
+        LL::tail->setNext(newNode);
+        newNode->setPrev(LL::tail);
+        LL::tail = newNode;
         LL::tail->setNext(LL::sentinel);
-        delete deleteNode;
     }
 
     void removeBegin() override {
@@ -97,6 +90,13 @@ private:
         }
     }
 
+    void removeEnd() override {
+        auto deleteNode = LL::tail;
+        LL::tail = LL::tail->prev();
+        LL::tail->setNext(LL::sentinel);
+        delete deleteNode;
+    }
+
 public:
     class backIterator {
     private:
@@ -111,17 +111,17 @@ public:
             return copy;
         }
 
+        const backIterator operator--(int) {
+            ptr = ptr->prev();
+            return *this;
+        }
+
         backIterator operator-(const int inc) {
             backIterator newIterator = *this;
             for (int i = 0; i < inc; ++i) {
                 --newIterator;
             }
             return newIterator;
-        }
-
-        const backIterator operator--(int) {
-            ptr = ptr->prev();
-            return *this;
         }
 
         DoubleNode<T> &operator*() { return *ptr; }

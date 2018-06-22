@@ -22,12 +22,6 @@ public:
 private:
     typedef LinkedList<T, Node<T>> LL;
 
-    void putEnd(Node<T> *newNode) override {
-        LL::tail->setNext(newNode);
-        LL::tail = newNode;
-        LL::tail->setNext(LL::sentinel);
-    }
-
     void putBegin(Node<T> *newNode) override {
         newNode->setNext(LL::start);
         LL::start = newNode;
@@ -40,6 +34,28 @@ private:
             putEnd(newNode);
         } else {
             LL::setMidNextPointers(nodeBefore, newNode);
+        }
+    }
+
+    void putEnd(Node<T> *newNode) override {
+        LL::tail->setNext(newNode);
+        LL::tail = newNode;
+        LL::tail->setNext(LL::sentinel);
+    }
+
+    void removeBegin() override {
+        auto deleteNode = LL::start;
+        LL::start = LL::start->next();
+        delete deleteNode;
+    }
+
+    void remove(Node<T> *nodeBefore) override {
+        if (nodeBefore->isPointingSameNode(LL::tail)) {
+            removeEnd();
+        } else if (nodeBefore->isPointingSameNode(LL::start)) {
+            LL::takeNodeOut(LL::start);
+        } else {
+            LL::takeNodeOut(nodeBefore);
         }
     }
 
@@ -57,21 +73,5 @@ private:
             ++i;
         }
         return &(*i);
-    }
-
-    void removeBegin() override {
-        auto deleteNode = LL::start;
-        LL::start = LL::start->next();
-        delete deleteNode;
-    }
-
-    void remove(Node<T> *nodeBefore) override {
-        if (nodeBefore->isPointingSameNode(LL::tail)) {
-            removeEnd();
-        } else if (nodeBefore->isPointingSameNode(LL::start)) {
-            LL::takeNodeOut(LL::start);
-        } else {
-            LL::takeNodeOut(nodeBefore);
-        }
     }
 };

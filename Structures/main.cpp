@@ -69,12 +69,12 @@ void singlyLinkedListTestSuite() {
     testOutput << "should be 1: " << s.isValueInList(4) << endl;
     testOutput << "should be 0: " << s.isValueInList(2) << endl;
     testOutput << "should get 5: ";
-    n = s.findValueNode(5);
+    n = s.findNodeWithValue(5);
     testOutput << n.getData() << endl;
 
     testOutput << "should see error: ";
     try {
-        s.findValueNode(2);
+        s.findNodeWithValue(2);
         testOutput << endl;
     } catch (const NoValueFoundListException &e) {
         testOutput << e.what() << endl;

@@ -10,7 +10,7 @@ protected:
     int length;
     NodeType *start = nullptr;
     NodeType *tail = nullptr;
-    NodeType *sentinel = new NodeType(); //TODO find way to have default value, so no empty constructor
+    NodeType *sentinel = new NodeType();
 
 public:
     typedef bool (*LLComp)(T currentlyEarlier, T currentlyLater);
@@ -69,15 +69,6 @@ public:
         }
     }
 
-    void insertEnd(NodeType newNode) {
-        if (isListEmpty()) {
-            initList(&newNode);
-        } else {
-            putEnd(&newNode);
-        }
-        ++length;
-    }
-
     void insertStart(NodeType newNode) {
         putBegin(&newNode);
         ++length;
@@ -91,12 +82,13 @@ public:
         ++length;
     }
 
-    void deleteEnd() {
+    void insertEnd(NodeType newNode) {
         if (isListEmpty()) {
-            throw RemoveNodeEmptyList();
+            initList(&newNode);
+        } else {
+            putEnd(&newNode);
         }
-        removeEnd();
-        --length;
+        ++length;
     }
 
     void deleteStart() {
@@ -121,38 +113,64 @@ public:
         --length;
     }
 
+    void deleteEnd() {
+        if (isListEmpty()) {
+            throw RemoveNodeEmptyList();
+        }
+        removeEnd();
+        --length;
+    }
+
     void clearList() {
         while (!isListEmpty()) {
             deleteEnd();
         }
     }
 
+    virtual NodeType findNodeWithValue(T value) {
+        for (auto node : *this) {
+            if (node.getData() == value) {
+                return node;
+            }
+        }
+        throw NoValueFoundListException();
+    }
+
+    bool isValueInList(T value) {
+        try {
+            auto garbage = findNodeWithValue(value);
+            return true;
+        } catch (const NoValueFoundListException &e) {
+            return false;
+        };
+    }
+
 private:
+    void initList(NodeType *newNode) {
+        start = newNode;
+        tail = newNode;
+    }
+
     void swapNodeData(NodeType *node1, NodeType *node2) {
         T temp = node1->getData();
         node1->setData(node2->getData());
         node2->setData(temp);
     }
 
-    virtual void putEnd(NodeType *newNode)=0;
-
     virtual void putBegin(NodeType *newNode)=0;
 
     virtual void put(NodeType *nodeBefore, NodeType *newNode)=0;
 
-    virtual void removeEnd()=0;
+    virtual void putEnd(NodeType *newNode)=0;
 
     virtual void removeBegin()=0;
 
     virtual void remove(NodeType *nodeBefore)=0;
 
+    virtual void removeEnd()=0;
+
     bool isListSortable() const {
         return size() > 1;
-    }
-
-    void initList(NodeType *newNode) {
-        start = newNode;
-        tail = newNode;
     }
 
     bool isNotInList(const NodeType *nodeInQuestion) {
@@ -169,24 +187,6 @@ private:
     }
 
 public:
-    virtual NodeType findValueNode(T value) {
-        for (auto node : *this) {
-            if (node.getData() == value) {
-                return node;
-            }
-        }
-        throw NoValueFoundListException();
-    }
-
-    bool isValueInList(T value) {
-        try {
-            auto garbage = findValueNode(value);
-            return true;
-        } catch (const NoValueFoundListException &e) {
-            return false;
-        };
-    }
-
     NodeType listStart() const {
         return *start;
     }
@@ -253,10 +253,10 @@ public:
     }
 
 protected:
-    void setCommonListValues(const int len, NodeType *st, NodeType *tl) {
-        length = len;
-        start = st;
-        tail = tl;
+    void takeNodeOut(NodeType *nodeBefore) {
+        auto deleteNode = nodeBefore->next();
+        nodeBefore->setNext(deleteNode->next());
+        delete deleteNode;
     }
 
     void setStartNextPointers(NodeType *newNode) {
@@ -270,10 +270,10 @@ protected:
         newNode->setNext(newNodeNext);
     }
 
-    void takeNodeOut(NodeType *nodeBefore) {
-        auto deleteNode = nodeBefore->next();
-        nodeBefore->setNext(deleteNode->next());
-        delete deleteNode;
+    void setCommonListValues(const int len, NodeType *st, NodeType *tl) {
+        length = len;
+        start = st;
+        tail = tl;
     }
 
     bool atTail(iterator it) const {
