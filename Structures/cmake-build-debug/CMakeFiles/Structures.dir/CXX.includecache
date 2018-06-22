@@ -24,6 +24,32 @@ C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedListExceptions.h
 exception
 -
 
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedListTestSuite.h
+iostream
+-
+Nodes/Node.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/Node.h
+SinglyLinkedList.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/SinglyLinkedList.h
+Nodes/DoubleNode.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/DoubleNode.h
+DoublyLinkedList.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/DoublyLinkedList.h
+LinkedListExceptions.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedListExceptions.h
+Nodes/DoubleNode.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/DoubleNode.h
+DoublyLinkedList.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/DoublyLinkedList.h
+SinglyLinkedList.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/SinglyLinkedList.h
+algorithm
+-
+vector
+-
+fstream
+-
+
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/DoubleNode.h
 ostream
 -
@@ -43,22 +69,8 @@ LinkedList.h
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedList.h
 
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/main.cpp
-iostream
--
-List/Nodes/Node.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/Node.h
-List/SinglyLinkedList.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/SinglyLinkedList.h
-List/Nodes/DoubleNode.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/Nodes/DoubleNode.h
-List/DoublyLinkedList.h
-C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/DoublyLinkedList.h
-algorithm
--
-vector
--
-fstream
--
+List/LinkedListTestSuite.h
+C:/Users/cookc/Desktop/Code/CppLibraries/Structures/List/LinkedListTestSuite.h
 
 C:/Users/cookc/Desktop/Code/CppLibraries/Structures/util.cpp
 
