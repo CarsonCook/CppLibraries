@@ -39,9 +39,8 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const Node<T> &node) {
         os << "This: " << &node << " data: " << node.getData() << " next: ";
-        Node<T> *possibleNext = node.next();
         if (node.hasNext()) {
-            os << possibleNext;
+            os << node.next();
         } else {
             os << "NULL";
         }

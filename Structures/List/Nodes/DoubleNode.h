@@ -38,16 +38,14 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const DoubleNode<T> &node) {
         os << "This: " << &node << " data: " << node.getData() << " next: ";
-        Node<T> *possibleNext = node.next();
         if (node.hasNext()) {
-            os << possibleNext;
+            os << node.next();
         } else {
             os << "NULL";
         }
         os << " prev: ";
-        Node<T> *possiblePrev = node.prev();
         if (node.hasPrev()) {
-            os << possiblePrev;
+            os << node.prev();
         } else {
             os << "NULL";
         }
