@@ -12,6 +12,8 @@ private:
 public:
     virtual ~BinaryNode() = default;
 
+    BinaryNode() = default;
+
     explicit BinaryNode(const T &newData) : Node<T>::Node(newData) {}
 
     BinaryNode(const T &newData, BinaryNode *leftChild, BinaryNode *rightChild) : left{leftChild}, right{rightChild},

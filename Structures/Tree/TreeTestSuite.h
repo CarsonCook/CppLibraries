@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "Node/BinaryNode.h"
+#include "Tree.h"
 
 using namespace std;
 
@@ -14,4 +15,8 @@ void BinaryNodeTestSuite() {
     root.setRight(&right);
     testOutput << "Should see addresses of root then left then right, with data 5, 2, 6:" << endl;
     testOutput << root << endl << left << endl << right << endl;
+}
+
+void TreeTestSuite() {
+
 }

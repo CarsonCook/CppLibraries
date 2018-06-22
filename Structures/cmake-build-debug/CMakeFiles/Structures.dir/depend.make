@@ -3,6 +3,7 @@
 
 CMakeFiles/Structures.dir/main.cpp.obj: ../Tree/Node/BinaryNode.h
 CMakeFiles/Structures.dir/main.cpp.obj: ../Tree/Node/Node.h
+CMakeFiles/Structures.dir/main.cpp.obj: ../Tree/Tree.h
 CMakeFiles/Structures.dir/main.cpp.obj: ../Tree/TreeTestSuite.h
 CMakeFiles/Structures.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/Structures.dir/main.cpp.obj: ../util.cpp

@@ -11,6 +11,8 @@ private:
 public:
     virtual ~Node() = default;
 
+    Node() = default; //TODO find default value of T so can remove this
+
     explicit Node(const T &newData) : data{newData} {}
 
     Node(const Node &other) {

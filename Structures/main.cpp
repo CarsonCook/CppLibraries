@@ -11,7 +11,8 @@ int main() {
       singlyLinkedListTestSuite();
       doubleNodeTestSuite();
       doublyLinkedListTestSuite();*/
-    BinaryNodeTestSuite();
+   // BinaryNodeTestSuite();
+    TreeTestSuite();
     testOutput.close();
     return 0;
 }
