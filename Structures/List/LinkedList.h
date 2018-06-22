@@ -202,6 +202,7 @@ public:
         return size() == 0;
     }
 
+
     class iterator {
     private:
         NodeType *ptr;
@@ -230,18 +231,14 @@ public:
 
         NodeType &operator*() { return *ptr; }
 
-        bool operator==(const iterator &other) {
+        bool operator==(const iterator &other) const {
             return ptr == other.ptr;
         }
 
-        bool operator!=(const iterator &other) {
+        bool operator!=(const iterator &other) const {
             return ptr != other.ptr;
         }
     };
-
-    bool atTail(iterator it) const {
-        return *it == *tail;
-    }
 
     virtual iterator begin() const {
         if (isListEmpty()) {
@@ -276,5 +273,9 @@ protected:
         auto deleteNode = nodeBefore->next();
         nodeBefore->setNext(deleteNode->next());
         delete deleteNode;
+    }
+
+    bool atTail(iterator it) const {
+        return *it == *tail;
     }
 };

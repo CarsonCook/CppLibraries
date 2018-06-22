@@ -5,10 +5,13 @@
 
 template<class T>
 class DoublyLinkedList : public LinkedList<T, DoubleNode<T>> {
+
 public:
     virtual ~DoublyLinkedList() {}
 
     DoublyLinkedList() : LL::LinkedList() {}
+
+    explicit DoublyLinkedList(const DoublyLinkedList<int> &other) : LL::LinkedList(other) {}
 
     DoublyLinkedList &operator=(const DoublyLinkedList<T> &other) {
         if (util::isSamePointer(this, &other)) {

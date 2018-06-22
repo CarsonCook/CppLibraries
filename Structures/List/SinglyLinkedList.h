@@ -10,6 +10,8 @@ public:
 
     SinglyLinkedList() : LL::LinkedList() {}
 
+    SinglyLinkedList(const SinglyLinkedList &other) : LL::LinkedList(other) {}
+
     SinglyLinkedList &operator=(const SinglyLinkedList &other) {
         if (util::isSamePointer(this, &other)) {
             return *this;
