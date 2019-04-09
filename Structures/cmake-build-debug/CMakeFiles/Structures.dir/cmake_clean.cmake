@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Structures.dir/main.cpp.obj"
   "CMakeFiles/Structures.dir/util.cpp.obj"
+  "CMakeFiles/Structures.dir/Tree/BinaryTree.cpp.obj"
   "Structures.pdb"
   "Structures.exe"
   "Structures.exe.manifest"

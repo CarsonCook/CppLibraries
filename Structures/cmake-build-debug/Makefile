@@ -122,6 +122,33 @@ Structures/fast:
 	$(MAKE) -f CMakeFiles\Structures.dir\build.make CMakeFiles/Structures.dir/build
 .PHONY : Structures/fast
 
+Tree/BinaryTree.obj: Tree/BinaryTree.cpp.obj
+
+.PHONY : Tree/BinaryTree.obj
+
+# target to build an object file
+Tree/BinaryTree.cpp.obj:
+	$(MAKE) -f CMakeFiles\Structures.dir\build.make CMakeFiles/Structures.dir/Tree/BinaryTree.cpp.obj
+.PHONY : Tree/BinaryTree.cpp.obj
+
+Tree/BinaryTree.i: Tree/BinaryTree.cpp.i
+
+.PHONY : Tree/BinaryTree.i
+
+# target to preprocess a source file
+Tree/BinaryTree.cpp.i:
+	$(MAKE) -f CMakeFiles\Structures.dir\build.make CMakeFiles/Structures.dir/Tree/BinaryTree.cpp.i
+.PHONY : Tree/BinaryTree.cpp.i
+
+Tree/BinaryTree.s: Tree/BinaryTree.cpp.s
+
+.PHONY : Tree/BinaryTree.s
+
+# target to generate assembly for a file
+Tree/BinaryTree.cpp.s:
+	$(MAKE) -f CMakeFiles\Structures.dir\build.make CMakeFiles/Structures.dir/Tree/BinaryTree.cpp.s
+.PHONY : Tree/BinaryTree.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -185,6 +212,9 @@ help:
 	@echo ... Structures
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... Tree/BinaryTree.obj
+	@echo ... Tree/BinaryTree.i
+	@echo ... Tree/BinaryTree.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
